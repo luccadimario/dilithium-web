@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 
-const DEFAULT_NODE = 'http://localhost:8001';
+const DEFAULT_NODE = 'https://seed.dilithiumcoin.com:8001';
 
 interface Block {
   index: number;
@@ -205,7 +205,11 @@ export default function ExplorerPage() {
           </div>
           <div className="flex items-center gap-2">
             <div className={`w-2 h-2 rounded-full ${connected ? 'bg-green-400' : 'bg-red-400'}`} />
-            <span className="text-xs text-space-500">{connected ? 'Connected' : 'Disconnected'}</span>
+            <span className="text-xs text-space-500">
+              {connected
+                ? nodeUrl === DEFAULT_NODE ? 'Public seed node' : 'Custom node'
+                : 'Disconnected'}
+            </span>
           </div>
         </div>
       </header>

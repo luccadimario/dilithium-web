@@ -24,8 +24,8 @@ export default function StarfieldBackground() {
 
     let animationId: number;
     const stars: Star[] = [];
-    const STAR_COUNT = 800;
-    const SPEED = 0.15;
+    const STAR_COUNT = 400;
+    const SPEED = 0.1;
 
     const resize = () => {
       canvas.width = window.innerWidth;
@@ -75,12 +75,12 @@ export default function StarfieldBackground() {
         const sy = (star.y / star.z) * 200 + cy;
         const depth = 1 - star.z / 1000;
         // Cap alpha so stars stay subtle behind text
-        const alpha = Math.min(depth * star.brightness, 0.45);
-        const size = star.size * depth * 1.5;
+        const alpha = Math.min(depth * star.brightness, 0.25);
+        const size = star.size * depth * 1.2;
 
         // Slight blue tint for closer stars
         const blue = Math.floor(200 + depth * 55);
-        ctx.strokeStyle = `rgba(${180 + depth * 40}, ${200 + depth * 30}, ${blue}, ${alpha * 0.3})`;
+        ctx.strokeStyle = `rgba(${180 + depth * 40}, ${200 + depth * 30}, ${blue}, ${alpha * 0.2})`;
         ctx.lineWidth = size * 0.4;
         ctx.beginPath();
         ctx.moveTo(star.prevX, star.prevY);

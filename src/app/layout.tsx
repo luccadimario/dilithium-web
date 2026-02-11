@@ -34,6 +34,9 @@ export const metadata: Metadata = {
     'Go',
     'decentralized',
   ],
+  icons: {
+    icon: '/favicon.svg',
+  },
   openGraph: {
     title: 'Dilithium (DLT) — Quantum-Safe. Power the Next Frontier.',
     description:
@@ -41,12 +44,21 @@ export const metadata: Metadata = {
     siteName: 'Dilithium',
     type: 'website',
     url: 'https://dilithiumcoin.com',
+    images: [
+      {
+        url: '/og-image.png',
+        width: 1200,
+        height: 630,
+        alt: 'Dilithium — Quantum-Safe Proof-of-Work Cryptocurrency',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',
     title: 'Dilithium (DLT) — Quantum-Safe Proof-of-Work Cryptocurrency',
     description:
       'Built from scratch in Go. Post-quantum CRYSTALS-Dilithium signatures, 25M fixed supply, SHA-256 PoW.',
+    images: ['/og-image.png'],
   },
 };
 

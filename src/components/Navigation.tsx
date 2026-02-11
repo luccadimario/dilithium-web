@@ -4,10 +4,10 @@ import { useState, useEffect } from 'react';
 import clsx from 'clsx';
 
 const navLinks = [
-  { label: 'About', href: '#about' },
-  { label: 'Features', href: '#features' },
-  { label: 'Get Started', href: '#get-started' },
-  { label: 'Roadmap', href: '#roadmap' },
+  { label: 'About', href: '/#about' },
+  { label: 'Features', href: '/#features' },
+  { label: 'Get Started', href: '/#get-started' },
+  { label: 'Roadmap', href: '/#roadmap' },
   { label: 'Quantum-Safe', href: '/quantum-safe' },
   { label: 'Explorer', href: '/explorer' },
 ];
