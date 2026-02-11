@@ -31,8 +31,8 @@ const steps = [
   {
     number: '03',
     title: 'Start Mining',
-    description: 'Connect to the network and start mining DLT.',
-    commands: ['./dilithium-miner --node http://localhost:8001 --miner <your-address>'],
+    description: 'Start mining with a single command. The miner automatically launches a node.',
+    commands: ['./dilithium-miner --miner <your-address>'],
   },
   {
     number: '04',
