@@ -84,15 +84,19 @@ html {
 .reveal-stagger > * {
   opacity: 0;
   transform: translateY(24px);
-  transition: opacity 0.9s ease, transform 0.9s ease;
 }
 
-.reveal-stagger.visible > *:nth-child(1) { transition-delay: 0s; opacity: 1; transform: translateY(0); }
-.reveal-stagger.visible > *:nth-child(2) { transition-delay: 0.15s; opacity: 1; transform: translateY(0); }
-.reveal-stagger.visible > *:nth-child(3) { transition-delay: 0.3s; opacity: 1; transform: translateY(0); }
-.reveal-stagger.visible > *:nth-child(4) { transition-delay: 0.45s; opacity: 1; transform: translateY(0); }
-.reveal-stagger.visible > *:nth-child(5) { transition-delay: 0.6s; opacity: 1; transform: translateY(0); }
-.reveal-stagger.visible > *:nth-child(6) { transition-delay: 0.75s; opacity: 1; transform: translateY(0); }
+.reveal-stagger.visible > *:nth-child(1) { animation: stagger-in 0.6s ease forwards 0s; }
+.reveal-stagger.visible > *:nth-child(2) { animation: stagger-in 0.6s ease forwards 0.15s; }
+.reveal-stagger.visible > *:nth-child(3) { animation: stagger-in 0.6s ease forwards 0.3s; }
+.reveal-stagger.visible > *:nth-child(4) { animation: stagger-in 0.6s ease forwards 0.45s; }
+.reveal-stagger.visible > *:nth-child(5) { animation: stagger-in 0.6s ease forwards 0.6s; }
+.reveal-stagger.visible > *:nth-child(6) { animation: stagger-in 0.6s ease forwards 0.75s; }
+
+@keyframes stagger-in {
+  from { opacity: 0; transform: translateY(24px); }
+  to   { opacity: 1; transform: none; }
+}
 
 /* Gradient text utilities */
 .text-gradient-crystal {
@@ -137,8 +141,9 @@ html {
   text-transform: uppercase;
   border-radius: 0.5rem;
   border: 1px solid rgba(0, 191, 239, 0.3);
-  transition: all 0.3s ease;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  will-change: transform;
 }
 
 .btn-primary:hover {
@@ -160,8 +165,9 @@ html {
   text-transform: uppercase;
   border-radius: 0.5rem;
   border: 1px solid rgba(0, 191, 239, 0.4);
-  transition: all 0.3s ease;
+  transition: background 0.2s ease, transform 0.2s ease, box-shadow 0.2s ease;
   cursor: pointer;
+  will-change: transform;
 }
 
 .btn-secondary:hover {
@@ -175,8 +181,8 @@ html {
   background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(30, 41, 59, 0.4));
   border: 1px solid rgba(0, 191, 239, 0.15);
   border-radius: 1rem;
-  backdrop-filter: blur(12px);
   transition: border-color 0.15s ease, box-shadow 0.15s ease;
+  will-change: border-color, box-shadow;
 }
 
 .card-space:hover {

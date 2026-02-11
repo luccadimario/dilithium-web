@@ -36,6 +36,7 @@ const highlights = [
     title: 'Quantum-Safe Signatures',
     description:
       'Every transaction signed with CRYSTALS-Dilithium Mode3 — the NIST post-quantum standard. 192-bit quantum-safe security.',
+    link: '/quantum-safe',
   },
 ];
 
@@ -70,6 +71,36 @@ export default function AboutSection() {
               <p className="text-space-600 text-sm leading-relaxed">{item.description}</p>
             </div>
           ))}
+        </div>
+
+        <div className="flex justify-center mt-12">
+          <a
+            href="/quantum-safe"
+            className="group inline-flex items-center gap-3 px-8 py-4 rounded-xl border border-crystal-500/30 bg-crystal-500/5 hover:bg-crystal-500/10 hover:border-crystal-500/50 transition-all"
+          >
+            <svg width="28" height="28" viewBox="0 0 40 40" fill="none" className="flex-shrink-0">
+              <circle cx="20" cy="20" r="18" stroke="#00bfef" strokeWidth="1.5" opacity="0.3" />
+              <path d="M20 8L14 20l6 4 6-4L20 8z" fill="#00bfef" opacity="0.7" />
+              <path d="M14 20l6 4 6-4L20 34z" fill="#0891b2" opacity="0.6" />
+            </svg>
+            <div className="text-left">
+              <div className="font-heading text-base font-bold text-crystal-400 tracking-wide">
+                CRYSTALS-Dilithium Powered
+              </div>
+              <div className="text-xs text-space-600 font-mono">
+                Learn why we replaced RSA with post-quantum signatures
+              </div>
+            </div>
+            <svg
+              className="w-5 h-5 text-crystal-500/50 group-hover:text-crystal-400 group-hover:translate-x-1 transition-all flex-shrink-0"
+              fill="none"
+              viewBox="0 0 24 24"
+              stroke="currentColor"
+              strokeWidth={2}
+            >
+              <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+            </svg>
+          </a>
         </div>
       </div>
     </section>

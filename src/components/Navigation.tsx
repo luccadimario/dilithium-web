@@ -8,6 +8,7 @@ const navLinks = [
   { label: 'Features', href: '#features' },
   { label: 'Get Started', href: '#get-started' },
   { label: 'Roadmap', href: '#roadmap' },
+  { label: 'Quantum-Safe', href: '/quantum-safe' },
   { label: 'Explorer', href: '/explorer' },
 ];
 
@@ -36,7 +37,7 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
-          <a href="#" className="flex items-center gap-2">
+          <a href="/" className="flex items-center gap-2">
             <svg width="28" height="38" viewBox="0 0 200 280" fill="none" className="opacity-90">
               <polygon points="100,10 60,100 100,130 140,100" fill="#00bfef" opacity="0.9" />
               <polygon points="60,100 100,130 140,100 100,270" fill="#0891b2" opacity="0.8" />

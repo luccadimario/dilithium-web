@@ -36,7 +36,7 @@ export default function HeroSection() {
               </p>
               <p className="text-space-600 text-base sm:text-lg max-w-xl leading-relaxed mb-8">
                 A proof-of-work cryptocurrency built from the ground up in Go.
-                Fixed supply. SHA-256 mining. Post-quantum Dilithium signatures.
+                Fixed supply. SHA-256 mining. <a href="/quantum-safe" className="text-crystal-400 hover:text-crystal-300 transition-colors">Post-quantum Dilithium signatures</a>.
                 No shortcuts, no compromise.
               </p>
             </div>
