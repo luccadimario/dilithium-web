@@ -30,12 +30,20 @@ const steps = [
   },
   {
     number: '03',
-    title: 'Start Mining',
-    description: 'Start mining with a single command. The miner automatically launches a node.',
-    commands: ['./dilithium-miner --miner <your-address>'],
+    title: 'Run a Node',
+    description: 'Run a standalone node to support the network. Add --auto-mine to mine directly from the node.',
+    commands: [
+      './dilithium --port 5001 --api-port 8001',
+    ],
   },
   {
     number: '04',
+    title: 'Start Mining',
+    description: 'Or use the standalone miner — it automatically launches an embedded node.',
+    commands: ['./dilithium-miner --miner <your-address>'],
+  },
+  {
+    number: '05',
     title: 'Send DLT',
     description: 'Transfer Dilithium to any address on the network.',
     commands: ['./dilithium-cli send --to <address> --amount 10'],
@@ -55,7 +63,7 @@ export default function GetStartedSection() {
             Get <span className="text-gradient-crystal">Started</span>
           </h2>
           <p className="text-space-600 max-w-2xl mx-auto">
-            From zero to mining in four steps. Download the binaries and go.
+            From zero to mining in five steps. Download the binaries and go.
           </p>
         </div>
 
