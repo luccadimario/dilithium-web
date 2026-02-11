@@ -17,6 +17,7 @@ const spaceMono = Space_Mono({
 });
 
 export const metadata: Metadata = {
+  metadataBase: new URL('https://dilithiumcoin.com'),
   title: 'Dilithium (DLT) — Quantum-Safe Proof-of-Work Cryptocurrency',
   description:
     'Dilithium is a quantum-safe proof-of-work cryptocurrency built from scratch in Go. Post-quantum CRYSTALS-Dilithium signatures, fixed supply of 25M DLT, SHA-256 mining. Power the next frontier.',
@@ -36,6 +37,7 @@ export const metadata: Metadata = {
   ],
   icons: {
     icon: '/favicon.svg',
+    apple: '/apple-touch-icon.png',
   },
   openGraph: {
     title: 'Dilithium (DLT) — Quantum-Safe. Power the Next Frontier.',
