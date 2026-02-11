@@ -28,10 +28,10 @@ export default function Navigation() {
   return (
     <nav
       className={clsx(
-        'fixed top-0 left-0 right-0 z-50 transition-all duration-500',
+        'fixed top-0 left-0 right-0 z-50 transition-all duration-300 backdrop-blur-xl',
         scrolled
-          ? 'bg-space-950/80 backdrop-blur-xl border-b border-crystal-500/10'
-          : 'bg-transparent',
+          ? 'bg-space-950/80 border-b border-crystal-500/10'
+          : 'bg-space-950/0 border-b border-transparent',
         show ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
       )}
     >
