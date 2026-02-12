@@ -27,6 +27,7 @@ interface Stats {
   blockchain: {
     height: number;
     difficulty: number;
+    difficulty_bits: number;
     total_txs: number;
     avg_block_time: number;
     hashrate_estimate: number;
@@ -184,7 +185,7 @@ export default function ExplorerPage() {
   const statCards = stats
     ? [
         { label: 'Block Height', value: stats.blockchain.height.toLocaleString() },
-        { label: 'Difficulty', value: stats.blockchain.difficulty },
+        { label: 'Difficulty', value: stats.blockchain.difficulty_bits ? `${stats.blockchain.difficulty_bits} bits` : stats.blockchain.difficulty },
         { label: 'Total TXs', value: stats.blockchain.total_txs.toLocaleString() },
         { label: 'Avg Block Time', value: stats.blockchain.avg_block_time > 0 ? stats.blockchain.avg_block_time.toFixed(1) + 's' : '—' },
         { label: 'Hashrate', value: formatHashrate(stats.blockchain.hashrate_estimate) },
@@ -314,7 +315,7 @@ export default function ExplorerPage() {
                   <div>
                     <div className="font-mono text-sm text-white">{truncHash(block.Hash)}</div>
                     <div className="text-xs text-space-500">
-                      {block.transactions?.length || 0} txs | Nonce: {block.Nonce?.toLocaleString()} | Difficulty: {block.difficulty}
+                      {block.transactions?.length || 0} txs | Nonce: {block.Nonce?.toLocaleString()} | Difficulty: {(block as any).DifficultyBits ? `${(block as any).DifficultyBits} bits` : block.difficulty}
                     </div>
                   </div>
                 </div>
@@ -363,7 +364,7 @@ export default function ExplorerPage() {
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1">
                   <span className="text-space-500 sm:w-36 shrink-0">Difficulty</span>
-                  <span className="text-white">{selectedBlock.difficulty}</span>
+                  <span className="text-white">{(selectedBlock as any).DifficultyBits ? `${(selectedBlock as any).DifficultyBits} bits` : selectedBlock.difficulty}</span>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1">
                   <span className="text-space-500 sm:w-36 shrink-0">Transactions</span>
