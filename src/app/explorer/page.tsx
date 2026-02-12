@@ -3,7 +3,7 @@
 import { useState, useEffect, useCallback } from 'react';
 import Link from 'next/link';
 
-const DEFAULT_NODE = 'https://seed.dilithiumcoin.com:8001';
+const DEFAULT_NODE = 'https://api.dilithiumcoin.com';
 
 interface Block {
   index: number;
