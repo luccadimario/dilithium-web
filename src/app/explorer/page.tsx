@@ -6,11 +6,11 @@ import Link from 'next/link';
 const DEFAULT_NODE = 'https://api.dilithiumcoin.com';
 
 interface Block {
-  index: number;
-  hash: string;
-  previous_hash: string;
-  timestamp: number;
-  nonce: number;
+  Index: number;
+  Hash: string;
+  PreviousHash: string;
+  Timestamp: number;
+  Nonce: number;
   difficulty: number;
   transactions: Transaction[];
 }
@@ -275,20 +275,20 @@ export default function ExplorerPage() {
               <div className="space-y-2">
                 {blocks.slice(0, 10).map((block) => (
                   <button
-                    key={block.index}
+                    key={block.Index}
                     onClick={() => { setSelectedBlock(block); setTab('blocks'); }}
                     className="w-full card-space p-4 flex items-center justify-between text-left"
                   >
                     <div className="flex items-center gap-4">
                       <div className="w-10 h-10 rounded-lg bg-crystal-500/10 border border-crystal-500/20 flex items-center justify-center font-heading text-sm font-bold text-crystal-400">
-                        #{block.index}
+                        #{block.Index}
                       </div>
                       <div>
-                        <div className="font-mono text-sm text-white">{truncHash(block.hash)}</div>
+                        <div className="font-mono text-sm text-white">{truncHash(block.Hash)}</div>
                         <div className="text-xs text-space-500">{block.transactions?.length || 0} txs</div>
                       </div>
                     </div>
-                    <div className="text-xs text-space-500">{timeAgo(block.timestamp)}</div>
+                    <div className="text-xs text-space-500">{timeAgo(block.Timestamp)}</div>
                   </button>
                 ))}
               </div>
@@ -301,22 +301,22 @@ export default function ExplorerPage() {
           <div className="space-y-2">
             {blocks.map((block) => (
               <button
-                key={block.index}
-                onClick={() => fetchBlock(block.index)}
+                key={block.Index}
+                onClick={() => fetchBlock(block.Index)}
                 className="w-full card-space p-4 flex items-center justify-between text-left"
               >
                 <div className="flex items-center gap-4">
                   <div className="w-10 h-10 rounded-lg bg-crystal-500/10 border border-crystal-500/20 flex items-center justify-center font-heading text-sm font-bold text-crystal-400">
-                    #{block.index}
+                    #{block.Index}
                   </div>
                   <div>
-                    <div className="font-mono text-sm text-white">{truncHash(block.hash)}</div>
+                    <div className="font-mono text-sm text-white">{truncHash(block.Hash)}</div>
                     <div className="text-xs text-space-500">
-                      {block.transactions?.length || 0} txs | Nonce: {block.nonce?.toLocaleString()} | Difficulty: {block.difficulty}
+                      {block.transactions?.length || 0} txs | Nonce: {block.Nonce?.toLocaleString()} | Difficulty: {block.difficulty}
                     </div>
                   </div>
                 </div>
-                <div className="text-xs text-space-500">{timeAgo(block.timestamp)}</div>
+                <div className="text-xs text-space-500">{timeAgo(block.Timestamp)}</div>
               </button>
             ))}
             {blocks.length === 0 && connected && (
@@ -340,24 +340,24 @@ export default function ExplorerPage() {
 
             <div className="card-space p-6">
               <h3 className="font-heading text-lg font-bold text-white mb-4">
-                Block #{selectedBlock.index}
+                Block #{selectedBlock.Index}
               </h3>
               <div className="space-y-3 text-sm">
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1">
                   <span className="text-space-500 sm:w-36 shrink-0">Hash</span>
-                  <span className="font-mono text-crystal-400 break-all">{selectedBlock.hash}</span>
+                  <span className="font-mono text-crystal-400 break-all">{selectedBlock.Hash}</span>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1">
                   <span className="text-space-500 sm:w-36 shrink-0">Previous Hash</span>
-                  <span className="font-mono text-space-300 break-all">{selectedBlock.previous_hash}</span>
+                  <span className="font-mono text-space-300 break-all">{selectedBlock.PreviousHash}</span>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1">
                   <span className="text-space-500 sm:w-36 shrink-0">Timestamp</span>
-                  <span className="text-white">{new Date(selectedBlock.timestamp * 1000).toLocaleString()} ({timeAgo(selectedBlock.timestamp)})</span>
+                  <span className="text-white">{new Date(selectedBlock.Timestamp * 1000).toLocaleString()} ({timeAgo(selectedBlock.Timestamp)})</span>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1">
                   <span className="text-space-500 sm:w-36 shrink-0">Nonce</span>
-                  <span className="text-white font-mono">{selectedBlock.nonce?.toLocaleString()}</span>
+                  <span className="text-white font-mono">{selectedBlock.Nonce?.toLocaleString()}</span>
                 </div>
                 <div className="flex flex-col sm:flex-row sm:items-center gap-1">
                   <span className="text-space-500 sm:w-36 shrink-0">Difficulty</span>
