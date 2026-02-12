@@ -191,7 +191,7 @@ export default function ExplorerPage() {
         { label: 'Hashrate', value: formatHashrate(stats.blockchain.hashrate_estimate) },
         { label: 'Mempool', value: stats.mempool.size },
         { label: 'Peers', value: stats.peers.connected },
-        { label: 'Circulating', value: stats.supply?.total_supply ? `${stats.supply.total_supply} DLT` : '—' },
+        { label: 'Circulating', value: stats.supply?.total_supply ? `${parseFloat(stats.supply.total_supply).toLocaleString()} DLT` : '—' },
       ]
     : [];
 
@@ -267,7 +267,7 @@ export default function ExplorerPage() {
               {statCards.map((s) => (
                 <div key={s.label} className="card-space p-4">
                   <div className="text-xs text-space-500 mb-1">{s.label}</div>
-                  <div className="font-heading text-lg font-bold text-white">{s.value}</div>
+                  <div className="font-heading text-lg font-bold text-white truncate">{s.value}</div>
                 </div>
               ))}
             </div>
@@ -283,7 +283,7 @@ export default function ExplorerPage() {
                     className="w-full card-space p-4 flex items-center justify-between text-left"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="w-10 h-10 rounded-lg bg-crystal-500/10 border border-crystal-500/20 flex items-center justify-center font-heading text-sm font-bold text-crystal-400">
+                      <div className="min-w-10 h-10 px-2 rounded-lg bg-crystal-500/10 border border-crystal-500/20 flex items-center justify-center font-heading text-xs font-bold text-crystal-400 shrink-0">
                         #{block.Index}
                       </div>
                       <div>
