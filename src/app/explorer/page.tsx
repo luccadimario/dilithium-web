@@ -34,10 +34,12 @@ interface Stats {
   mempool: { size: number };
   peers: { connected: number };
   supply?: {
-    circulating?: number;
-    circulating_dlt?: string;
-    max_supply?: number;
-    max_supply_dlt?: string;
+    total_supply?: string;
+    total_supply_raw?: number;
+    max_supply?: string;
+    max_supply_raw?: number;
+    current_block_reward?: string;
+    percent_mined?: number;
   };
   last_block?: {
     index: number;
@@ -188,7 +190,7 @@ export default function ExplorerPage() {
         { label: 'Hashrate', value: formatHashrate(stats.blockchain.hashrate_estimate) },
         { label: 'Mempool', value: stats.mempool.size },
         { label: 'Peers', value: stats.peers.connected },
-        { label: 'Circulating', value: stats.supply?.circulating_dlt || '—' },
+        { label: 'Circulating', value: stats.supply?.total_supply ? `${stats.supply.total_supply} DLT` : '—' },
       ]
     : [];
 
@@ -465,7 +467,7 @@ export default function ExplorerPage() {
                               <span className="font-mono text-space-300">
                                 {tx.from === addressInfo.address
                                   ? truncHash(tx.to, 16)
-                                  : tx.from === '' ? 'COINBASE' : truncHash(tx.from, 16)}
+                                  : (tx.from === 'SYSTEM' || tx.from === '') ? 'COINBASE' : truncHash(tx.from, 16)}
                               </span>
                             </div>
                             <div className="text-xs text-space-500">
