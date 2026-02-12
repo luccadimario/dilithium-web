@@ -33,7 +33,7 @@ const steps = [
     title: 'Run a Node or Start Mining',
     description: 'Run a standalone node to support the network, or use the miner which automatically launches an embedded node.',
     commands: [
-      './dilithium --port 5001 --api-port 8001',
+      './dilithium --port 1701 --api-port 8001',
       './dilithium-miner --miner <your-address>',
     ],
   },
