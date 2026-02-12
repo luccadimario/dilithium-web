@@ -122,10 +122,21 @@ export default function ExplorerPage() {
 
   const fetchBlocks = useCallback(async () => {
     try {
-      const res = await fetch(`${nodeUrl}/chain`);
+      // First fetch to get total_pages, then fetch the last page
+      const res = await fetch(`${nodeUrl}/chain?limit=50`);
       const json = await res.json();
       if (json.success) {
-        setBlocks((json.data.blocks as Block[]).reverse());
+        const totalPages = json.data.total_pages || 1;
+        if (totalPages <= 1) {
+          setBlocks((json.data.blocks as Block[]).reverse());
+        } else {
+          // Fetch the last page (most recent blocks)
+          const lastRes = await fetch(`${nodeUrl}/chain?limit=50&page=${totalPages - 1}`);
+          const lastJson = await lastRes.json();
+          if (lastJson.success) {
+            setBlocks((lastJson.data.blocks as Block[]).reverse());
+          }
+        }
       }
     } catch {
       // handled by stats error
