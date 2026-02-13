@@ -31,11 +31,13 @@ const steps = [
   {
     number: '03',
     title: 'Run a Node or Start Mining',
-    description: 'Run a standalone node to support the network, or use the miner which automatically launches an embedded node.',
+    description: 'Run a standalone node, CPU mine, or GPU mine with NVIDIA CUDA for up to 100x faster hashing.',
     commands: [
       './dilithium --port 1701 --api-port 8001',
       './dilithium-miner --miner <your-address>',
+      './dilithium-gpu-miner --gpu --address <your-address>',
     ],
+    hasDocsLink: true,
   },
   {
     number: '04',
@@ -159,6 +161,17 @@ export default function GetStartedSection() {
                         {cmd}
                       </div>
                     ))}
+                    {'hasDocsLink' in step && step.hasDocsLink && (
+                      <a
+                        href="/docs"
+                        className="inline-flex items-center gap-1 text-space-500 hover:text-crystal-400 text-xs transition-colors mt-1"
+                      >
+                        Full docs: nodes, CPU mining, GPU mining, pools
+                        <svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                          <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+                        </svg>
+                      </a>
+                    )}
                   </div>
                 )}
               </div>

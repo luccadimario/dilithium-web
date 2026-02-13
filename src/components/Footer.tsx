@@ -2,7 +2,7 @@
 
 const resourceLinks = [
   { label: 'GitHub', href: 'https://github.com/luccadimario/dilithiumcoin' },
-  { label: 'Documentation', href: '#get-started' },
+  { label: 'Documentation', href: '/docs' },
   { label: 'Block Explorer', href: '/explorer' },
   { label: 'Whitepaper', href: '#' },
 ];
