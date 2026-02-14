@@ -35,7 +35,7 @@ const steps = [
     commands: [
       './dilithium --port 1701 --api-port 8001',
       './dilithium-miner --miner <your-address>',
-      './dilithium-gpu-miner --gpu --address <your-address>',
+      './dilithium-gpu-miner --address <your-address>',
     ],
     hasDocsLink: true,
   },

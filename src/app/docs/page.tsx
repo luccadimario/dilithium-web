@@ -130,7 +130,8 @@ export default function DocsPage() {
                     { binary: 'dilithium', purpose: 'Full node — validates blocks, relays transactions, serves the API', node: 'Is the node' },
                     { binary: 'dilithium-cli', purpose: 'Wallet management, send transactions, check balances', node: 'Connects to a node API' },
                     { binary: 'dilithium-miner', purpose: 'CPU miner with multi-threading', node: 'Embeds one automatically' },
-                    { binary: 'dilithium-gpu-miner', purpose: 'High-performance miner with optional NVIDIA CUDA acceleration', node: 'Embeds one automatically' },
+                    { binary: 'dilithium-gpu-miner', purpose: 'Rust+CUDA GPU miner (recommended for GPU mining)', node: 'Connects to a node' },
+                    { binary: 'dilithium-cpu-gpu-miner', purpose: 'Go hybrid CPU/GPU miner (pre-built runs CPU, build with CUDA for GPU)', node: 'Embeds one automatically' },
                   ].map((row, i) => (
                     <tr key={row.binary} className={i % 2 === 0 ? 'bg-space-900/30' : ''}>
                       <td className="py-3 px-4 text-sm font-mono text-crystal-400 border-b border-space-800">{row.binary}</td>
@@ -200,7 +201,7 @@ export default function DocsPage() {
 
               <SectionCard title="Embedded Node (via Miner)">
                 <p className="text-space-600 text-sm mb-4">
-                  Both <span className="font-mono text-crystal-400">dilithium-miner</span> and <span className="font-mono text-crystal-400">dilithium-gpu-miner</span> automatically
+                  Both <span className="font-mono text-crystal-400">dilithium-miner</span> and <span className="font-mono text-crystal-400">dilithium-cpu-gpu-miner</span> automatically
                   start an embedded node when you don&apos;t specify <span className="font-mono text-crystal-400">--node</span>. Just place the <span className="font-mono text-crystal-400">dilithium</span> binary
                   in the same directory as the miner.
                 </p>
@@ -213,7 +214,7 @@ export default function DocsPage() {
                 </p>
                 <div className="space-y-3">
                   <CodeBlock label="Miner connecting to local node">./dilithium-miner --node http://localhost:8001 --miner YOUR_ADDRESS</CodeBlock>
-                  <CodeBlock label="GPU miner connecting to remote node">./dilithium-gpu-miner --node http://your-node:8001 --address YOUR_ADDRESS --no-node</CodeBlock>
+                  <CodeBlock label="GPU miner connecting to remote node">./dilithium-gpu-miner --node http://your-node:8001 --address YOUR_ADDRESS</CodeBlock>
                 </div>
               </SectionCard>
 
@@ -314,33 +315,34 @@ export default function DocsPage() {
               GPU <span className="text-gradient-nebula">Mining</span>
             </h2>
             <p className="text-space-600 leading-relaxed mb-8">
-              The GPU miner uses NVIDIA CUDA for massively parallel SHA-256 hashing — up to 100x faster than CPU mining.
-              Pre-built release binaries run in CPU mode. For GPU acceleration, build locally with the CUDA Toolkit.
+              GPU mining uses NVIDIA CUDA for massively parallel SHA-256 hashing — up to 100x faster than CPU mining.
+              The Rust+CUDA miner is recommended for maximum performance.
             </p>
 
             <div className="space-y-6">
-              <SectionCard title="CPU Mode (No Build Required)" accent="nebula">
+              <SectionCard title="Rust+CUDA Miner (Recommended)" accent="nebula">
                 <p className="text-space-600 text-sm mb-4">
-                  Download the pre-built <span className="font-mono text-crystal-400">dilithium-gpu-miner</span> binary from releases. It works immediately in CPU mode with multi-threading.
+                  The <span className="font-mono text-crystal-400">dilithium-gpu-miner</span> is a dedicated Rust+CUDA GPU miner for maximum hashrate.
+                  Requires{' '}
+                  <a href="https://www.rust-lang.org/tools/install" target="_blank" rel="noopener noreferrer" className="text-crystal-400 hover:underline">Rust</a>{' '}and the{' '}
+                  <a href="https://developer.nvidia.com/cuda-toolkit" target="_blank" rel="noopener noreferrer" className="text-crystal-400 hover:underline">CUDA Toolkit</a>.
                 </p>
                 <div className="space-y-3">
-                  <CodeBlock>./dilithium-gpu-miner --address YOUR_ADDRESS</CodeBlock>
-                  <CodeBlock label="With multi-threading">./dilithium-gpu-miner --address YOUR_ADDRESS --threads 8</CodeBlock>
+                  <CodeBlock label="Build from source">cd cmd/dilithium-gpu-miner && cargo build --release</CodeBlock>
+                  <CodeBlock label="Run">./dilithium-gpu-miner --address YOUR_ADDRESS --node http://localhost:8001</CodeBlock>
+                  <CodeBlock label="Select GPU device and batch size">./dilithium-gpu-miner --address YOUR_ADDRESS --device 0 --batch-size 134217728</CodeBlock>
                 </div>
               </SectionCard>
 
-              <SectionCard title="GPU Mode (CUDA Build)" accent="nebula">
+              <SectionCard title="Alternative: Go CPU/GPU Hybrid Miner" accent="nebula">
                 <p className="text-space-600 text-sm mb-4">
-                  Requires an NVIDIA GPU and the{' '}
-                  <a href="https://developer.nvidia.com/cuda-toolkit" target="_blank" rel="noopener noreferrer" className="text-crystal-400 hover:underline">
-                    CUDA Toolkit
-                  </a>.
-                  The GPU miner directory is self-contained — copy <span className="font-mono text-crystal-400">cmd/dilithium-gpu-miner/</span> to your GPU machine and build there.
+                  The <span className="font-mono text-crystal-400">dilithium-cpu-gpu-miner</span> runs in optimized CPU mode out of the box.
+                  For GPU acceleration, copy <span className="font-mono text-crystal-400">cmd/dilithium-cpu-gpu-miner/</span> to your GPU machine and build with CUDA.
                 </p>
                 <div className="space-y-3">
-                  <CodeBlock label="Clone and build with CUDA">cd cmd/dilithium-gpu-miner && make gpu SM=86</CodeBlock>
-                  <CodeBlock label="Run with GPU acceleration">./dilithium-gpu-miner --gpu --address YOUR_ADDRESS</CodeBlock>
-                  <CodeBlock label="Select GPU device and batch size">./dilithium-gpu-miner --gpu --device 0 --batch-size 134217728 --address YOUR_ADDRESS</CodeBlock>
+                  <CodeBlock label="CPU mode (pre-built binary)">./dilithium-cpu-gpu-miner --address YOUR_ADDRESS</CodeBlock>
+                  <CodeBlock label="Build with CUDA">cd cmd/dilithium-cpu-gpu-miner && make gpu SM=86</CodeBlock>
+                  <CodeBlock label="Run with GPU acceleration">./dilithium-cpu-gpu-miner --gpu --address YOUR_ADDRESS</CodeBlock>
                 </div>
               </SectionCard>
 
@@ -405,12 +407,12 @@ export default function DocsPage() {
                   </table>
                 </div>
                 <p className="text-space-600 text-sm mt-3">
-                  Run <span className="font-mono text-crystal-400">./dilithium-gpu-miner --benchmark</span> to measure your hardware.
+                  Run <span className="font-mono text-crystal-400">./dilithium-cpu-gpu-miner --benchmark</span> to measure your CPU hardware.
                 </p>
               </div>
 
               <div className="overflow-x-auto">
-                <h4 className="font-heading text-sm font-semibold text-white tracking-wider uppercase mb-3">GPU Miner Flags</h4>
+                <h4 className="font-heading text-sm font-semibold text-white tracking-wider uppercase mb-3">CPU/GPU Miner Flags</h4>
                 <table className="w-full border-collapse">
                   <thead>
                     <tr>
@@ -470,8 +472,8 @@ export default function DocsPage() {
             <div className="space-y-6">
               <SectionCard title="Connect to a Pool">
                 <div className="space-y-3">
-                  <CodeBlock label="CPU pool mining">./dilithium-gpu-miner --pool pool.example.com:3333 --address YOUR_ADDRESS</CodeBlock>
-                  <CodeBlock label="GPU pool mining">./dilithium-gpu-miner --pool pool.example.com:3333 --address YOUR_ADDRESS --gpu</CodeBlock>
+                  <CodeBlock label="CPU pool mining">./dilithium-cpu-gpu-miner --pool pool.example.com:3333 --address YOUR_ADDRESS</CodeBlock>
+                  <CodeBlock label="GPU pool mining">./dilithium-cpu-gpu-miner --pool pool.example.com:3333 --address YOUR_ADDRESS --gpu</CodeBlock>
                 </div>
               </SectionCard>
             </div>
