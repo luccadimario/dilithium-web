@@ -21,11 +21,15 @@ const phases = [
     title: 'Network Growth',
     status: 'in-progress' as const,
     items: [
-      'Seed node infrastructure',
-      'Block explorer',
-      'Improved peer discovery',
+      'Seed node infrastructure ✓',
+      'Block explorer ✓',
+      'Improved peer discovery ✓',
+      'Network stability hardening ✓',
+      'REST API for integrations ✓',
+      'Transaction fee system ✓',
+      'Bitcoin-style peer scoring ✓',
+      'Chain reorganization support ✓',
       'Mining pool support',
-      'Network stability hardening',
     ],
   },
   {
@@ -34,7 +38,6 @@ const phases = [
     status: 'upcoming' as const,
     items: [
       'Desktop wallet application',
-      'REST API for integrations',
       'Developer documentation',
       'Smart contract exploration',
       'Community governance framework',

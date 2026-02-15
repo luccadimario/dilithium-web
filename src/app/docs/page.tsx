@@ -508,6 +508,7 @@ export default function DocsPage() {
                     { cmd: 'address', desc: 'Show your wallet address' },
                     { cmd: 'balance', desc: 'Check wallet balance' },
                     { cmd: 'send --to <addr> --amount N', desc: 'Send DLT to an address' },
+                    { cmd: 'send --to <addr> --amount N --fee F', desc: 'Send DLT with a custom transaction fee (default: min_transaction_fee)' },
                     { cmd: 'tx sign [flags]', desc: 'Sign a transaction' },
                   ].map((row, i) => (
                     <tr key={row.cmd} className={i % 2 === 0 ? 'bg-space-900/30' : ''}>
@@ -546,10 +547,13 @@ export default function DocsPage() {
                 <tbody>
                   {[
                     { method: 'GET', endpoint: '/status', desc: 'Node status, height, difficulty, hashrate' },
-                    { method: 'GET', endpoint: '/chain', desc: 'Full blockchain' },
+                    { method: 'GET', endpoint: '/chain', desc: 'Full blockchain (paginated with ?limit=N&page=P)' },
+                    { method: 'GET', endpoint: '/stats', desc: 'Explorer statistics: height, difficulty, hashrate, supply, mempool, peers' },
+                    { method: 'GET', endpoint: '/block?index=N', desc: 'Single block details by index' },
+                    { method: 'GET', endpoint: '/explorer/address?addr=ADDR', desc: 'Address balance, transaction history' },
                     { method: 'GET', endpoint: '/peers', desc: 'Connected peers' },
                     { method: 'GET', endpoint: '/mempool', desc: 'Pending transactions' },
-                    { method: 'POST', endpoint: '/transaction', desc: 'Submit a signed transaction' },
+                    { method: 'POST', endpoint: '/transaction', desc: 'Submit a signed transaction (supports optional fee field)' },
                     { method: 'POST', endpoint: '/mine?miner=ADDR', desc: 'Manually mine a block' },
                     { method: 'POST', endpoint: '/add-peer?address=IP:PORT', desc: 'Connect to a peer' },
                   ].map((row, i) => (
@@ -565,6 +569,10 @@ export default function DocsPage() {
 
             <div className="mt-6 space-y-3">
               <CodeBlock label="Check node status">curl http://localhost:8001/status</CodeBlock>
+              <CodeBlock label="Explorer stats (hashrate, supply, etc.)">curl http://localhost:8001/stats</CodeBlock>
+              <CodeBlock label="Look up an address">{'curl http://localhost:8001/explorer/address?addr=YOUR_ADDRESS'}</CodeBlock>
+              <CodeBlock label="Get a specific block">curl http://localhost:8001/block?index=100</CodeBlock>
+              <CodeBlock label="Send with fee">{'./dilithium-cli send --to <address> --amount 10 --fee 0.0001'}</CodeBlock>
               <CodeBlock label="View mempool">curl http://localhost:8001/mempool</CodeBlock>
             </div>
           </div>

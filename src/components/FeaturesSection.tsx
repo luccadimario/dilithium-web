@@ -37,7 +37,7 @@ const features = [
     label: 'Network',
     value: 'P2P',
     unit: 'TCP',
-    description: 'Decentralized peer-to-peer network with UPnP port mapping on port 9090.',
+    description: 'Decentralized peer-to-peer network with UPnP port mapping on port 1701.',
   },
 ];
 

@@ -134,7 +134,7 @@ export default function GetStartedSection() {
                             <div className="mt-2 space-y-2">
                               {[
                                 'git clone https://github.com/luccadimario/dilithiumcoin.git',
-                                'cd Dilithium && ./build.sh',
+                                'cd dilithiumcoin && go build .',
                               ].map((cmd, i) => (
                                 <div
                                   key={i}

@@ -287,7 +287,7 @@ export default function ExplorerPage() {
             <div>
               <h3 className="font-heading text-sm font-semibold text-space-400 tracking-wider mb-3">RECENT BLOCKS</h3>
               <div className="space-y-2">
-                {blocks.slice(0, 10).map((block) => (
+                {blocks.slice(0, 25).map((block) => (
                   <button
                     key={block.Index}
                     onClick={() => { setSelectedBlock(block); setTab('blocks'); }}
