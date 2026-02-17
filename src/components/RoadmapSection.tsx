@@ -19,7 +19,7 @@ const phases = [
   {
     phase: 'Phase 2',
     title: 'Network Growth',
-    status: 'in-progress' as const,
+    status: 'done' as const,
     items: [
       'Seed node infrastructure ✓',
       'Block explorer ✓',
@@ -29,15 +29,15 @@ const phases = [
       'Transaction fee system ✓',
       'Bitcoin-style peer scoring ✓',
       'Chain reorganization support ✓',
-      'Mining pool support',
+      'Mining pool support ✓',
     ],
   },
   {
     phase: 'Phase 3',
     title: 'Ecosystem',
-    status: 'upcoming' as const,
+    status: 'in-progress' as const,
     items: [
-      'Desktop wallet application',
+      'Desktop wallet application ✓',
       'Developer documentation',
       'Smart contract exploration',
       'Community governance framework',
