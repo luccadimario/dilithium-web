@@ -3,57 +3,59 @@
 import clsx from 'clsx';
 import { useReveal } from './useReveal';
 
+type PhaseItem = { label: string; done?: boolean };
+
 const phases = [
   {
     phase: 'Phase 1',
     title: 'Genesis',
     status: 'done' as const,
     items: [
-      'Core blockchain implementation in Go',
-      'SHA-256 proof-of-work consensus',
-      'CRYSTALS-Dilithium post-quantum signing',
-      'P2P networking with UPnP',
-      'CLI wallet and miner tools',
-    ],
+      { label: 'Core blockchain implementation in Go' },
+      { label: 'SHA-256 proof-of-work consensus' },
+      { label: 'CRYSTALS-Dilithium post-quantum signing' },
+      { label: 'P2P networking with UPnP' },
+      { label: 'CLI wallet and miner tools' },
+    ] as PhaseItem[],
   },
   {
     phase: 'Phase 2',
     title: 'Network Growth',
     status: 'done' as const,
     items: [
-      'Seed node infrastructure ✓',
-      'Block explorer ✓',
-      'Improved peer discovery ✓',
-      'Network stability hardening ✓',
-      'REST API for integrations ✓',
-      'Transaction fee system ✓',
-      'Bitcoin-style peer scoring ✓',
-      'Chain reorganization support ✓',
-      'Mining pool support ✓',
-    ],
+      { label: 'Seed node infrastructure' },
+      { label: 'Block explorer' },
+      { label: 'Improved peer discovery' },
+      { label: 'Network stability hardening' },
+      { label: 'REST API for integrations' },
+      { label: 'Transaction fee system' },
+      { label: 'Bitcoin-style peer scoring' },
+      { label: 'Chain reorganization support' },
+      { label: 'Mining pool support' },
+    ] as PhaseItem[],
   },
   {
     phase: 'Phase 3',
     title: 'Ecosystem',
     status: 'in-progress' as const,
     items: [
-      'Desktop wallet application ✓',
-      'Developer documentation',
-      'Smart contract exploration',
-      'Community governance framework',
-    ],
+      { label: 'Desktop wallet application', done: true },
+      { label: 'Developer documentation' },
+      { label: 'Smart contract exploration' },
+      { label: 'Community governance framework' },
+    ] as PhaseItem[],
   },
   {
     phase: 'Phase 4',
     title: 'Warp Speed',
     status: 'upcoming' as const,
     items: [
-      'Cross-chain bridges',
-      'Mobile wallet',
-      'DApp platform',
-      'Exchange listings',
-      'Global node network',
-    ],
+      { label: 'Cross-chain bridges' },
+      { label: 'Mobile wallet' },
+      { label: 'DApp platform' },
+      { label: 'Exchange listings' },
+      { label: 'Global node network' },
+    ] as PhaseItem[],
   },
 ];
 
@@ -120,14 +122,14 @@ export default function RoadmapSection() {
 
               <ul className="space-y-2">
                 {phase.items.map((item) => (
-                  <li key={item} className="flex items-start gap-2 text-sm text-space-600">
+                  <li key={item.label} className="flex items-start gap-2 text-sm text-space-600">
                     <span
                       className={clsx(
                         'mt-1.5 w-1.5 h-1.5 rounded-full flex-shrink-0',
-                        phase.status === 'done' ? 'bg-crystal-500' : 'bg-space-700'
+                        (phase.status === 'done' || item.done) ? 'bg-crystal-500' : 'bg-space-700'
                       )}
                     />
-                    {item}
+                    {item.label}
                   </li>
                 ))}
               </ul>
