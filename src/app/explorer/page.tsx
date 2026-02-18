@@ -105,6 +105,9 @@ export default function ExplorerPage() {
 
   const [error, setError] = useState('');
 
+  const [blocksPage, setBlocksPage] = useState(0);
+  const BLOCKS_PER_PAGE = 15;
+
   const fetchStats = useCallback(async () => {
     try {
       const res = await fetch(`${nodeUrl}/stats`);
@@ -143,15 +146,21 @@ export default function ExplorerPage() {
     }
   }, [nodeUrl]);
 
-  const fetchAddress = useCallback(async () => {
-    if (!addressQuery.trim()) return;
+  const fetchAddress = useCallback(async (addr?: string) => {
+    const query = (addr ?? addressQuery).trim();
+    if (!query) return;
     setAddressError('');
     setAddressInfo(null);
     try {
-      const res = await fetch(`${nodeUrl}/explorer/address?addr=${encodeURIComponent(addressQuery.trim())}`);
+      const res = await fetch(`${nodeUrl}/explorer/address?addr=${encodeURIComponent(query)}`);
       const json = await res.json();
       if (json.success) {
-        setAddressInfo(json.data);
+        const data = json.data as AddressInfo;
+        // Sort transactions by most recent first
+        if (data.transactions) {
+          data.transactions.sort((a, b) => b.block_index - a.block_index || b.timestamp - a.timestamp);
+        }
+        setAddressInfo(data);
       } else {
         setAddressError(json.message || 'Address not found');
       }
@@ -182,6 +191,7 @@ export default function ExplorerPage() {
   // Fetch blocks when tab changes
   useEffect(() => {
     if (tab === 'blocks' || tab === 'overview') {
+      setBlocksPage(0);
       fetchBlocks();
     }
   }, [tab, fetchBlocks]);
@@ -294,8 +304,8 @@ export default function ExplorerPage() {
                     className="w-full card-space p-4 flex items-center justify-between text-left"
                   >
                     <div className="flex items-center gap-4">
-                      <div className="min-w-10 h-10 px-2 rounded-lg bg-crystal-500/10 border border-crystal-500/20 flex items-center justify-center font-heading text-xs font-bold text-crystal-400 shrink-0">
-                        #{block.Index}
+                      <div className="h-10 px-3 rounded-lg bg-crystal-500/10 border border-crystal-500/20 flex items-center justify-center font-heading text-xs font-bold text-crystal-400 shrink-0">
+                        #{block.Index.toLocaleString()}
                       </div>
                       <div>
                         <div className="font-mono text-sm text-white">{truncHash(block.Hash)}</div>
@@ -313,15 +323,15 @@ export default function ExplorerPage() {
         {/* Blocks Tab */}
         {tab === 'blocks' && !selectedBlock && (
           <div className="space-y-2">
-            {blocks.map((block) => (
+            {blocks.slice(blocksPage * BLOCKS_PER_PAGE, (blocksPage + 1) * BLOCKS_PER_PAGE).map((block) => (
               <button
                 key={block.Index}
                 onClick={() => fetchBlock(block.Index)}
                 className="w-full card-space p-4 flex items-center justify-between text-left"
               >
                 <div className="flex items-center gap-4">
-                  <div className="w-10 h-10 rounded-lg bg-crystal-500/10 border border-crystal-500/20 flex items-center justify-center font-heading text-sm font-bold text-crystal-400">
-                    #{block.Index}
+                  <div className="h-10 px-3 rounded-lg bg-crystal-500/10 border border-crystal-500/20 flex items-center justify-center font-heading text-xs font-bold text-crystal-400 shrink-0">
+                    #{block.Index.toLocaleString()}
                   </div>
                   <div>
                     <div className="font-mono text-sm text-white">{truncHash(block.Hash)}</div>
@@ -333,6 +343,27 @@ export default function ExplorerPage() {
                 <div className="text-xs text-space-500">{timeAgo(block.Timestamp)}</div>
               </button>
             ))}
+            {blocks.length > BLOCKS_PER_PAGE && (
+              <div className="flex items-center justify-between pt-2">
+                <button
+                  onClick={() => setBlocksPage((p) => Math.max(0, p - 1))}
+                  disabled={blocksPage === 0}
+                  className="px-4 py-2 rounded-lg bg-space-800 border border-space-700 text-sm text-space-400 hover:text-crystal-400 hover:border-crystal-500/30 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  Previous
+                </button>
+                <span className="text-xs text-space-500">
+                  Page {blocksPage + 1} of {Math.ceil(blocks.length / BLOCKS_PER_PAGE)}
+                </span>
+                <button
+                  onClick={() => setBlocksPage((p) => Math.min(Math.ceil(blocks.length / BLOCKS_PER_PAGE) - 1, p + 1))}
+                  disabled={blocksPage >= Math.ceil(blocks.length / BLOCKS_PER_PAGE) - 1}
+                  className="px-4 py-2 rounded-lg bg-space-800 border border-space-700 text-sm text-space-400 hover:text-crystal-400 hover:border-crystal-500/30 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
+                >
+                  Next
+                </button>
+              </div>
+            )}
             {blocks.length === 0 && connected && (
               <div className="text-center text-space-500 py-12">No blocks found</div>
             )}
@@ -397,7 +428,7 @@ export default function ExplorerPage() {
                             From: <span className="font-mono text-space-300">{tx.from === '' ? 'COINBASE' : truncHash(tx.from, 16)}</span>
                           </div>
                           <div className="text-xs text-space-500">
-                            To: <button onClick={() => { setAddressQuery(tx.to); setTab('address'); fetchAddress(); }} className="font-mono text-crystal-400 hover:text-crystal-300">{truncHash(tx.to, 16)}</button>
+                            To: <button onClick={() => { setAddressQuery(tx.to); setTab('address'); fetchAddress(tx.to); }} className="font-mono text-crystal-400 hover:text-crystal-300">{truncHash(tx.to, 16)}</button>
                           </div>
                         </div>
                         <div className="font-heading font-bold text-white">
@@ -425,7 +456,7 @@ export default function ExplorerPage() {
                 className="flex-1 bg-space-900 border border-space-700 rounded-lg px-4 py-2 text-sm text-white font-mono focus:outline-none focus:border-crystal-500/50"
               />
               <button
-                onClick={fetchAddress}
+                onClick={() => fetchAddress()}
                 className="px-4 py-2 rounded-lg bg-crystal-500/10 border border-crystal-500/30 text-crystal-400 hover:bg-crystal-500/20 transition-colors text-sm font-medium"
               >
                 Search
