@@ -48,8 +48,8 @@ export default function HeroSection() {
               <a href="#get-started" className="btn-primary">
                 Start Mining
               </a>
-              <a href="#about" className="btn-secondary">
-                Learn More
+              <a href="/whitepaper" className="btn-secondary">
+                Whitepaper
               </a>
             </div>
 
