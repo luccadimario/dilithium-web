@@ -40,7 +40,6 @@ function Code({ children }: { children: string }) {
 
 export default function WhitepaperPage() {
   const hero = useReveal(0.1);
-  const content = useReveal(0.05);
 
   return (
     <>
@@ -49,7 +48,7 @@ export default function WhitepaperPage() {
 
       <main className="relative z-10">
         {/* Hero */}
-        <section className="min-h-[50vh] flex items-center justify-center pt-24 pb-16">
+        <section className="flex items-center justify-center pt-28 pb-10">
           <div
             ref={hero.ref}
             className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal ${hero.visible ? 'visible' : ''}`}
@@ -62,7 +61,7 @@ export default function WhitepaperPage() {
               <span className="text-gradient-crystal">Proof-of-Work Cryptocurrency</span>
             </h1>
             <p className="text-space-600 text-lg max-w-2xl mx-auto leading-relaxed">
-              Version 1.0 &mdash; February 2025
+              Version 1.0 &mdash; February 2026
             </p>
           </div>
         </section>
@@ -70,8 +69,7 @@ export default function WhitepaperPage() {
         {/* Content */}
         <section className="pb-24">
           <div
-            ref={content.ref}
-            className={`max-w-3xl mx-auto px-4 sm:px-6 lg:px-8 reveal ${content.visible ? 'visible' : ''}`}
+            className="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8"
           >
             <article className="whitepaper-content">
 

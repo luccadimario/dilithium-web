@@ -8,9 +8,9 @@ const navLinks = [
   { label: 'Features', href: '/#features' },
   { label: 'Get Started', href: '/#get-started' },
   { label: 'Roadmap', href: '/#roadmap' },
+  { label: 'Quantum-Safe', href: '/quantum-safe' },
   { label: 'Docs', href: '/docs' },
   { label: 'Whitepaper', href: '/whitepaper' },
-  { label: 'Quantum-Safe', href: '/quantum-safe' },
   { label: 'Explorer', href: '/explorer' },
 ];
 
