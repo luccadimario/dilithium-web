@@ -19,8 +19,10 @@ interface Transaction {
   from: string;
   to: string;
   amount: number;
+  amount_dlt?: string;
   timestamp: number;
   signature: string;
+  block_index?: number;
 }
 
 interface Stats {
@@ -56,21 +58,14 @@ interface AddressInfo {
   total_received_dlt: string;
   total_sent_dlt: string;
   transaction_count: number;
-  transactions: {
-    signature: string;
-    from: string;
-    to: string;
-    amount_dlt: string;
-    timestamp: number;
-    block_index: number;
-  }[];
+  transactions: Transaction[];
 }
 
-type Tab = 'overview' | 'blocks' | 'address';
+type Tab = 'overview' | 'blocks' | 'address' | 'mempool' | 'transaction';
 
 function truncHash(hash: string, len = 12) {
-  if (!hash || hash.length <= len * 2) return hash;
-  return hash.slice(0, len) + '...' + hash.slice(-len);
+  if (!hash) return hash;
+  return hash; // Disable truncation as requested
 }
 
 function timeAgo(ts: number) {
@@ -98,6 +93,8 @@ export default function ExplorerPage() {
   const [stats, setStats] = useState<Stats | null>(null);
   const [blocks, setBlocks] = useState<Block[]>([]);
   const [selectedBlock, setSelectedBlock] = useState<Block | null>(null);
+  const [selectedTransaction, setSelectedTransaction] = useState<Transaction | null>(null);
+  const [mempoolTxs, setMempoolTxs] = useState<Transaction[]>([]);
 
   const [addressQuery, setAddressQuery] = useState('');
   const [addressInfo, setAddressInfo] = useState<AddressInfo | null>(null);
@@ -146,6 +143,18 @@ export default function ExplorerPage() {
     }
   }, [nodeUrl]);
 
+  const fetchMempool = useCallback(async () => {
+    try {
+      const res = await fetch(`${nodeUrl}/mempool`);
+      const json = await res.json();
+      if (json.success) {
+        setMempoolTxs(json.data.transactions || []);
+      }
+    } catch {
+      // ignore
+    }
+  }, [nodeUrl]);
+
   const fetchAddress = useCallback(async (addr?: string) => {
     const query = (addr ?? addressQuery).trim();
     if (!query) return;
@@ -158,7 +167,7 @@ export default function ExplorerPage() {
         const data = json.data as AddressInfo;
         // Sort transactions by most recent first
         if (data.transactions) {
-          data.transactions.sort((a, b) => b.block_index - a.block_index || b.timestamp - a.timestamp);
+          data.transactions.sort((a, b) => (b.block_index || 0) - (a.block_index || 0) || b.timestamp - a.timestamp);
         }
         setAddressInfo(data);
       } else {
@@ -181,6 +190,19 @@ export default function ExplorerPage() {
     }
   }, [nodeUrl]);
 
+  const fetchTransaction = useCallback(async (sig: string) => {
+    try {
+      const res = await fetch(`${nodeUrl}/transaction?sig=${encodeURIComponent(sig)}`);
+      const json = await res.json();
+      if (json.success) {
+        setSelectedTransaction(json.data);
+        setTab('transaction');
+      }
+    } catch {
+      // ignore
+    }
+  }, [nodeUrl]);
+
   // Poll stats every 5s
   useEffect(() => {
     fetchStats();
@@ -193,8 +215,10 @@ export default function ExplorerPage() {
     if (tab === 'blocks' || tab === 'overview') {
       setBlocksPage(0);
       fetchBlocks();
+    } else if (tab === 'mempool') {
+      fetchMempool();
     }
-  }, [tab, fetchBlocks]);
+  }, [tab, fetchBlocks, fetchMempool]);
 
   const handleConnect = () => {
     setNodeUrl(nodeInput);
@@ -205,12 +229,12 @@ export default function ExplorerPage() {
 
   const statCards = stats
     ? [
-        { label: 'Block Height', value: stats.blockchain.height.toLocaleString() },
+        { label: 'Block Height', value: stats.blockchain.height.toLocaleString(), action: () => { setTab('blocks'); setSelectedBlock(null); } },
         { label: 'Difficulty', value: stats.blockchain.difficulty_bits ? `${stats.blockchain.difficulty_bits} bits` : stats.blockchain.difficulty },
         { label: 'Total TXs', value: stats.blockchain.total_txs.toLocaleString() },
         { label: 'Avg Block Time', value: stats.blockchain.avg_block_time > 0 ? stats.blockchain.avg_block_time.toFixed(1) + 's' : '—' },
         { label: 'Hashrate', value: formatHashrate(stats.blockchain.hashrate_estimate) },
-        { label: 'Mempool', value: stats.mempool.size },
+        { label: 'Mempool', value: stats.mempool.size, action: () => { setTab('mempool'); fetchMempool(); } },
         { label: 'Peers', value: stats.peers.connected },
         { label: 'Circulating', value: stats.supply?.total_supply ? `${parseFloat(stats.supply.total_supply).toLocaleString()} DLT` : '—' },
       ]
@@ -265,10 +289,10 @@ export default function ExplorerPage() {
 
         {/* Tabs */}
         <div className="flex gap-1 mb-6 border-b border-space-800">
-          {(['overview', 'blocks', 'address'] as Tab[]).map((t) => (
+          {(['overview', 'blocks', 'mempool', 'address'] as Tab[]).map((t) => (
             <button
               key={t}
-              onClick={() => { setTab(t); setSelectedBlock(null); }}
+              onClick={() => { setTab(t); setSelectedBlock(null); setSelectedTransaction(null); }}
               className={`px-4 py-2 text-sm font-medium capitalize transition-colors ${
                 tab === t
                   ? 'text-crystal-400 border-b-2 border-crystal-400'
@@ -286,10 +310,15 @@ export default function ExplorerPage() {
             {/* Stat cards */}
             <div className="grid grid-cols-2 sm:grid-cols-4 gap-3">
               {statCards.map((s) => (
-                <div key={s.label} className="card-space p-4">
+                <button
+                  key={s.label}
+                  onClick={s.action}
+                  disabled={!s.action}
+                  className={`card-space p-4 text-left transition-all ${s.action ? 'hover:border-crystal-500/50 cursor-pointer' : 'cursor-default'}`}
+                >
                   <div className="text-xs text-space-500 mb-1">{s.label}</div>
                   <div className="font-heading text-lg font-bold text-white truncate">{s.value}</div>
-                </div>
+                </button>
               ))}
             </div>
 
@@ -307,12 +336,12 @@ export default function ExplorerPage() {
                       <div className="h-10 px-3 rounded-lg bg-crystal-500/10 border border-crystal-500/20 flex items-center justify-center font-heading text-xs font-bold text-crystal-400 shrink-0">
                         #{block.Index.toLocaleString()}
                       </div>
-                      <div>
-                        <div className="font-mono text-sm text-white">{truncHash(block.Hash)}</div>
+                      <div className="min-w-0 flex-1">
+                        <div className="font-mono text-sm text-white break-all">{truncHash(block.Hash)}</div>
                         <div className="text-xs text-space-500">{block.transactions?.length || 0} txs</div>
                       </div>
                     </div>
-                    <div className="text-xs text-space-500">{timeAgo(block.Timestamp)}</div>
+                    <div className="text-xs text-space-500 shrink-0 ml-2">{timeAgo(block.Timestamp)}</div>
                   </button>
                 ))}
               </div>
@@ -333,14 +362,14 @@ export default function ExplorerPage() {
                   <div className="h-10 px-3 rounded-lg bg-crystal-500/10 border border-crystal-500/20 flex items-center justify-center font-heading text-xs font-bold text-crystal-400 shrink-0">
                     #{block.Index.toLocaleString()}
                   </div>
-                  <div>
-                    <div className="font-mono text-sm text-white">{truncHash(block.Hash)}</div>
+                  <div className="min-w-0 flex-1">
+                    <div className="font-mono text-sm text-white break-all">{truncHash(block.Hash)}</div>
                     <div className="text-xs text-space-500">
                       {block.transactions?.length || 0} txs | Nonce: {block.Nonce?.toLocaleString()} | Difficulty: {(block as any).DifficultyBits ? `${(block as any).DifficultyBits} bits` : block.difficulty}
                     </div>
                   </div>
                 </div>
-                <div className="text-xs text-space-500">{timeAgo(block.Timestamp)}</div>
+                <div className="text-xs text-space-500 shrink-0 ml-2">{timeAgo(block.Timestamp)}</div>
               </button>
             ))}
             {blocks.length > BLOCKS_PER_PAGE && (
@@ -421,25 +450,142 @@ export default function ExplorerPage() {
                 <h4 className="font-heading text-sm font-semibold text-space-400 tracking-wider mb-3">TRANSACTIONS</h4>
                 <div className="space-y-2">
                   {selectedBlock.transactions.map((tx, i) => (
-                    <div key={i} className="card-space p-4">
+                    <button
+                      key={i}
+                      onClick={() => { setSelectedTransaction(tx); setTab('transaction'); }}
+                      className="w-full card-space p-4 text-left hover:border-crystal-500/50 transition-colors"
+                    >
                       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                        <div className="space-y-1">
-                          <div className="text-xs text-space-500">
-                            From: <span className="font-mono text-space-300">{tx.from === '' ? 'COINBASE' : truncHash(tx.from, 16)}</span>
+                        <div className="space-y-1 min-w-0 flex-1">
+                          <div className="text-xs text-space-500 truncate">
+                            From: <span className="font-mono text-space-300">{tx.from === '' ? 'COINBASE' : tx.from}</span>
                           </div>
-                          <div className="text-xs text-space-500">
-                            To: <button onClick={() => { setAddressQuery(tx.to); setTab('address'); fetchAddress(tx.to); }} className="font-mono text-crystal-400 hover:text-crystal-300">{truncHash(tx.to, 16)}</button>
+                          <div className="text-xs text-space-500 truncate">
+                            To: <span className="font-mono text-crystal-400">{tx.to}</span>
                           </div>
                         </div>
-                        <div className="font-heading font-bold text-white">
+                        <div className="font-heading font-bold text-white shrink-0">
                           {(tx.amount / 100000000).toFixed(8)} DLT
                         </div>
                       </div>
-                    </div>
+                    </button>
                   ))}
                 </div>
               </div>
             )}
+          </div>
+        )}
+
+        {/* Mempool Tab */}
+        {tab === 'mempool' && (
+          <div className="space-y-4">
+            <h3 className="font-heading text-sm font-semibold text-space-400 tracking-wider mb-3 uppercase">Mempool Transactions ({mempoolTxs.length})</h3>
+            <div className="space-y-2">
+              {mempoolTxs.map((tx, i) => (
+                <button
+                  key={i}
+                  onClick={() => { setSelectedTransaction(tx); setTab('transaction'); }}
+                  className="w-full card-space p-4 text-left hover:border-crystal-500/50 transition-colors"
+                >
+                  <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2">
+                    <div className="space-y-1 min-w-0 flex-1">
+                      <div className="text-xs text-space-500 truncate">
+                        From: <span className="font-mono text-space-300">{tx.from === '' ? 'COINBASE' : tx.from}</span>
+                      </div>
+                      <div className="text-xs text-space-500 truncate">
+                        To: <span className="font-mono text-crystal-400">{tx.to}</span>
+                      </div>
+                    </div>
+                    <div className="font-heading font-bold text-white shrink-0">
+                      {tx.amount_dlt || (tx.amount / 100000000).toFixed(8)} DLT
+                    </div>
+                  </div>
+                  <div className="mt-2 text-[10px] text-space-600 font-mono truncate">{tx.signature}</div>
+                </button>
+              ))}
+              {mempoolTxs.length === 0 && (
+                <div className="text-center text-space-500 py-12 card-space">
+                  No transactions in mempool
+                </div>
+              )}
+            </div>
+          </div>
+        )}
+
+        {/* Transaction Detail */}
+        {tab === 'transaction' && selectedTransaction && (
+          <div className="space-y-4">
+            <button
+              onClick={() => {
+                if (selectedBlock) setTab('blocks');
+                else if (addressInfo) setTab('address');
+                else setTab('overview');
+                setSelectedTransaction(null);
+              }}
+              className="text-crystal-400 hover:text-crystal-300 text-sm flex items-center gap-1"
+            >
+              <svg className="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
+              </svg>
+              Back
+            </button>
+
+            <div className="card-space p-6">
+              <h3 className="font-heading text-lg font-bold text-white mb-4">
+                Transaction Details
+              </h3>
+              <div className="space-y-4 text-sm">
+                <div className="flex flex-col gap-1">
+                  <span className="text-space-500">Signature (TXID)</span>
+                  <span className="font-mono text-crystal-400 break-all bg-space-900/50 p-3 rounded border border-space-800">{selectedTransaction.signature}</span>
+                </div>
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
+                  <div className="space-y-4">
+                    <div className="flex flex-col gap-1">
+                      <span className="text-space-500">From</span>
+                      <button
+                        onClick={() => { if (selectedTransaction.from) { setAddressQuery(selectedTransaction.from); setTab('address'); fetchAddress(selectedTransaction.from); setSelectedTransaction(null); } }}
+                        className="font-mono text-white text-left break-all hover:text-crystal-400 transition-colors"
+                      >
+                        {selectedTransaction.from === '' ? 'COINBASE' : selectedTransaction.from}
+                      </button>
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-space-500">To</span>
+                      <button
+                        onClick={() => { setAddressQuery(selectedTransaction.to); setTab('address'); fetchAddress(selectedTransaction.to); setSelectedTransaction(null); }}
+                        className="font-mono text-crystal-400 text-left break-all hover:text-crystal-300 transition-colors"
+                      >
+                        {selectedTransaction.to}
+                      </button>
+                    </div>
+                  </div>
+                  <div className="space-y-4">
+                    <div className="flex flex-col gap-1">
+                      <span className="text-space-500">Amount</span>
+                      <span className="font-heading font-bold text-white text-xl">
+                        {selectedTransaction.amount_dlt || (selectedTransaction.amount / 100000000).toFixed(8)} DLT
+                      </span>
+                    </div>
+                    <div className="flex flex-col gap-1">
+                      <span className="text-space-500">Timestamp</span>
+                      <span className="text-white">{new Date(selectedTransaction.timestamp * 1000).toLocaleString()} ({timeAgo(selectedTransaction.timestamp)})</span>
+                    </div>
+                    {selectedTransaction.block_index !== undefined && (
+                      <div className="flex flex-col gap-1">
+                        <span className="text-space-500">Included in Block</span>
+                        <button
+                          onClick={() => { fetchBlock(selectedTransaction.block_index!); setTab('blocks'); setSelectedTransaction(null); }}
+                          className="font-heading font-bold text-crystal-400 text-left hover:text-crystal-300 transition-colors"
+                        >
+                          #{selectedTransaction.block_index}
+                        </button>
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </div>
+            </div>
           </div>
         )}
 
@@ -499,9 +645,13 @@ export default function ExplorerPage() {
                     <h4 className="font-heading text-sm font-semibold text-space-400 tracking-wider mb-3">TRANSACTION HISTORY</h4>
                     <div className="space-y-2">
                       {addressInfo.transactions.map((tx, i) => (
-                        <div key={i} className="card-space p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2">
-                          <div className="space-y-1">
-                            <div className="text-xs">
+                        <button
+                          key={i}
+                          onClick={() => { setSelectedTransaction(tx); setTab('transaction'); }}
+                          className="w-full card-space p-4 flex flex-col sm:flex-row sm:items-center justify-between gap-2 text-left hover:border-crystal-500/50 transition-colors"
+                        >
+                          <div className="space-y-1 min-w-0 flex-1">
+                            <div className="text-xs truncate">
                               {tx.from === addressInfo.address ? (
                                 <span className="text-red-400">Sent to </span>
                               ) : (
@@ -509,18 +659,18 @@ export default function ExplorerPage() {
                               )}
                               <span className="font-mono text-space-300">
                                 {tx.from === addressInfo.address
-                                  ? truncHash(tx.to, 16)
-                                  : (tx.from === 'SYSTEM' || tx.from === '') ? 'COINBASE' : truncHash(tx.from, 16)}
+                                  ? tx.to
+                                  : (tx.from === 'SYSTEM' || tx.from === '') ? 'COINBASE' : tx.from}
                               </span>
                             </div>
                             <div className="text-xs text-space-500">
                               Block #{tx.block_index} | {timeAgo(tx.timestamp)}
                             </div>
                           </div>
-                          <div className={`font-heading font-bold ${tx.from === addressInfo.address ? 'text-red-400' : 'text-green-400'}`}>
+                          <div className={`font-heading font-bold shrink-0 ${tx.from === addressInfo.address ? 'text-red-400' : 'text-green-400'}`}>
                             {tx.from === addressInfo.address ? '-' : '+'}{tx.amount_dlt} DLT
                           </div>
-                        </div>
+                        </button>
                       ))}
                     </div>
                   </div>
