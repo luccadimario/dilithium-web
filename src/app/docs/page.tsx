@@ -159,16 +159,22 @@ export default function DocsPage() {
               Create a <span className="text-gradient-crystal">Wallet</span>
             </h2>
             <p className="text-space-600 leading-relaxed mb-6">
-              Generate a quantum-safe CRYSTALS-Dilithium keypair. Your address is derived from the public key and used to receive mining rewards and DLT transfers.
+              Generate a quantum-safe CRYSTALS-Dilithium keypair with a 24-word recovery phrase. Your address is derived from the public key and used to receive mining rewards and DLT transfers.
             </p>
             <div className="space-y-3">
-              <CodeBlock label="Create a new wallet">./dilithium-cli wallet create</CodeBlock>
+              <CodeBlock label="Create a new wallet (generates 24-word recovery phrase)">./dilithium-cli init</CodeBlock>
+              <CodeBlock label="Restore a wallet from recovery phrase">./dilithium-cli wallet restore</CodeBlock>
               <CodeBlock label="View your address">./dilithium-cli address</CodeBlock>
               <CodeBlock label="Check your balance">./dilithium-cli balance</CodeBlock>
             </div>
             <div className="card-space p-4 mt-6 border-nebula-500/20">
               <p className="text-sm text-space-600">
-                <span className="text-nebula-400 font-mono font-bold">Note:</span> Wallet keys are stored in <span className="font-mono text-crystal-400">~/.dilithium/wallet/</span> by default. Back up this directory to protect your funds.
+                <span className="text-nebula-400 font-mono font-bold">Important:</span> When you create a wallet, a <strong className="text-white">24-word recovery phrase</strong> is displayed once. Write it down and store it safely — it is the only way to restore your wallet. You can optionally set a passphrase to encrypt the private key on disk.
+              </p>
+            </div>
+            <div className="card-space p-4 mt-3 border-crystal-500/20">
+              <p className="text-sm text-space-600">
+                <span className="text-crystal-400 font-mono font-bold">Desktop wallet:</span> The <span className="font-mono text-crystal-400">dilithium-wallet</span> GUI app provides the same seed phrase creation and restore flow with a graphical interface.
               </p>
             </div>
           </div>
@@ -503,13 +509,18 @@ export default function DocsPage() {
                 </thead>
                 <tbody>
                   {[
-                    { cmd: 'wallet create', desc: 'Generate a new CRYSTALS-Dilithium keypair' },
+                    { cmd: 'init', desc: 'Create a new wallet with 24-word recovery phrase' },
+                    { cmd: 'wallet restore', desc: 'Restore wallet from a recovery phrase' },
                     { cmd: 'wallet info', desc: 'Display wallet details' },
+                    { cmd: 'wallet export', desc: 'Export wallet private key' },
                     { cmd: 'address', desc: 'Show your wallet address' },
                     { cmd: 'balance', desc: 'Check wallet balance' },
                     { cmd: 'send --to <addr> --amount N', desc: 'Send DLT to an address' },
-                    { cmd: 'send --to <addr> --amount N --fee F', desc: 'Send DLT with a custom transaction fee (default: min_transaction_fee)' },
+                    { cmd: 'send --to <addr> --amount N --fee F', desc: 'Send DLT with a custom fee (min: 0.0001 DLT)' },
                     { cmd: 'tx sign [flags]', desc: 'Sign a transaction' },
+                    { cmd: 'status', desc: 'Show node status' },
+                    { cmd: 'peers', desc: 'List connected peers' },
+                    { cmd: 'mempool', desc: 'View pending transactions' },
                   ].map((row, i) => (
                     <tr key={row.cmd} className={i % 2 === 0 ? 'bg-space-900/30' : ''}>
                       <td className="py-2 px-4 text-sm font-mono text-crystal-400 border-b border-space-800 whitespace-nowrap">dilithium-cli {row.cmd}</td>

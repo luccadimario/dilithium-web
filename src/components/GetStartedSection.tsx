@@ -25,8 +25,8 @@ const steps = [
   {
     number: '02',
     title: 'Create Wallet',
-    description: 'Generate a CRYSTALS-Dilithium keypair for your wallet.',
-    commands: ['./dilithium-cli wallet create'],
+    description: 'Generate a quantum-safe wallet with a 24-word recovery phrase. Write down your seed words — they are the only way to restore your wallet.',
+    commands: ['./dilithium-cli init'],
   },
   {
     number: '03',

@@ -40,6 +40,7 @@ const phases = [
     status: 'in-progress' as const,
     items: [
       { label: 'Desktop wallet application', done: true },
+      { label: 'Seed phrase backup & recovery', done: true },
       { label: 'Developer documentation' },
       { label: 'Smart contract exploration' },
       { label: 'Community governance framework' },
