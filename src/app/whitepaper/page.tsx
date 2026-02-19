@@ -204,6 +204,7 @@ export default function WhitepaperPage() {
                     ['Index', 'int64', 'Block height (genesis = 0)'],
                     ['Timestamp', 'int64', 'Unix timestamp (seconds)'],
                     ['Transactions', '[]*Transaction', 'Ordered list of transactions'],
+                    ['MerkleRoot', 'string', 'Merkle root of transactions (block 6,000+)'],
                     ['PreviousHash', 'string', 'SHA-256 hash of the previous block'],
                     ['Hash', 'string', 'SHA-256 hash of this block'],
                     ['Nonce', 'int64', 'Proof-of-work nonce'],
@@ -213,13 +214,28 @@ export default function WhitepaperPage() {
                 />
 
                 <h3>4.2 Block Hash</h3>
-                <p>The block hash is computed as:</p>
-                <Code>{'data = str(Index) + str(Timestamp) + JSON(Transactions) + PreviousHash + str(Nonce) + str(Difficulty)\nHash = hex(SHA-256(data))'}</Code>
+                <p>Beginning at block 6,000 (Merkle root hard fork), the block hash uses a Merkle root instead of the full JSON-serialized transaction list:</p>
+                <Code>{'Pre-fork  (block < 6,000):  txData = JSON(Transactions)\nPost-fork (block >= 6,000): txData = MerkleRoot\n\ndata = str(Index) + str(Timestamp) + txData + PreviousHash + str(Nonce) + str(Difficulty)\nHash = hex(SHA-256(data))'}</Code>
                 <p>
-                  All numeric fields are rendered as decimal ASCII strings. The transaction array is serialized as JSON with fields omitted when zero-valued.
+                  For pre-fork blocks, the transaction array is serialized as JSON with fields omitted when zero-valued. For post-fork blocks, <span className="font-mono text-crystal-400">txData</span> is the 64-character hex Merkle root, making block headers a fixed size regardless of transaction count.
                 </p>
 
-                <h3>4.3 Validation Rules</h3>
+                <h3>4.3 Merkle Tree</h3>
+                <p>
+                  The Merkle root is computed using a standard binary Merkle tree (Bitcoin-style):
+                </p>
+                <ol>
+                  <li>For each transaction, compute <span className="font-mono text-crystal-400">SHA-256(JSON(tx))</span> to produce leaf hashes.</li>
+                  <li>If there is an odd number of leaves, duplicate the last one.</li>
+                  <li>Pair adjacent hashes and compute <span className="font-mono text-crystal-400">SHA-256(left || right)</span> up the tree.</li>
+                  <li>The root is the final 64-character hex string.</li>
+                  <li>For an empty block, the Merkle root is <span className="font-mono text-crystal-400">SHA-256(&quot;&quot;)</span>.</li>
+                </ol>
+                <p>
+                  This provides O(log n) proof-of-inclusion for any transaction in a block, enabling future support for lightweight SPV clients.
+                </p>
+
+                <h3>4.4 Validation Rules</h3>
                 <ol>
                   <li><span className="font-mono text-crystal-400">Hash == SHA-256(block_data)</span> (hash integrity)</li>
                   <li><span className="font-mono text-crystal-400">PreviousHash == previous_block.Hash</span> (chain continuity)</li>
@@ -233,7 +249,7 @@ export default function WhitepaperPage() {
                   <li>Transaction count does not exceed 5,000</li>
                 </ol>
 
-                <h3>4.4 Genesis Block</h3>
+                <h3>4.5 Genesis Block</h3>
                 <Table
                   headers={['Field', 'Value']}
                   rows={[
