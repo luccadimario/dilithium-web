@@ -103,7 +103,8 @@ export default function ExplorerPage() {
   const [error, setError] = useState('');
 
   const [blocksPage, setBlocksPage] = useState(0);
-  const BLOCKS_PER_PAGE = 15;
+  const [blocksTotalPages, setBlocksTotalPages] = useState(0);
+  const BLOCKS_PER_PAGE = 20;
 
   const fetchStats = useCallback(async () => {
     try {
@@ -120,23 +121,29 @@ export default function ExplorerPage() {
     }
   }, [nodeUrl]);
 
-  const fetchBlocks = useCallback(async () => {
+  const fetchBlocks = useCallback(async (uiPage: number = 0) => {
     try {
-      // First fetch to get total_pages, then fetch the last page
-      const res = await fetch(`${nodeUrl}/chain?limit=50`);
-      const json = await res.json();
-      if (json.success) {
-        const totalPages = json.data.total_pages || 1;
-        if (totalPages <= 1) {
-          setBlocks((json.data.blocks as Block[]).reverse());
-        } else {
-          // Fetch the last page (most recent blocks)
-          const lastRes = await fetch(`${nodeUrl}/chain?limit=50&page=${totalPages - 1}`);
-          const lastJson = await lastRes.json();
-          if (lastJson.success) {
-            setBlocks((lastJson.data.blocks as Block[]).reverse());
-          }
-        }
+      // Get total pages from a lightweight request
+      const metaRes = await fetch(`${nodeUrl}/chain?limit=${BLOCKS_PER_PAGE}`);
+      const metaJson = await metaRes.json();
+      if (!metaJson.success) return;
+
+      const totalApiPages = metaJson.data.total_pages || 1;
+      setBlocksTotalPages(totalApiPages);
+
+      // UI page 0 = newest blocks = last API page
+      const apiPage = Math.max(0, totalApiPages - 1 - uiPage);
+
+      if (apiPage === 0 && totalApiPages <= 1) {
+        // Only one page total, use the data we already fetched
+        setBlocks((metaJson.data.blocks as Block[]).reverse());
+        return;
+      }
+
+      const pageRes = await fetch(`${nodeUrl}/chain?limit=${BLOCKS_PER_PAGE}&page=${apiPage}`);
+      const pageJson = await pageRes.json();
+      if (pageJson.success) {
+        setBlocks((pageJson.data.blocks as Block[]).reverse());
       }
     } catch {
       // handled by stats error
@@ -214,7 +221,7 @@ export default function ExplorerPage() {
   useEffect(() => {
     if (tab === 'blocks' || tab === 'overview') {
       setBlocksPage(0);
-      fetchBlocks();
+      fetchBlocks(0);
     } else if (tab === 'mempool') {
       fetchMempool();
     }
@@ -326,7 +333,7 @@ export default function ExplorerPage() {
             <div>
               <h3 className="font-heading text-sm font-semibold text-space-400 tracking-wider mb-3">RECENT BLOCKS</h3>
               <div className="space-y-2">
-                {blocks.slice(0, 25).map((block) => (
+                {blocks.map((block) => (
                   <button
                     key={block.Index}
                     onClick={() => { setSelectedBlock(block); setTab('blocks'); }}
@@ -352,7 +359,7 @@ export default function ExplorerPage() {
         {/* Blocks Tab */}
         {tab === 'blocks' && !selectedBlock && (
           <div className="space-y-2">
-            {blocks.slice(blocksPage * BLOCKS_PER_PAGE, (blocksPage + 1) * BLOCKS_PER_PAGE).map((block) => (
+            {blocks.map((block) => (
               <button
                 key={block.Index}
                 onClick={() => fetchBlock(block.Index)}
@@ -372,24 +379,24 @@ export default function ExplorerPage() {
                 <div className="text-xs text-space-500 shrink-0 ml-2">{timeAgo(block.Timestamp)}</div>
               </button>
             ))}
-            {blocks.length > BLOCKS_PER_PAGE && (
+            {blocksTotalPages > 1 && (
               <div className="flex items-center justify-between pt-2">
                 <button
-                  onClick={() => setBlocksPage((p) => Math.max(0, p - 1))}
+                  onClick={() => { const p = blocksPage - 1; setBlocksPage(p); fetchBlocks(p); }}
                   disabled={blocksPage === 0}
                   className="px-4 py-2 rounded-lg bg-space-800 border border-space-700 text-sm text-space-400 hover:text-crystal-400 hover:border-crystal-500/30 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
                 >
-                  Previous
+                  ← Newer
                 </button>
                 <span className="text-xs text-space-500">
-                  Page {blocksPage + 1} of {Math.ceil(blocks.length / BLOCKS_PER_PAGE)}
+                  Page {blocksPage + 1} of {blocksTotalPages}
                 </span>
                 <button
-                  onClick={() => setBlocksPage((p) => Math.min(Math.ceil(blocks.length / BLOCKS_PER_PAGE) - 1, p + 1))}
-                  disabled={blocksPage >= Math.ceil(blocks.length / BLOCKS_PER_PAGE) - 1}
+                  onClick={() => { const p = blocksPage + 1; setBlocksPage(p); fetchBlocks(p); }}
+                  disabled={blocksPage >= blocksTotalPages - 1}
                   className="px-4 py-2 rounded-lg bg-space-800 border border-space-700 text-sm text-space-400 hover:text-crystal-400 hover:border-crystal-500/30 transition-colors disabled:opacity-30 disabled:cursor-not-allowed"
                 >
-                  Next
+                  Older →
                 </button>
               </div>
             )}
