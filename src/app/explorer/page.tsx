@@ -20,6 +20,8 @@ interface Transaction {
   to: string;
   amount: number;
   amount_dlt?: string;
+  fee?: number;
+  data?: string;
   timestamp: number;
   signature: string;
   block_index?: number;
@@ -470,6 +472,11 @@ export default function ExplorerPage() {
                           <div className="text-xs text-space-500 truncate">
                             To: <span className="font-mono text-crystal-400">{tx.to}</span>
                           </div>
+                          {tx.data && (
+                            <div className="text-xs text-space-500 truncate">
+                              Memo: <span className="text-amber-400/80">{tx.data}</span>
+                            </div>
+                          )}
                         </div>
                         <div className="font-heading font-bold text-white shrink-0">
                           {(tx.amount / 100000000).toFixed(8)} DLT
@@ -574,6 +581,12 @@ export default function ExplorerPage() {
                         {selectedTransaction.amount_dlt || (selectedTransaction.amount / 100000000).toFixed(8)} DLT
                       </span>
                     </div>
+                    {selectedTransaction.data && (
+                      <div className="flex flex-col gap-1">
+                        <span className="text-space-500">Memo</span>
+                        <span className="text-amber-400 bg-space-900/50 p-3 rounded border border-space-800">{selectedTransaction.data}</span>
+                      </div>
+                    )}
                     <div className="flex flex-col gap-1">
                       <span className="text-space-500">Timestamp</span>
                       <span className="text-white">{new Date(selectedTransaction.timestamp * 1000).toLocaleString()} ({timeAgo(selectedTransaction.timestamp)})</span>
@@ -673,6 +686,11 @@ export default function ExplorerPage() {
                             <div className="text-xs text-space-500">
                               Block #{tx.block_index} | {timeAgo(tx.timestamp)}
                             </div>
+                            {tx.data && (
+                              <div className="text-xs text-space-500 truncate">
+                                Memo: <span className="text-amber-400/80">{tx.data}</span>
+                              </div>
+                            )}
                           </div>
                           <div className={`font-heading font-bold shrink-0 ${tx.from === addressInfo.address ? 'text-red-400' : 'text-green-400'}`}>
                             {tx.from === addressInfo.address ? '-' : '+'}{tx.amount_dlt} DLT
