@@ -7,7 +7,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint",
-    "build:full": "cd ../dilithium-wallet && npm run build && cd ../dilithium-web && next build && cp -r ../dilithium-wallet/dist/ out/wallet/"
+    "build:full": "git clone https://github.com/arch-linux/dilithium-wallet.git /tmp/dilithium-wallet && cd /tmp/dilithium-wallet && npm ci && npm run build && cd - && next build && cp -r /tmp/dilithium-wallet/dist/ out/wallet/"
   },
   "dependencies": {
     "clsx": "^2.1.1",
