@@ -6,7 +6,8 @@
     "dev": "next dev",
     "build": "next build",
     "start": "next start",
-    "lint": "eslint"
+    "lint": "eslint",
+    "build:full": "cd ../dilithium-wallet && npm run build && cd ../dilithium-web && next build && cp -r ../dilithium-wallet/dist/ out/wallet/"
   },
   "dependencies": {
     "clsx": "^2.1.1",
