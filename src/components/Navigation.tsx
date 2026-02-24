@@ -12,6 +12,7 @@ const navLinks = [
   { label: 'Docs', href: '/docs' },
   { label: 'Whitepaper', href: '/whitepaper' },
   { label: 'Explorer', href: '/explorer' },
+  { label: 'Wallet', href: 'https://wallet.dilithiumcoin.com' },
 ];
 
 export default function Navigation() {
@@ -54,6 +55,7 @@ export default function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
+                {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 className="text-sm text-space-600 hover:text-crystal-400 transition-colors font-mono tracking-wide"
               >
                 {link.label}
@@ -92,6 +94,7 @@ export default function Navigation() {
               <a
                 key={link.href}
                 href={link.href}
+                {...(link.href.startsWith('http') ? { target: '_blank', rel: 'noopener noreferrer' } : {})}
                 onClick={() => setMobileOpen(false)}
                 className="text-sm text-space-600 hover:text-crystal-400 transition-colors font-mono py-2"
               >
