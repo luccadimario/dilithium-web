@@ -39,3 +39,9 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# dilithium-wallet nested build artifacts
+dilithium-wallet/node_modules
+dilithium-wallet/dist
+dilithium-wallet/.env.local
+dilithium-wallet/.wrangler

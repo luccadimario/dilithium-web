@@ -5,6 +5,7 @@ const resourceLinks = [
   { label: 'Documentation', href: '/docs' },
   { label: 'Block Explorer', href: '/explorer' },
   { label: 'Whitepaper', href: '#' },
+  { label: 'Wallet', href: 'https://wallet.dilithiumcoin.com' },
 ];
 
 const communityLinks = [

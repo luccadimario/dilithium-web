@@ -1,0 +1,3 @@
+module.exports=[53590,a=>{"use strict";function b({children:a}){return a}a.s(["default",()=>b,"metadata",0,{title:"Technical Whitepaper — Dilithium (DLT) Cryptocurrency",description:"The Dilithium technical whitepaper. Post-quantum CRYSTALS-Dilithium signatures, SHA-256 proof-of-work, Merkle tree block hashing, and 25M fixed supply.",keywords:["dilithium whitepaper","dilithium crypto whitepaper","quantum-safe cryptocurrency whitepaper","CRYSTALS-Dilithium blockchain","post-quantum proof of work","DLT whitepaper"]}])}];
+
+//# sourceMappingURL=src_app_whitepaper_layout_tsx_7a0d7a9a._.js.map

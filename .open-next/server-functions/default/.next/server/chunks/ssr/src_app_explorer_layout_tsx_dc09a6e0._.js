@@ -1,0 +1,3 @@
+module.exports=[37117,a=>{"use strict";function b({children:a}){return a}a.s(["default",()=>b,"metadata",0,{title:"Block Explorer — Dilithium (DLT) Cryptocurrency",description:"Explore the Dilithium blockchain. View blocks, transactions, addresses, and network stats in real time.",keywords:["dilithium block explorer","DLT explorer","dilithium blockchain explorer","dilithium transactions","dilithium network stats"]}])}];
+
+//# sourceMappingURL=src_app_explorer_layout_tsx_dc09a6e0._.js.map

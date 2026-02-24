@@ -1,0 +1,3 @@
+module.exports=[51008,a=>{"use strict";function b({children:a}){return a}a.s(["default",()=>b,"metadata",0,{title:"Documentation — Dilithium (DLT) Cryptocurrency",description:"Get started with Dilithium cryptocurrency. Download the node, wallet, and miner. Learn how to mine DLT, send transactions, and run a full node.",keywords:["dilithium docs","dilithium cryptocurrency download","DLT mining guide","how to mine dilithium","dilithium wallet","dilithium node setup","quantum-safe crypto mining"]}])}];
+
+//# sourceMappingURL=src_app_docs_layout_tsx_5f2d0dc2._.js.map

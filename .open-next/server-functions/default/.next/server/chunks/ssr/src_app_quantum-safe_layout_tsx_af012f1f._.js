@@ -1,0 +1,3 @@
+module.exports=[96616,a=>{"use strict";function b({children:a}){return a}a.s(["default",()=>b,"metadata",0,{title:"Quantum-Safe Cryptography — Dilithium (DLT) Cryptocurrency",description:"Why Dilithium is quantum-safe. CRYSTALS-Dilithium post-quantum signatures protect against quantum computing attacks on cryptocurrency.",keywords:["quantum-safe cryptocurrency","quantum resistant crypto","post-quantum blockchain","CRYSTALS-Dilithium signatures","quantum computing cryptocurrency threat","quantum proof crypto"]}])}];
+
+//# sourceMappingURL=src_app_quantum-safe_layout_tsx_af012f1f._.js.map
