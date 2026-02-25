@@ -4,8 +4,8 @@ const resourceLinks = [
   { label: 'GitHub', href: 'https://github.com/luccadimario/dilithiumcoin' },
   { label: 'Documentation', href: '/docs' },
   { label: 'Block Explorer', href: '/explorer' },
-  { label: 'Whitepaper', href: '#' },
-  { label: 'Wallet', href: 'https://wallet.dilithiumcoin.com' },
+  { label: 'Whitepaper', href: '/whitepaper' },
+  { label: 'Wallet App', href: '/wallet' },
 ];
 
 const communityLinks = [
@@ -19,7 +19,7 @@ export default function Footer() {
   return (
     <footer className="relative border-t border-crystal-500/10 bg-space-950/50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16">
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12">
           {/* Brand */}
           <div>
             <div className="flex items-center gap-2 mb-4">
@@ -31,10 +31,16 @@ export default function Footer() {
                 DILITHIUM
               </span>
             </div>
-            <p className="text-space-600 text-sm leading-relaxed max-w-xs">
-              A proof-of-work cryptocurrency built from scratch in Go.
+            <p className="text-space-600 text-sm leading-relaxed max-w-xs mb-4">
+              A quantum-safe, proof-of-work cryptocurrency built from scratch in Go.
               Powering the next frontier of decentralized computing.
             </p>
+            <a
+              href="mailto:dev@dilithiumcoin.com"
+              className="text-crystal-400 hover:text-crystal-300 transition-colors text-sm font-mono"
+            >
+              dev@dilithiumcoin.com
+            </a>
           </div>
 
           {/* Resources */}
@@ -72,6 +78,38 @@ export default function Footer() {
                   </a>
                 </li>
               ))}
+            </ul>
+          </div>
+
+          {/* Get Involved */}
+          <div>
+            <h4 className="font-heading text-sm font-semibold text-white tracking-wider uppercase mb-4">
+              Get Involved
+            </h4>
+            <ul className="space-y-2">
+              <li>
+                <a href="/#contact" className="text-space-600 hover:text-crystal-400 transition-colors text-sm">
+                  Work With Us
+                </a>
+              </li>
+              <li>
+                <a href="/#get-started" className="text-space-600 hover:text-crystal-400 transition-colors text-sm">
+                  Start Mining
+                </a>
+              </li>
+              <li>
+                <a href="/wallet" className="text-space-600 hover:text-crystal-400 transition-colors text-sm">
+                  Wallet App (PWA)
+                </a>
+              </li>
+              <li>
+                <a
+                  href="mailto:dev@dilithiumcoin.com"
+                  className="text-space-600 hover:text-crystal-400 transition-colors text-sm"
+                >
+                  dev@dilithiumcoin.com
+                </a>
+              </li>
             </ul>
           </div>
         </div>

@@ -5,6 +5,7 @@ import AboutSection from '@/components/AboutSection';
 import FeaturesSection from '@/components/FeaturesSection';
 import GetStartedSection from '@/components/GetStartedSection';
 import RoadmapSection from '@/components/RoadmapSection';
+import ContactSection from '@/components/ContactSection';
 import Footer from '@/components/Footer';
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <FeaturesSection />
         <GetStartedSection />
         <RoadmapSection />
+        <ContactSection />
       </main>
       <Footer />
     </>

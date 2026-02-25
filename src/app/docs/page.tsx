@@ -177,6 +177,11 @@ export default function DocsPage() {
                 <span className="text-crystal-400 font-mono font-bold">Desktop wallet:</span> The <span className="font-mono text-crystal-400">dilithium-wallet</span> GUI app provides the same seed phrase creation and restore flow with a graphical interface.
               </p>
             </div>
+            <div className="card-space p-4 mt-3 border-crystal-500/20">
+              <p className="text-sm text-space-600">
+                <span className="text-crystal-400 font-mono font-bold">PWA wallet:</span> A progressive web app is also available at <a href="/wallet" className="text-crystal-400 hover:text-crystal-300 transition-colors font-mono">/wallet</a> — use it from any browser to create wallets, check balances, and send DLT without installing anything.
+              </p>
+            </div>
           </div>
         </section>
 

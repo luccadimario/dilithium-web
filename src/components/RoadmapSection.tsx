@@ -40,10 +40,12 @@ const phases = [
     status: 'in-progress' as const,
     items: [
       { label: 'Desktop wallet application', done: true },
-      { label: 'Seed phrase backup & recovery', done: true },
+      { label: 'PWA wallet app', done: true },
+      { label: 'Seed phrase backup & recovery (BIP39)', done: true },
+      { label: 'Transaction memo / data field', done: true },
+      { label: 'Checksummed dlt1 addresses', done: true },
       { label: 'Developer documentation' },
       { label: 'Smart contract exploration' },
-      { label: 'Community governance framework' },
     ] as PhaseItem[],
   },
   {
