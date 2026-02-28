@@ -25,7 +25,7 @@ const steps = [
   {
     number: '02',
     title: 'Create Wallet',
-    description: 'Generate a quantum-safe wallet with a 24-word BIP39 recovery phrase. Use the CLI or the PWA wallet app at /wallet for a graphical interface. Write down your seed words — they are the only way to restore your wallet.',
+    description: 'Generate a quantum-safe wallet with a 24-word BIP39 recovery phrase. Use the CLI or the PWA wallet app at wallet.dilithiumcoin.com for a graphical interface. Write down your seed words — they are the only way to restore your wallet.',
     commands: ['./dilithium-cli init'],
     hasWalletLink: true,
   },
@@ -164,7 +164,7 @@ export default function GetStartedSection() {
                     ))}
                     {'hasWalletLink' in step && step.hasWalletLink && (
                       <a
-                        href="/wallet"
+                        href="https://wallet.dilithiumcoin.com"
                         className="inline-flex items-center gap-2 px-4 py-2 rounded-lg bg-nebula-500/10 border border-nebula-500/20 text-nebula-400 hover:bg-nebula-500/20 hover:border-nebula-500/40 transition-all text-xs font-medium mt-1"
                       >
                         <svg className="w-3.5 h-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>

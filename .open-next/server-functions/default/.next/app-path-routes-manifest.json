@@ -1,6 +1,7 @@
 {
   "/_global-error/page": "/_global-error",
   "/_not-found/page": "/_not-found",
+  "/api/miner-proxy/[...path]/route": "/api/miner-proxy/[...path]",
   "/docs/page": "/docs",
   "/explorer/page": "/explorer",
   "/favicon.ico/route": "/favicon.ico",

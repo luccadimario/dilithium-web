@@ -1,0 +1,432 @@
+@import url('https://fonts.googleapis.com/css2?family=Orbitron:wght@400;500;600;700;800;900&family=Space+Mono:wght@400;700&display=swap');
+
+:root {
+    --space-950: #030712;
+    --space-900: #0a0f1e;
+    --space-800: #111827;
+    --space-700: #1e293b;
+    --space-600: #8494a7;
+    --crystal-400: #22d3ee;
+    --crystal-500: #00bfef;
+    --crystal-600: #0891b2;
+    --crystal-700: #0e7490;
+    --nebula-400: #c084fc;
+    --nebula-500: #a855f7;
+    --nebula-600: #9333ea;
+    --green: #00e676;
+    --red: #ff5252;
+    --yellow: #ffd740;
+    --foreground: #e2e8f0;
+}
+
+* { box-sizing: border-box; margin: 0; padding: 0; }
+
+::selection {
+    background: rgba(0, 191, 239, 0.3);
+    color: #fff;
+}
+
+::-webkit-scrollbar { width: 6px; }
+::-webkit-scrollbar-track { background: var(--space-950); }
+::-webkit-scrollbar-thumb { background: var(--space-700); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: var(--crystal-600); }
+
+body {
+    background: var(--space-950);
+    color: var(--foreground);
+    font-family: 'Space Mono', monospace, sans-serif;
+    min-height: 100vh;
+    overflow-x: hidden;
+}
+
+/* ===== Starfield Canvas ===== */
+#starfield {
+    position: fixed;
+    inset: 0;
+    z-index: 0;
+    pointer-events: none;
+}
+
+/* ===== Mining Animation Canvas ===== */
+#mining-canvas {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 400px;
+    z-index: 1;
+    pointer-events: none;
+}
+
+/* ===== Layout ===== */
+.app-container {
+    position: relative;
+    z-index: 2;
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 0 20px 40px;
+}
+
+/* ===== Header ===== */
+.header {
+    text-align: center;
+    padding: 30px 0 10px;
+    position: relative;
+}
+
+.header-logo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 14px;
+    margin-bottom: 6px;
+}
+
+.header-logo svg {
+    filter: drop-shadow(0 0 12px rgba(0, 191, 239, 0.5));
+    animation: pulse-glow 2s ease-in-out infinite;
+}
+
+.header h1 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.6rem;
+    font-weight: 800;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    background: linear-gradient(135deg, var(--crystal-400), var(--crystal-500), var(--crystal-600));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.header .subtitle {
+    font-family: 'Space Mono', monospace;
+    color: var(--space-600);
+    font-size: 0.7rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 2px;
+}
+
+/* ===== Trek Quote Banner ===== */
+.quote-banner {
+    text-align: center;
+    padding: 10px 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.75rem;
+    color: var(--nebula-400);
+    font-style: italic;
+    opacity: 0;
+    transition: opacity 0.6s ease;
+    min-height: 32px;
+}
+.quote-banner.visible { opacity: 1; }
+
+/* ===== Cards ===== */
+.card {
+    background: linear-gradient(135deg, rgba(17, 24, 39, 0.8), rgba(30, 41, 59, 0.4));
+    border: 1px solid rgba(0, 191, 239, 0.12);
+    border-radius: 12px;
+    padding: 20px;
+    margin-bottom: 14px;
+    backdrop-filter: blur(8px);
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
+}
+.card:hover {
+    border-color: rgba(0, 191, 239, 0.25);
+    box-shadow: 0 0 20px rgba(0, 191, 239, 0.05);
+}
+
+.card h2 {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.65rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    color: var(--crystal-600);
+    margin-bottom: 14px;
+}
+
+/* ===== Form ===== */
+.form-row {
+    display: flex;
+    gap: 10px;
+    margin-bottom: 10px;
+}
+
+.form-group {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+.form-group label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.55rem;
+    font-weight: 500;
+    color: var(--space-600);
+    margin-bottom: 4px;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+}
+
+input, select {
+    background: rgba(3, 7, 18, 0.8);
+    border: 1px solid rgba(0, 191, 239, 0.15);
+    border-radius: 6px;
+    color: var(--foreground);
+    padding: 10px 12px;
+    font-size: 0.8rem;
+    font-family: 'Space Mono', monospace;
+    outline: none;
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus, select:focus {
+    border-color: rgba(0, 191, 239, 0.5);
+    box-shadow: 0 0 0 2px rgba(0, 191, 239, 0.1);
+}
+
+input::placeholder { color: #334155; }
+
+select option {
+    background: var(--space-900);
+    color: var(--foreground);
+}
+
+/* ===== Button ===== */
+.btn {
+    font-family: 'Orbitron', sans-serif;
+    font-weight: 700;
+    font-size: 0.85rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    width: 100%;
+    padding: 14px 32px;
+    border: 1px solid rgba(0, 191, 239, 0.3);
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.25s ease;
+    background: linear-gradient(135deg, var(--crystal-500), var(--crystal-600));
+    color: #fff;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn::after {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(135deg, transparent, rgba(255,255,255,0.1), transparent);
+    transform: translateX(-100%);
+    transition: transform 0.5s ease;
+}
+.btn:hover::after { transform: translateX(100%); }
+
+.btn:hover {
+    box-shadow: 0 0 25px rgba(0, 191, 239, 0.4), 0 0 50px rgba(0, 191, 239, 0.15);
+    transform: translateY(-1px);
+}
+
+.btn:disabled {
+    opacity: 0.4;
+    cursor: not-allowed;
+    transform: none;
+}
+
+.btn.mining {
+    background: linear-gradient(135deg, #ff5252, #d32f2f);
+    border-color: rgba(255, 82, 82, 0.4);
+    animation: btn-pulse 2s ease-in-out infinite;
+}
+.btn.mining:hover {
+    box-shadow: 0 0 25px rgba(255, 82, 82, 0.4), 0 0 50px rgba(255, 82, 82, 0.15);
+}
+
+@keyframes btn-pulse {
+    0%, 100% { box-shadow: 0 0 10px rgba(255, 82, 82, 0.2); }
+    50% { box-shadow: 0 0 25px rgba(255, 82, 82, 0.4); }
+}
+
+.consent-notice {
+    font-size: 0.6rem;
+    color: var(--space-600);
+    text-align: center;
+    margin-top: 8px;
+    line-height: 1.5;
+    letter-spacing: 0.5px;
+}
+
+/* ===== Stats Grid ===== */
+.stats-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px;
+}
+
+.stat-box {
+    text-align: center;
+    padding: 14px 8px;
+    background: rgba(3, 7, 18, 0.6);
+    border: 1px solid rgba(0, 191, 239, 0.08);
+    border-radius: 8px;
+    transition: border-color 0.2s;
+}
+.stat-box:hover { border-color: rgba(0, 191, 239, 0.2); }
+
+.stat-box .value {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 700;
+    background: linear-gradient(135deg, var(--crystal-400), var(--green));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+}
+
+.stat-box .label {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.5rem;
+    font-weight: 500;
+    color: var(--space-600);
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    margin-top: 4px;
+}
+
+/* ===== Thread Hashrates ===== */
+.thread-hashrates {
+    margin-top: 10px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+}
+
+.thread-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.6rem;
+    padding: 3px 8px;
+    background: rgba(3, 7, 18, 0.6);
+    border: 1px solid rgba(0, 191, 239, 0.1);
+    border-radius: 4px;
+    color: var(--crystal-400);
+}
+
+/* ===== Status ===== */
+.status-bar {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 10px 14px;
+    background: rgba(3, 7, 18, 0.6);
+    border: 1px solid rgba(0, 191, 239, 0.08);
+    border-radius: 6px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--space-600);
+    word-break: break-all;
+}
+
+.status-dot {
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    background: var(--space-600);
+    flex-shrink: 0;
+    transition: all 0.3s;
+}
+
+.status-dot.connected {
+    background: var(--green);
+    box-shadow: 0 0 8px var(--green);
+}
+
+.status-dot.mining {
+    background: var(--crystal-500);
+    box-shadow: 0 0 8px var(--crystal-500);
+    animation: dot-pulse 1.5s ease-in-out infinite;
+}
+
+.status-dot.error {
+    background: var(--red);
+    box-shadow: 0 0 8px var(--red);
+}
+
+@keyframes dot-pulse {
+    0%, 100% { opacity: 1; box-shadow: 0 0 8px var(--crystal-500); }
+    50% { opacity: 0.4; box-shadow: 0 0 3px var(--crystal-500); }
+}
+
+/* ===== Log Terminal ===== */
+.log-area {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    color: var(--space-600);
+    max-height: 200px;
+    overflow-y: auto;
+    padding: 12px;
+    background: rgba(3, 7, 18, 0.8);
+    border-radius: 6px;
+    border: 1px solid rgba(0, 191, 239, 0.08);
+    margin-top: 10px;
+    line-height: 1.6;
+}
+
+.log-entry { padding: 1px 0; }
+.log-entry.success { color: var(--green); }
+.log-entry.error { color: var(--red); }
+.log-entry.quote {
+    color: var(--nebula-400);
+    font-style: italic;
+}
+.log-entry .timestamp { color: #334155; }
+
+/* ===== Footer ===== */
+footer {
+    text-align: center;
+    padding: 20px;
+    border-top: 1px solid rgba(0, 191, 239, 0.06);
+    margin-top: 10px;
+}
+footer a {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 0.6rem;
+    color: var(--crystal-600);
+    text-decoration: none;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: color 0.2s;
+}
+footer a:hover { color: var(--crystal-400); }
+
+/* ===== Pool fields ===== */
+.pool-fields { display: none; }
+.pool-fields.visible { display: block; }
+
+/* ===== Animations ===== */
+@keyframes pulse-glow {
+    0%, 100% { filter: drop-shadow(0 0 8px rgba(0, 191, 239, 0.4)); }
+    50% { filter: drop-shadow(0 0 20px rgba(0, 191, 239, 0.8)); }
+}
+
+@keyframes fade-in-up {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.card {
+    animation: fade-in-up 0.6s ease-out both;
+}
+.card:nth-child(1) { animation-delay: 0.05s; }
+.card:nth-child(2) { animation-delay: 0.1s; }
+.card:nth-child(3) { animation-delay: 0.15s; }
+.card:nth-child(4) { animation-delay: 0.2s; }
+
+/* ===== Responsive ===== */
+@media (max-width: 600px) {
+    .form-row { flex-direction: column; }
+    .stats-grid { grid-template-columns: repeat(2, 1fr); }
+    .app-container { padding: 0 12px 30px; }
+    .header h1 { font-size: 1.2rem; letter-spacing: 2px; }
+    #mining-canvas { height: 280px; }
+}

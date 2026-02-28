@@ -7,6 +7,10 @@ compatibility_flags = ["nodejs_compat"]
 pattern = "dilithiumcoin.com"
 custom_domain = true
 
+[[routes]]
+pattern = "miner.dilithiumcoin.com"
+custom_domain = true
+
 [assets]
 directory = ".open-next/assets"
 binding = "ASSETS"

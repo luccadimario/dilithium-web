@@ -10,7 +10,8 @@ const navLinks = [
   { label: 'Docs', href: '/docs' },
   { label: 'Whitepaper', href: '/whitepaper' },
   { label: 'Explorer', href: '/explorer' },
-  { label: 'Wallet', href: '/wallet' },
+  { label: 'Wallet', href: 'https://wallet.dilithiumcoin.com' },
+  { label: 'Web Miner', href: 'https://miner.dilithiumcoin.com' },
 ];
 
 export default function Navigation() {

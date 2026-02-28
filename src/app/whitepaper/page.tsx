@@ -3,7 +3,6 @@
 import Navigation from '@/components/Navigation';
 import Footer from '@/components/Footer';
 import StarfieldBackground from '@/components/StarfieldBackground';
-import { useReveal } from '@/components/useReveal';
 
 function Table({ headers, rows }: { headers: string[]; rows: string[][] }) {
   return (
@@ -39,8 +38,6 @@ function Code({ children }: { children: string }) {
 }
 
 export default function WhitepaperPage() {
-  const hero = useReveal(0.1, { initiallyVisible: true });
-
   return (
     <>
       <StarfieldBackground />
@@ -50,8 +47,7 @@ export default function WhitepaperPage() {
         {/* Hero */}
         <section className="flex items-center justify-center pt-28 pb-10">
           <div
-            ref={hero.ref}
-            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal ${hero.visible ? 'visible' : ''}`}
+            className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
           >
             <div className="inline-block px-4 py-1.5 rounded-full border border-crystal-500/30 bg-crystal-500/5 text-crystal-400 text-xs font-mono tracking-widest uppercase mb-8">
               Technical Paper

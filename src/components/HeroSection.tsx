@@ -2,7 +2,6 @@
 
 import DilithiumCrystal from './DilithiumCrystal';
 import WarpSpeedLines from './WarpSpeedLines';
-import { useReveal } from './useReveal';
 
 const stats = [
   { label: 'Max Supply', value: '25M', unit: 'DLT' },
@@ -11,23 +10,18 @@ const stats = [
 ];
 
 export default function HeroSection() {
-  const crystal = useReveal(0.1, { initiallyVisible: true });
-  const text = useReveal(0.1, { initiallyVisible: true });
-  const buttons = useReveal(0.1, { initiallyVisible: true });
-  const statCards = useReveal(0.1, { initiallyVisible: true });
-
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">
       <WarpSpeedLines />
 
       <div className="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
         <div className="flex flex-col lg:flex-row items-center gap-12 lg:gap-20">
-          <div ref={crystal.ref} className={`flex-shrink-0 reveal ${crystal.visible ? 'visible' : ''}`}>
+          <div className="flex-shrink-0">
             <DilithiumCrystal size={180} />
           </div>
 
           <div className="text-center lg:text-left flex-1">
-            <div ref={text.ref} className={`reveal ${text.visible ? 'visible' : ''}`}>
+            <div>
               <h1 className="font-heading text-5xl sm:text-6xl lg:text-7xl font-black tracking-wider mb-4">
                 <span className="text-gradient-crystal">DILITHIUM</span>
               </h1>
@@ -41,10 +35,7 @@ export default function HeroSection() {
               </p>
             </div>
 
-            <div
-              ref={buttons.ref}
-              className={`flex flex-wrap gap-4 justify-center lg:justify-start mb-12 reveal ${buttons.visible ? 'visible' : ''}`}
-            >
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start mb-12">
               <a href="#get-started" className="btn-primary">
                 Start Mining
               </a>
@@ -53,10 +44,7 @@ export default function HeroSection() {
               </a>
             </div>
 
-            <div
-              ref={statCards.ref}
-              className={`flex flex-wrap gap-4 justify-center lg:justify-start reveal ${statCards.visible ? 'visible' : ''}`}
-            >
+            <div className="flex flex-wrap gap-4 justify-center lg:justify-start">
               {stats.map((stat) => (
                 <div
                   key={stat.label}

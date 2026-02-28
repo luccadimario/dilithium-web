@@ -101,7 +101,7 @@
         "transform": "lodash/{{member}}"
       }
     },
-    "outputFileTracingRoot": "/home/lucca/dilithium-web",
+    "outputFileTracingRoot": "/Users/archlinuxusa/Desktop/dilithium-web",
     "cacheComponents": false,
     "cacheLife": {
       "default": {
@@ -158,7 +158,7 @@
       "proxyPrefetch": "flexible",
       "optimisticClientCache": true,
       "manualClientBasePath": false,
-      "cpus": 11,
+      "cpus": 9,
       "memoryBasedWorkersCount": false,
       "imgOptConcurrency": null,
       "imgOptTimeoutInSeconds": 7,
@@ -294,11 +294,11 @@
     "bundlePagesRouterDependencies": false,
     "configFileName": "next.config.ts",
     "turbopack": {
-      "root": "/home/lucca/dilithium-web"
+      "root": "/Users/archlinuxusa/Desktop/dilithium-web"
     },
     "distDirRoot": ".next"
   },
-  "appDir": "/home/lucca/dilithium-web",
+  "appDir": "/Users/archlinuxusa/Desktop/dilithium-web",
   "relativeAppDir": "",
   "files": [
     ".next/routes-manifest.json",

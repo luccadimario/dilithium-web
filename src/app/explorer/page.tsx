@@ -278,13 +278,12 @@ function Sparkline({ data, color = '#22d3ee', height = 24, width = 64 }: { data:
 
 // ─── Stat Card with Sparkline ────────────────────────────────
 
-function StatCard({ label, value, icon, accent = 'crystal', onClick, delay = 0, sparkData }: {
+function StatCard({ label, value, icon, accent = 'crystal', onClick, sparkData }: {
   label: string;
   value: string | number;
   icon: React.ReactNode;
   accent?: 'crystal' | 'nebula' | 'green' | 'amber';
   onClick?: () => void;
-  delay?: number;
   sparkData?: number[];
 }) {
   const accentColors = {
@@ -296,10 +295,7 @@ function StatCard({ label, value, icon, accent = 'crystal', onClick, delay = 0, 
   const a = accentColors[accent];
 
   return (
-    <motion.button
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4, delay }}
+    <button
       onClick={onClick}
       disabled={!onClick}
       className={`relative overflow-hidden rounded-xl border border-space-700/60 bg-gradient-to-br from-space-900/80 to-space-800/40 backdrop-blur-sm p-4 text-left transition-all duration-300 ${a.border} ${a.glow} ${onClick ? 'cursor-pointer' : 'cursor-default'} group`}
@@ -320,18 +316,15 @@ function StatCard({ label, value, icon, accent = 'crystal', onClick, delay = 0, 
         </div>
       )}
       <div className="absolute inset-0 bg-gradient-to-br from-crystal-500/0 to-crystal-500/0 group-hover:from-crystal-500/[0.02] group-hover:to-transparent transition-all duration-500 pointer-events-none" />
-    </motion.button>
+    </button>
   );
 }
 
 // ─── Block Row ───────────────────────────────────────────────
 
-function BlockRow({ block, onClick, index = 0 }: { block: Block; onClick: () => void; index?: number }) {
+function BlockRow({ block, onClick }: { block: Block; onClick: () => void; index?: number }) {
   return (
-    <motion.button
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.03 }}
+    <button
       onClick={onClick}
       className="w-full group rounded-xl border border-space-700/40 bg-gradient-to-r from-space-900/60 to-space-800/30 p-4 flex items-center justify-between text-left transition-all duration-200 hover:border-crystal-500/30 hover:bg-space-800/40"
     >
@@ -363,22 +356,19 @@ function BlockRow({ block, onClick, index = 0 }: { block: Block; onClick: () => 
           <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
         </svg>
       </div>
-    </motion.button>
+    </button>
   );
 }
 
 // ─── Transaction Row ─────────────────────────────────────────
 
-function TxRow({ tx, onClick, contextAddress, index = 0 }: { tx: Transaction; onClick: () => void; contextAddress?: string; index?: number }) {
+function TxRow({ tx, onClick, contextAddress }: { tx: Transaction; onClick: () => void; contextAddress?: string; index?: number }) {
   const isSend = contextAddress && tx.from === contextAddress;
   const isReceive = contextAddress && tx.from !== contextAddress;
   const isCoinbase = tx.from === '' || tx.from === 'SYSTEM';
 
   return (
-    <motion.button
-      initial={{ opacity: 0, x: -20 }}
-      animate={{ opacity: 1, x: 0 }}
-      transition={{ duration: 0.3, delay: index * 0.03 }}
+    <button
       onClick={onClick}
       className="w-full group rounded-xl border border-space-700/40 bg-gradient-to-r from-space-900/60 to-space-800/30 p-4 text-left transition-all duration-200 hover:border-crystal-500/30 hover:bg-space-800/40"
     >
@@ -420,7 +410,7 @@ function TxRow({ tx, onClick, contextAddress, index = 0 }: { tx: Transaction; on
           {isSend ? '-' : isReceive ? '+' : ''}{tx.amount_dlt || formatDlt(tx.amount)} DLT
         </div>
       </div>
-    </motion.button>
+    </button>
   );
 }
 
@@ -433,10 +423,7 @@ function SupplyBar({ stats }: { stats: Stats }) {
   const reward = stats.supply?.current_block_reward ?? '—';
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: 20 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.5, delay: 0.3 }}
+    <div
       className="rounded-xl border border-space-700/60 bg-gradient-to-br from-space-900/80 to-space-800/40 p-5"
     >
       <div className="flex items-center justify-between mb-3">
@@ -447,7 +434,7 @@ function SupplyBar({ stats }: { stats: Stats }) {
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${pct}%` }}
-          transition={{ duration: 1.5, ease: 'easeOut', delay: 0.5 }}
+          transition={{ duration: 1.5, ease: 'easeOut' }}
           className="h-full rounded-full bg-gradient-to-r from-crystal-600 via-crystal-400 to-nebula-400 relative"
         >
           <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/20 to-transparent animate-[shimmer_2s_infinite]" />
@@ -467,7 +454,7 @@ function SupplyBar({ stats }: { stats: Stats }) {
           <div className="text-white font-medium">{reward} DLT</div>
         </div>
       </div>
-    </motion.div>
+    </div>
   );
 }
 
@@ -981,10 +968,7 @@ function SearchBar({ onSearchBlock, onSearchTx, onSearchAddress }: {
   };
 
   return (
-    <motion.div
-      initial={{ opacity: 0, y: -10 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.4 }}
+    <div
       className={`relative flex items-center rounded-xl border transition-all duration-300 ${
         focused
           ? 'border-crystal-500/50 shadow-[0_0_20px_rgba(0,191,239,0.1)] bg-space-900'
@@ -1010,7 +994,7 @@ function SearchBar({ onSearchBlock, onSearchTx, onSearchAddress }: {
       >
         Search
       </button>
-    </motion.div>
+    </div>
   );
 }
 
@@ -1509,7 +1493,6 @@ function ExplorerInner() {
                     icon={s.icon}
                     accent={s.accent}
                     onClick={s.onClick}
-                    delay={i * 0.05}
                     sparkData={s.sparkData}
                   />
                 ))}

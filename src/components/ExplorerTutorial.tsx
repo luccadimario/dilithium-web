@@ -95,10 +95,19 @@ function ChainVisual({ activeBlock }: { activeBlock: number }) {
     { index: 3, label: 'Block 3', hash: '000000f7e41...', prev: '000000a19c2...' },
   ];
 
+  const blockRefs = useRef<(HTMLDivElement | null)[]>([]);
+
+  useEffect(() => {
+    const el = blockRefs.current[activeBlock];
+    if (el) {
+      el.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+    }
+  }, [activeBlock]);
+
   return (
     <div className="flex items-center gap-0 overflow-x-auto py-4 px-2 scrollbar-none">
       {blocks.map((b, i) => (
-        <div key={b.index} className="flex items-center shrink-0">
+        <div key={b.index} ref={el => { blockRefs.current[i] = el; }} className="flex items-center shrink-0">
           <motion.div
             initial={{ opacity: 0, scale: 0.8 }}
             animate={{

@@ -26,7 +26,6 @@ const timelineEvents = [
 ];
 
 export default function QuantumSafePage() {
-  const hero = useReveal(0.1, { initiallyVisible: true });
   const problem = useReveal();
   const comparison = useReveal();
   const timeline = useReveal();
@@ -42,8 +41,7 @@ export default function QuantumSafePage() {
         {/* Hero */}
         <section className="min-h-[70vh] flex items-center justify-center pt-24 pb-16">
           <div
-            ref={hero.ref}
-            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal ${hero.visible ? 'visible' : ''}`}
+            className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
           >
             <div className="inline-block px-4 py-1.5 rounded-full border border-crystal-500/30 bg-crystal-500/5 text-crystal-400 text-xs font-mono tracking-widest uppercase mb-8">
               Post-Quantum Cryptography

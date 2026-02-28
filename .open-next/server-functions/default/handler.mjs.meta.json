@@ -3587,7 +3587,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/page_client-reference-manifest.js": {
-      "bytes": 10954,
+      "bytes": 12301,
       "imports": [],
       "format": "cjs"
     },
@@ -3601,13 +3601,13 @@
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/app/docs/page_client-reference-manifest.js": {
-      "bytes": 6668,
+    ".open-next/server-functions/default/.next/server/app/explorer/page_client-reference-manifest.js": {
+      "bytes": 6979,
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/app/explorer/page_client-reference-manifest.js": {
-      "bytes": 6788,
+    ".open-next/server-functions/default/.next/server/app/docs/page_client-reference-manifest.js": {
+      "bytes": 6668,
       "imports": [],
       "format": "cjs"
     },
@@ -3621,8 +3621,13 @@
       "imports": [],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/app/api/miner-proxy/[...path]/route_client-reference-manifest.js": {
+      "bytes": 328,
+      "imports": [],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/node_modules/next/dist/server/load-manifest.external.js": {
-      "bytes": 25130,
+      "bytes": 27187,
       "imports": [
         {
           "path": "path",
@@ -3647,37 +3652,75 @@
         {
           "path": ".open-next/server-functions/default/.next/server/app/page_client-reference-manifest.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/page_client-reference-manifest.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/page_client-reference-manifest.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/whitepaper/page_client-reference-manifest.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/whitepaper/page_client-reference-manifest.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/whitepaper/page_client-reference-manifest.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/quantum-safe/page_client-reference-manifest.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/quantum-safe/page_client-reference-manifest.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/app/docs/page_client-reference-manifest.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/docs/page_client-reference-manifest.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/quantum-safe/page_client-reference-manifest.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/explorer/page_client-reference-manifest.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/explorer/page_client-reference-manifest.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/explorer/page_client-reference-manifest.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/app/docs/page_client-reference-manifest.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/docs/page_client-reference-manifest.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/app/api/miner-proxy/[...path]/route_client-reference-manifest.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/api/miner-proxy/[...path]/route_client-reference-manifest.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js": {
+      "bytes": 890,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/no-fallback-error.external.js",
+          "kind": "require-call",
+          "original": "next/dist/shared/lib/no-fallback-error.external.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage-instance.js": {
+      "bytes": 475,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/async-local-storage.js",
+          "kind": "require-call",
+          "original": "./async-local-storage"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js": {
+      "bytes": 443,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage-instance.js",
+          "kind": "require-call",
+          "original": "./dynamic-access-async-storage-instance"
         }
       ],
       "format": "cjs"
@@ -3893,7 +3936,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js": {
-      "bytes": 518925,
+      "bytes": 518941,
       "imports": [
         {
           "path": "url",
@@ -4028,99 +4071,35 @@
         {
           "path": ".open-next/server-functions/default/cache.cjs",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/cache.cjs"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/cache.cjs"
         }
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage-instance.js": {
-      "bytes": 475,
-      "imports": [
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/async-local-storage.js",
-          "kind": "require-call",
-          "original": "./async-local-storage"
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js": {
-      "bytes": 443,
-      "imports": [
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage-instance.js",
-          "kind": "require-call",
-          "original": "./dynamic-access-async-storage-instance"
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__04fb177e._.js": {
-      "bytes": 3300,
-      "imports": [
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
-          "kind": "require-call",
-          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/work-async-storage.external.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-unit-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/work-unit-async-storage.external.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/after-task-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/after-task-async-storage.external.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/action-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/action-async-storage.external.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/dynamic-access-async-storage.external.js"
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js": {
-      "bytes": 890,
-      "imports": [
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/no-fallback-error.external.js",
-          "kind": "require-call",
-          "original": "next/dist/shared/lib/no-fallback-error.external.js"
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__65640f74._.js": {
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5c654961._.js": {
       "bytes": 1946,
       "imports": [
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
-          "kind": "require-call",
-          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/work-async-storage.external.js"
-        },
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/@opentelemetry/api/index.js",
           "kind": "require-call",
           "original": "next/dist/compiled/@opentelemetry/api"
         },
         {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/dynamic-access-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
+          "kind": "require-call",
+          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/work-async-storage.external.js"
+        },
+        {
           "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-unit-async-storage.external.js",
           "kind": "require-call",
           "original": "next/dist/server/app-render/work-unit-async-storage.external.js"
@@ -4134,11 +4113,6 @@
           "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/action-async-storage.external.js",
           "kind": "require-call",
           "original": "next/dist/server/app-render/action-async-storage.external.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/dynamic-access-async-storage.external.js"
         }
       ],
       "format": "cjs"
@@ -4164,6 +4138,42 @@
       "imports": [],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ea8f6002._.js": {
+      "bytes": 3476,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/dynamic-access-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
+          "kind": "require-call",
+          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/work-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-unit-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/work-unit-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/after-task-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/after-task-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/action-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/action-async-storage.external.js"
+        }
+      ],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js": {
       "bytes": 19050,
       "imports": [],
@@ -4174,13 +4184,13 @@
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js": {
-      "bytes": 59231,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_27457240._.js": {
+      "bytes": 45660,
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_82db42d6._.js": {
-      "bytes": 45836,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js": {
+      "bytes": 59231,
       "imports": [],
       "format": "cjs"
     },
@@ -4206,7 +4216,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_5b2047f8._.js": {
-      "bytes": 221,
+      "bytes": 219,
       "imports": [],
       "format": "cjs"
     },
@@ -4237,8 +4247,8 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1beb892d._.js": {
-      "bytes": 1544,
+    ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__2f766ab6._.js": {
+      "bytes": 8167,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
@@ -4259,205 +4269,6 @@
           "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/after-task-async-storage.external.js",
           "kind": "require-call",
           "original": "next/dist/server/app-render/after-task-async-storage.external.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/action-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/action-async-storage.external.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/dynamic-access-async-storage.external.js"
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8e4c1d2c._.js": {
-      "bytes": 8346,
-      "imports": [
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
-          "kind": "require-call",
-          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a457c799._.js": {
-      "bytes": 2319,
-      "imports": [
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
-          "kind": "require-call",
-          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/work-async-storage.external.js"
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5875496._.js": {
-      "bytes": 1310,
-      "imports": [
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/no-fallback-error.external.js",
-          "kind": "require-call",
-          "original": "next/dist/shared/lib/no-fallback-error.external.js"
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__f8386f37._.js": {
-      "bytes": 1581,
-      "imports": [
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
-          "kind": "require-call",
-          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/work-async-storage.external.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/@opentelemetry/api/index.js",
-          "kind": "require-call",
-          "original": "next/dist/compiled/@opentelemetry/api"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-unit-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/work-unit-async-storage.external.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/after-task-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/after-task-async-storage.external.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/action-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/action-async-storage.external.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/dynamic-access-async-storage.external.js"
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_d5293b23._.js": {
-      "bytes": 17695,
-      "imports": [
-        {
-          "path": "path",
-          "kind": "require-call",
-          "external": true
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_docs_page_actions_c3e6081b.js": {
-      "bytes": 117,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_ece394eb.js": {
-      "bytes": 482,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js": {
-      "bytes": 638,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_layout_tsx_5f2d0dc2._.js": {
-      "bytes": 570,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_page_tsx_5e125502._.js": {
-      "bytes": 29869,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__595c234a._.js": {
-      "bytes": 1323,
-      "imports": [
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/no-fallback-error.external.js",
-          "kind": "require-call",
-          "original": "next/dist/shared/lib/no-fallback-error.external.js"
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__d143f79e._.js": {
-      "bytes": 663,
-      "imports": [
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
-          "kind": "require-call",
-          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_37359b6b._.js": {
-      "bytes": 17716,
-      "imports": [
-        {
-          "path": "path",
-          "kind": "require-call",
-          "external": true
-        }
-      ],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_662a7804._.js": {
-      "bytes": 100757,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_explorer_page_actions_d199fa96.js": {
-      "bytes": 121,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_explorer_layout_tsx_dc09a6e0._.js": {
-      "bytes": 493,
-      "imports": [],
-      "format": "cjs"
-    },
-    ".open-next/server-functions/default/.next/server/chunks/[externals]_next_dist_03fe02e0._.js": {
-      "bytes": 1055,
-      "imports": [
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-unit-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/work-unit-async-storage.external.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/after-task-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/after-task-async-storage.external.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
-          "kind": "require-call",
-          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-async-storage.external.js",
-          "kind": "require-call",
-          "original": "next/dist/server/app-render/work-async-storage.external.js"
         },
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/@opentelemetry/api/index.js",
@@ -4473,7 +4284,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js": {
-      "bytes": 153829,
+      "bytes": 153845,
       "imports": [
         {
           "path": "url",
@@ -4558,7 +4369,7 @@
         {
           "path": ".open-next/server-functions/default/cache.cjs",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/cache.cjs"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/cache.cjs"
         },
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/after-task-async-storage.external.js",
@@ -4578,8 +4389,8 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__206abf59._.js": {
-      "bytes": 187673,
+    ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__f408c708._.js": {
+      "bytes": 148814,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js",
@@ -4589,13 +4400,54 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_favicon_ico_route_actions_353150a5.js": {
-      "bytes": 125,
+    ".open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_api_miner-proxy_[___path]_route_actions_2c3fd8cf.js": {
+      "bytes": 143,
       "imports": [],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a9cf89c9._.js": {
-      "bytes": 8346,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bcbb36f._.js": {
+      "bytes": 1581,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/@opentelemetry/api/index.js",
+          "kind": "require-call",
+          "original": "next/dist/compiled/@opentelemetry/api"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/dynamic-access-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
+          "kind": "require-call",
+          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/work-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-unit-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/work-unit-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/after-task-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/after-task-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/action-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/action-async-storage.external.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8e4c1d2c._.js": {
+      "bytes": 9381,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
@@ -4605,8 +4457,232 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ff9a004a._.js": {
-      "bytes": 8713,
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a457c799._.js": {
+      "bytes": 2319,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
+          "kind": "require-call",
+          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/work-async-storage.external.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b518868f._.js": {
+      "bytes": 1720,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/dynamic-access-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
+          "kind": "require-call",
+          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/work-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-unit-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/work-unit-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/after-task-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/after-task-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/action-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/action-async-storage.external.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5875496._.js": {
+      "bytes": 1310,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/no-fallback-error.external.js",
+          "kind": "require-call",
+          "original": "next/dist/shared/lib/no-fallback-error.external.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_d5293b23._.js": {
+      "bytes": 17695,
+      "imports": [
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_docs_page_actions_c3e6081b.js": {
+      "bytes": 117,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_ece394eb.js": {
+      "bytes": 482,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js": {
+      "bytes": 638,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_layout_tsx_5f2d0dc2._.js": {
+      "bytes": 570,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_page_tsx_5e125502._.js": {
+      "bytes": 30370,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0d8ba53a._.js": {
+      "bytes": 1354,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
+          "kind": "require-call",
+          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/work-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-unit-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/work-unit-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/action-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/action-async-storage.external.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__595c234a._.js": {
+      "bytes": 1323,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/no-fallback-error.external.js",
+          "kind": "require-call",
+          "original": "next/dist/shared/lib/no-fallback-error.external.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_0a408fd9._.js": {
+      "bytes": 203114,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_37359b6b._.js": {
+      "bytes": 17716,
+      "imports": [
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_explorer_page_actions_d199fa96.js": {
+      "bytes": 121,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_framer-motion_dist_es_09e58baf._.js": {
+      "bytes": 118164,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_explorer_layout_tsx_dc09a6e0._.js": {
+      "bytes": 493,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/[externals]_next_dist_a6d89067._.js": {
+      "bytes": 1055,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
+          "kind": "require-call",
+          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/work-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/work-unit-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/work-unit-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/server/app-render/after-task-async-storage.external.js",
+          "kind": "require-call",
+          "original": "next/dist/server/app-render/after-task-async-storage.external.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/@opentelemetry/api/index.js",
+          "kind": "require-call",
+          "original": "next/dist/compiled/@opentelemetry/api"
+        },
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/no-fallback-error.external.js",
+          "kind": "require-call",
+          "original": "next/dist/shared/lib/no-fallback-error.external.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_favicon_ico_route_actions_353150a5.js": {
+      "bytes": 125,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/node_modules_next_dist_esm_build_templates_app-route_f5680d9e.js": {
+      "bytes": 49039,
+      "imports": [],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__98153921._.js": {
+      "bytes": 9381,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
+          "kind": "require-call",
+          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
+        }
+      ],
+      "format": "cjs"
+    },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__be7556e2._.js": {
+      "bytes": 9739,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/shared/lib/no-fallback-error.external.js",
@@ -4627,18 +4703,18 @@
       ],
       "format": "cjs"
     },
-    ".open-next/server-functions/default/.next/server/chunks/ssr/_98a2a8d2._.js": {
-      "bytes": 139195,
-      "imports": [],
-      "format": "cjs"
-    },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_page_actions_39d4fc33.js": {
       "bytes": 112,
       "imports": [],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/src_components_86d77c8d._.js": {
+      "bytes": 27655,
+      "imports": [],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bd84f57._.js": {
-      "bytes": 18959,
+      "bytes": 19929,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
@@ -4691,6 +4767,17 @@
       ],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8c2cfcbc._.js": {
+      "bytes": 9032,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js",
+          "kind": "require-call",
+          "original": "next/dist/compiled/next-server/app-page-turbo.runtime.prod.js"
+        }
+      ],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_6a49f1a5._.js": {
       "bytes": 17731,
       "imports": [
@@ -4703,7 +4790,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/_98a1b55c._.js": {
-      "bytes": 39842,
+      "bytes": 39760,
       "imports": [],
       "format": "cjs"
     },
@@ -4718,7 +4805,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/[turbopack]_runtime.js": {
-      "bytes": 41549,
+      "bytes": 43694,
       "imports": [
         {
           "path": "next/dist/compiled/@vercel/og/index.edge.js",
@@ -4746,269 +4833,294 @@
           "external": true
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__04fb177e._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__04fb177e._.js"
-        },
-        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__65640f74._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5c654961._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__65640f74._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5c654961._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a64655ed._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a64655ed._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a64655ed._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b3643011._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b3643011._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b3643011._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ea8f6002._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ea8f6002._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__not-found_page_actions_554ec2bf.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__not-found_page_actions_554ec2bf.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__not-found_page_actions_554ec2bf.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_27457240._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_27457240._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_82db42d6._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_82db42d6._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_9774470f._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_9774470f._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_9774470f._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_forbidden_45780354.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_forbidden_45780354.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_forbidden_45780354.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_68c68167.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_68c68167.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_68c68167.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_5b2047f8._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_5b2047f8._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_5b2047f8._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b9356576._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b9356576._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b9356576._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__global-error_page_actions_75761787.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__global-error_page_actions_75761787.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__global-error_page_actions_75761787.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_12287b3d._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_12287b3d._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_12287b3d._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1beb892d._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__2f766ab6._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1beb892d._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__2f766ab6._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8e4c1d2c._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__f408c708._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8e4c1d2c._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a457c799._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a457c799._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5875496._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5875496._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__f8386f37._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__f8386f37._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_d5293b23._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_d5293b23._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_docs_page_actions_c3e6081b.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_docs_page_actions_c3e6081b.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_ece394eb.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_ece394eb.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_layout_tsx_5f2d0dc2._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_layout_tsx_5f2d0dc2._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_page_tsx_5e125502._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_page_tsx_5e125502._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__595c234a._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__595c234a._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__d143f79e._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__d143f79e._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_37359b6b._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_37359b6b._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_662a7804._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_662a7804._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_explorer_page_actions_d199fa96.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_explorer_page_actions_d199fa96.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_explorer_layout_tsx_dc09a6e0._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_explorer_layout_tsx_dc09a6e0._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/[externals]_next_dist_03fe02e0._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[externals]_next_dist_03fe02e0._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__206abf59._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__206abf59._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__f408c708._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/[turbopack]_runtime.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[turbopack]_runtime.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[turbopack]_runtime.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_api_miner-proxy_[___path]_route_actions_2c3fd8cf.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_api_miner-proxy_[___path]_route_actions_2c3fd8cf.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bcbb36f._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bcbb36f._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8e4c1d2c._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8e4c1d2c._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a457c799._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a457c799._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b518868f._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b518868f._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5875496._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5875496._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_d5293b23._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_d5293b23._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_docs_page_actions_c3e6081b.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_docs_page_actions_c3e6081b.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_ece394eb.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_ece394eb.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_layout_tsx_5f2d0dc2._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_layout_tsx_5f2d0dc2._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_page_tsx_5e125502._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_page_tsx_5e125502._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0d8ba53a._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0d8ba53a._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__595c234a._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__595c234a._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_0a408fd9._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_0a408fd9._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_37359b6b._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_37359b6b._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_explorer_page_actions_d199fa96.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_explorer_page_actions_d199fa96.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_framer-motion_dist_es_09e58baf._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_framer-motion_dist_es_09e58baf._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_explorer_layout_tsx_dc09a6e0._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_explorer_layout_tsx_dc09a6e0._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/[externals]_next_dist_a6d89067._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[externals]_next_dist_a6d89067._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_favicon_ico_route_actions_353150a5.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_favicon_ico_route_actions_353150a5.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_favicon_ico_route_actions_353150a5.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a9cf89c9._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/node_modules_next_dist_esm_build_templates_app-route_f5680d9e.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a9cf89c9._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/node_modules_next_dist_esm_build_templates_app-route_f5680d9e.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ff9a004a._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__98153921._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ff9a004a._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__98153921._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__be7556e2._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__be7556e2._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_25e6aab8._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_25e6aab8._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_98a2a8d2._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_98a2a8d2._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_25e6aab8._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_page_actions_39d4fc33.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_page_actions_39d4fc33.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_page_actions_39d4fc33.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_components_86d77c8d._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_components_86d77c8d._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bd84f57._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bd84f57._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bd84f57._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b35c8fef._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b35c8fef._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b35c8fef._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_525e044e._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_525e044e._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_525e044e._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_quantum-safe_page_actions_7f505c32.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_quantum-safe_page_actions_7f505c32.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_quantum-safe_page_actions_7f505c32.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_quantum-safe_layout_tsx_af012f1f._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_quantum-safe_layout_tsx_af012f1f._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_quantum-safe_layout_tsx_af012f1f._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__87a2f44a._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__87a2f44a._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__87a2f44a._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8c2cfcbc._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8c2cfcbc._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_6a49f1a5._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_6a49f1a5._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_6a49f1a5._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_98a1b55c._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_98a1b55c._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_98a1b55c._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_whitepaper_page_actions_5b51debb.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_whitepaper_page_actions_5b51debb.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_whitepaper_page_actions_5b51debb.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_whitepaper_layout_tsx_7a0d7a9a._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_whitepaper_layout_tsx_7a0d7a9a._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_whitepaper_layout_tsx_7a0d7a9a._.js"
         },
         {
           "path": "<runtime>",
@@ -5019,7 +5131,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js": {
-      "bytes": 41559,
+      "bytes": 43704,
       "imports": [
         {
           "path": "next/dist/compiled/@vercel/og/index.edge.js",
@@ -5047,269 +5159,294 @@
           "external": true
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__04fb177e._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__04fb177e._.js"
-        },
-        {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__65640f74._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5c654961._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__65640f74._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5c654961._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a64655ed._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a64655ed._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a64655ed._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b3643011._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b3643011._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b3643011._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ea8f6002._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ea8f6002._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__not-found_page_actions_554ec2bf.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__not-found_page_actions_554ec2bf.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__not-found_page_actions_554ec2bf.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_27457240._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_27457240._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_82db42d6._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_82db42d6._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_9774470f._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_9774470f._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_9774470f._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_forbidden_45780354.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_forbidden_45780354.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_forbidden_45780354.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_68c68167.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_68c68167.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_esm_build_templates_app-page_68c68167.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_5b2047f8._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_5b2047f8._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_5b2047f8._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b9356576._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b9356576._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b9356576._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__global-error_page_actions_75761787.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__global-error_page_actions_75761787.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__global-error_page_actions_75761787.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_12287b3d._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_12287b3d._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_12287b3d._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1beb892d._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__2f766ab6._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1beb892d._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__2f766ab6._.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8e4c1d2c._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__f408c708._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8e4c1d2c._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a457c799._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a457c799._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5875496._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5875496._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__f8386f37._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__f8386f37._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_d5293b23._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_d5293b23._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_docs_page_actions_c3e6081b.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_docs_page_actions_c3e6081b.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_ece394eb.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_ece394eb.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_layout_tsx_5f2d0dc2._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_layout_tsx_5f2d0dc2._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_page_tsx_5e125502._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_page_tsx_5e125502._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__595c234a._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__595c234a._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__d143f79e._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__d143f79e._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_37359b6b._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_37359b6b._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_662a7804._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_662a7804._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_explorer_page_actions_d199fa96.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_explorer_page_actions_d199fa96.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_explorer_layout_tsx_dc09a6e0._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_explorer_layout_tsx_dc09a6e0._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/[externals]_next_dist_03fe02e0._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[externals]_next_dist_03fe02e0._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__206abf59._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__206abf59._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__f408c708._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/[turbopack]_runtime.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[turbopack]_runtime.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[turbopack]_runtime.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_api_miner-proxy_[___path]_route_actions_2c3fd8cf.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_api_miner-proxy_[___path]_route_actions_2c3fd8cf.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bcbb36f._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bcbb36f._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8e4c1d2c._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8e4c1d2c._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a457c799._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a457c799._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b518868f._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b518868f._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5875496._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5875496._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_d5293b23._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_d5293b23._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_docs_page_actions_c3e6081b.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_docs_page_actions_c3e6081b.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_ece394eb.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_global-error_ece394eb.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_builtin_unauthorized_15817684.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_layout_tsx_5f2d0dc2._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_layout_tsx_5f2d0dc2._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_page_tsx_5e125502._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_page_tsx_5e125502._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0d8ba53a._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0d8ba53a._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__595c234a._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__595c234a._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_0a408fd9._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_0a408fd9._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_37359b6b._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_37359b6b._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_explorer_page_actions_d199fa96.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_explorer_page_actions_d199fa96.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_framer-motion_dist_es_09e58baf._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/node_modules_framer-motion_dist_es_09e58baf._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_explorer_layout_tsx_dc09a6e0._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_explorer_layout_tsx_dc09a6e0._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/[externals]_next_dist_a6d89067._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/[externals]_next_dist_a6d89067._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_favicon_ico_route_actions_353150a5.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_favicon_ico_route_actions_353150a5.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_favicon_ico_route_actions_353150a5.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a9cf89c9._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/node_modules_next_dist_esm_build_templates_app-route_f5680d9e.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a9cf89c9._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/node_modules_next_dist_esm_build_templates_app-route_f5680d9e.js"
         },
         {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ff9a004a._.js",
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__98153921._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ff9a004a._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__98153921._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__be7556e2._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__be7556e2._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_25e6aab8._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_25e6aab8._.js"
-        },
-        {
-          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_98a2a8d2._.js",
-          "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_98a2a8d2._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_25e6aab8._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_page_actions_39d4fc33.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_page_actions_39d4fc33.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_page_actions_39d4fc33.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_components_86d77c8d._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_components_86d77c8d._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bd84f57._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bd84f57._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bd84f57._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b35c8fef._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b35c8fef._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b35c8fef._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_525e044e._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_525e044e._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_525e044e._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_quantum-safe_page_actions_7f505c32.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_quantum-safe_page_actions_7f505c32.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_quantum-safe_page_actions_7f505c32.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_quantum-safe_layout_tsx_af012f1f._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_quantum-safe_layout_tsx_af012f1f._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_quantum-safe_layout_tsx_af012f1f._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__87a2f44a._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__87a2f44a._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__87a2f44a._.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8c2cfcbc._.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8c2cfcbc._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_6a49f1a5._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_6a49f1a5._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_6a49f1a5._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_98a1b55c._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_98a1b55c._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_98a1b55c._.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_whitepaper_page_actions_5b51debb.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_whitepaper_page_actions_5b51debb.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_whitepaper_page_actions_5b51debb.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_whitepaper_layout_tsx_7a0d7a9a._.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_whitepaper_layout_tsx_7a0d7a9a._.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/chunks/ssr/src_app_whitepaper_layout_tsx_7a0d7a9a._.js"
         },
         {
           "path": "<runtime>",
@@ -5341,6 +5478,17 @@
       ],
       "format": "cjs"
     },
+    ".open-next/server-functions/default/.next/server/app/api/miner-proxy/[...path]/route.js": {
+      "bytes": 366,
+      "imports": [
+        {
+          "path": ".open-next/server-functions/default/.next/server/chunks/[turbopack]_runtime.js",
+          "kind": "require-call",
+          "original": "../../../../chunks/[turbopack]_runtime.js"
+        }
+      ],
+      "format": "cjs"
+    },
     ".open-next/server-functions/default/.next/server/app/docs/page.js": {
       "bytes": 1080,
       "imports": [
@@ -5364,7 +5512,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/.next/server/app/favicon.ico/route.js": {
-      "bytes": 332,
+      "bytes": 418,
       "imports": [
         {
           "path": ".open-next/server-functions/default/.next/server/chunks/[turbopack]_runtime.js",
@@ -5408,7 +5556,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/server/require.js": {
-      "bytes": 5795,
+      "bytes": 6177,
       "imports": [
         {
           "path": "path",
@@ -5458,42 +5606,47 @@
         {
           "path": ".open-next/server-functions/default/.next/server/app/_global-error/page.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/_global-error/page.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/_global-error/page.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/_not-found/page.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/_not-found/page.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/_not-found/page.js"
+        },
+        {
+          "path": ".open-next/server-functions/default/.next/server/app/api/miner-proxy/[...path]/route.js",
+          "kind": "require-call",
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/api/miner-proxy/[...path]/route.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/docs/page.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/docs/page.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/docs/page.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/explorer/page.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/explorer/page.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/explorer/page.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/favicon.ico/route.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/favicon.ico/route.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/favicon.ico/route.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/page.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/page.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/page.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/quantum-safe/page.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/quantum-safe/page.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/quantum-safe/page.js"
         },
         {
           "path": ".open-next/server-functions/default/.next/server/app/whitepaper/page.js",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/.next/server/app/whitepaper/page.js"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/.next/server/app/whitepaper/page.js"
         }
       ],
       "format": "cjs"
@@ -6016,7 +6169,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/pages-turbo.runtime.prod.js": {
-      "bytes": 121189,
+      "bytes": 121205,
       "imports": [
         {
           "path": "url",
@@ -6106,7 +6259,7 @@
         {
           "path": ".open-next/server-functions/default/cache.cjs",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/cache.cjs"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/cache.cjs"
         },
         {
           "path": ".open-next/server-functions/default/node_modules/react/jsx-runtime.js",
@@ -6317,7 +6470,7 @@
       "format": "cjs"
     },
     ".open-next/server-functions/default/node_modules/next/dist/server/next-server.js": {
-      "bytes": 52557,
+      "bytes": 52589,
       "imports": [
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/server/node-environment.js",
@@ -6627,12 +6780,12 @@
         {
           "path": ".open-next/server-functions/default/composable-cache.cjs",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/composable-cache.cjs"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/composable-cache.cjs"
         },
         {
           "path": ".open-next/server-functions/default/cache.cjs",
           "kind": "require-call",
-          "original": "/home/lucca/dilithium-web/.open-next/server-functions/default/cache.cjs"
+          "original": "/Users/archlinuxusa/Desktop/dilithium-web/.open-next/server-functions/default/cache.cjs"
         },
         {
           "path": ".open-next/server-functions/default/node_modules/next/dist/experimental/testmode/server.js",
@@ -6648,7 +6801,7 @@
       "format": "esm"
     },
     ".open-next/server-functions/default/index.mjs": {
-      "bytes": 84822,
+      "bytes": 86061,
       "imports": [
         {
           "path": "node:module",
@@ -6933,16 +7086,6 @@
           "external": true
         },
         {
-          "path": "path",
-          "kind": "require-call",
-          "external": true
-        },
-        {
-          "path": "path",
-          "kind": "require-call",
-          "external": true
-        },
-        {
           "path": "url",
           "kind": "require-call",
           "external": true
@@ -6964,6 +7107,16 @@
         },
         {
           "path": "node:zlib",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
+          "kind": "require-call",
+          "external": true
+        },
+        {
+          "path": "path",
           "kind": "require-call",
           "external": true
         },
@@ -7900,7 +8053,7 @@
           "bytesInOutput": 586
         },
         ".open-next/server-functions/default/.next/server/app/page_client-reference-manifest.js": {
-          "bytesInOutput": 10307
+          "bytesInOutput": 11606
         },
         ".open-next/server-functions/default/.next/server/app/whitepaper/page_client-reference-manifest.js": {
           "bytesInOutput": 6498
@@ -7908,11 +8061,11 @@
         ".open-next/server-functions/default/.next/server/app/quantum-safe/page_client-reference-manifest.js": {
           "bytesInOutput": 6355
         },
+        ".open-next/server-functions/default/.next/server/app/explorer/page_client-reference-manifest.js": {
+          "bytesInOutput": 6678
+        },
         ".open-next/server-functions/default/.next/server/app/docs/page_client-reference-manifest.js": {
           "bytesInOutput": 6363
-        },
-        ".open-next/server-functions/default/.next/server/app/explorer/page_client-reference-manifest.js": {
-          "bytesInOutput": 6487
         },
         ".open-next/server-functions/default/.next/server/app/_not-found/page_client-reference-manifest.js": {
           "bytesInOutput": 5830
@@ -7920,8 +8073,20 @@
         ".open-next/server-functions/default/.next/server/app/_global-error/page_client-reference-manifest.js": {
           "bytesInOutput": 5722
         },
+        ".open-next/server-functions/default/.next/server/app/api/miner-proxy/[...path]/route_client-reference-manifest.js": {
+          "bytesInOutput": 491
+        },
         ".open-next/server-functions/default/node_modules/next/dist/server/load-manifest.external.js": {
-          "bytesInOutput": 17327
+          "bytesInOutput": 18792
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js": {
+          "bytesInOutput": 981
+        },
+        ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage-instance.js": {
+          "bytesInOutput": 538
+        },
+        ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js": {
+          "bytesInOutput": 516
         },
         ".open-next/server-functions/default/node_modules/next/dist/server/app-render/action-async-storage-instance.js": {
           "bytesInOutput": 501
@@ -7974,19 +8139,7 @@
         ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-page-turbo.runtime.prod.js": {
           "bytesInOutput": 566296
         },
-        ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage-instance.js": {
-          "bytesInOutput": 538
-        },
-        ".open-next/server-functions/default/node_modules/next/dist/server/app-render/dynamic-access-async-storage.external.js": {
-          "bytesInOutput": 516
-        },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__04fb177e._.js": {
-          "bytesInOutput": 3222
-        },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__15600e29._.js": {
-          "bytesInOutput": 981
-        },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__65640f74._.js": {
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__5c654961._.js": {
           "bytesInOutput": 1832
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a64655ed._.js": {
@@ -7995,17 +8148,20 @@
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b3643011._.js": {
           "bytesInOutput": 2612
         },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ea8f6002._.js": {
+          "bytesInOutput": 3398
+        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_0efddc1b._.js": {
           "bytesInOutput": 20090
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app__not-found_page_actions_554ec2bf.js": {
           "bytesInOutput": 272
         },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_27457240._.js": {
+          "bytesInOutput": 47154
+        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_70ed294b._.js": {
           "bytesInOutput": 61943
-        },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_82db42d6._.js": {
-          "bytesInOutput": 47330
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_client_components_9774470f._.js": {
           "bytesInOutput": 2642
@@ -8017,7 +8173,7 @@
           "bytesInOutput": 17918
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_5b2047f8._.js": {
-          "bytesInOutput": 330
+          "bytesInOutput": 328
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b9356576._.js": {
           "bytesInOutput": 1994
@@ -8028,20 +8184,32 @@
         ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_next_dist_12287b3d._.js": {
           "bytesInOutput": 17491
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__1beb892d._.js": {
-          "bytesInOutput": 1465
+        ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__2f766ab6._.js": {
+          "bytesInOutput": 8278
+        },
+        ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js": {
+          "bytesInOutput": 163931
+        },
+        ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__f408c708._.js": {
+          "bytesInOutput": 154609
+        },
+        ".open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_api_miner-proxy_[___path]_route_actions_2c3fd8cf.js": {
+          "bytesInOutput": 296
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bcbb36f._.js": {
+          "bytesInOutput": 1467
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8e4c1d2c._.js": {
-          "bytesInOutput": 8600
+          "bytesInOutput": 9635
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a457c799._.js": {
           "bytesInOutput": 2369
         },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b518868f._.js": {
+          "bytesInOutput": 1641
+        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__e5875496._.js": {
           "bytesInOutput": 1401
-        },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__f8386f37._.js": {
-          "bytesInOutput": 1467
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_d5293b23._.js": {
           "bytesInOutput": 17975
@@ -8059,55 +8227,55 @@
           "bytesInOutput": 700
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_docs_page_tsx_5e125502._.js": {
-          "bytesInOutput": 30104
+          "bytesInOutput": 30608
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__0d8ba53a._.js": {
+          "bytesInOutput": 1339
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__595c234a._.js": {
           "bytesInOutput": 1414
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__d143f79e._.js": {
-          "bytesInOutput": 744
+        ".open-next/server-functions/default/.next/server/chunks/ssr/_0a408fd9._.js": {
+          "bytesInOutput": 209614
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_37359b6b._.js": {
           "bytesInOutput": 17991
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/_662a7804._.js": {
-          "bytesInOutput": 105642
-        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_explorer_page_actions_d199fa96.js": {
           "bytesInOutput": 269
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/node_modules_framer-motion_dist_es_09e58baf._.js": {
+          "bytesInOutput": 131846
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/src_app_explorer_layout_tsx_dc09a6e0._.js": {
           "bytesInOutput": 627
         },
-        ".open-next/server-functions/default/.next/server/chunks/[externals]_next_dist_03fe02e0._.js": {
+        ".open-next/server-functions/default/.next/server/chunks/[externals]_next_dist_a6d89067._.js": {
           "bytesInOutput": 977
-        },
-        ".open-next/server-functions/default/node_modules/next/dist/compiled/next-server/app-route-turbo.runtime.prod.js": {
-          "bytesInOutput": 163931
-        },
-        ".open-next/server-functions/default/.next/server/chunks/[root-of-the-server]__206abf59._.js": {
-          "bytesInOutput": 193649
         },
         ".open-next/server-functions/default/.next/server/chunks/_next-internal_server_app_favicon_ico_route_actions_353150a5.js": {
           "bytesInOutput": 273
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__a9cf89c9._.js": {
-          "bytesInOutput": 8600
+        ".open-next/server-functions/default/.next/server/chunks/node_modules_next_dist_esm_build_templates_app-route_f5680d9e.js": {
+          "bytesInOutput": 49340
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__ff9a004a._.js": {
-          "bytesInOutput": 8804
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__98153921._.js": {
+          "bytesInOutput": 9635
+        },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__be7556e2._.js": {
+          "bytesInOutput": 9830
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_25e6aab8._.js": {
           "bytesInOutput": 17833
         },
-        ".open-next/server-functions/default/.next/server/chunks/ssr/_98a2a8d2._.js": {
-          "bytesInOutput": 153001
-        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_page_actions_39d4fc33.js": {
           "bytesInOutput": 251
         },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/src_components_86d77c8d._.js": {
+          "bytesInOutput": 27919
+        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__4bd84f57._.js": {
-          "bytesInOutput": 19265
+          "bytesInOutput": 20235
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__b35c8fef._.js": {
           "bytesInOutput": 1433
@@ -8124,11 +8292,14 @@
         ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__87a2f44a._.js": {
           "bytesInOutput": 1425
         },
+        ".open-next/server-functions/default/.next/server/chunks/ssr/[root-of-the-server]__8c2cfcbc._.js": {
+          "bytesInOutput": 9274
+        },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_6a49f1a5._.js": {
           "bytesInOutput": 18010
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_98a1b55c._.js": {
-          "bytesInOutput": 40304
+          "bytesInOutput": 40219
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/_next-internal_server_app_whitepaper_page_actions_5b51debb.js": {
           "bytesInOutput": 273
@@ -8137,16 +8308,19 @@
           "bytesInOutput": 732
         },
         ".open-next/server-functions/default/.next/server/chunks/[turbopack]_runtime.js": {
-          "bytesInOutput": 21425
+          "bytesInOutput": 22146
         },
         ".open-next/server-functions/default/.next/server/chunks/ssr/[turbopack]_runtime.js": {
-          "bytesInOutput": 21440
+          "bytesInOutput": 22161
         },
         ".open-next/server-functions/default/.next/server/app/_global-error/page.js": {
           "bytesInOutput": 738
         },
         ".open-next/server-functions/default/.next/server/app/_not-found/page.js": {
           "bytesInOutput": 994
+        },
+        ".open-next/server-functions/default/.next/server/app/api/miner-proxy/[...path]/route.js": {
+          "bytesInOutput": 493
         },
         ".open-next/server-functions/default/.next/server/app/docs/page.js": {
           "bytesInOutput": 1188
@@ -8155,7 +8329,7 @@
           "bytesInOutput": 1204
         },
         ".open-next/server-functions/default/.next/server/app/favicon.ico/route.js": {
-          "bytesInOutput": 451
+          "bytesInOutput": 538
         },
         ".open-next/server-functions/default/.next/server/app/page.js": {
           "bytesInOutput": 1110
@@ -8167,7 +8341,7 @@
           "bytesInOutput": 1212
         },
         ".open-next/server-functions/default/node_modules/next/dist/server/require.js": {
-          "bytesInOutput": 3492
+          "bytesInOutput": 3599
         },
         ".open-next/server-functions/default/node_modules/next/dist/lib/wait.js": {
           "bytesInOutput": 341
@@ -8314,10 +8488,10 @@
           "bytesInOutput": 633
         },
         ".open-next/server-functions/default/index.mjs": {
-          "bytesInOutput": 59012
+          "bytesInOutput": 60163
         }
       },
-      "bytes": 3105981
+      "bytes": 3256845
     }
   }
 }

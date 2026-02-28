@@ -20,7 +20,16 @@
     "afterFiles": [],
     "fallback": []
   },
-  "dynamicRoutes": [],
+  "dynamicRoutes": [
+    {
+      "page": "/api/miner-proxy/[...path]",
+      "regex": "^/api/miner\\-proxy/(.+?)(?:/)?$",
+      "routeKeys": {
+        "nxtPpath": "nxtPpath"
+      },
+      "namedRegex": "^/api/miner\\-proxy/(?<nxtPpath>.+?)(?:/)?$"
+    }
+  ],
   "staticRoutes": [
     {
       "page": "/",

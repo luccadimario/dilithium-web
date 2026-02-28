@@ -32,7 +32,6 @@ function SectionCard({ title, children, accent = 'crystal' }: { title: string; c
 }
 
 export default function DocsPage() {
-  const hero = useReveal(0.1, { initiallyVisible: true });
   const overview = useReveal();
   const wallet = useReveal();
   const nodes = useReveal();
@@ -51,8 +50,7 @@ export default function DocsPage() {
         {/* Hero */}
         <section className="min-h-[50vh] flex items-center justify-center pt-24 pb-16">
           <div
-            ref={hero.ref}
-            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center reveal ${hero.visible ? 'visible' : ''}`}
+            className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center"
           >
             <div className="inline-block px-4 py-1.5 rounded-full border border-crystal-500/30 bg-crystal-500/5 text-crystal-400 text-xs font-mono tracking-widest uppercase mb-8">
               Documentation
@@ -179,7 +177,7 @@ export default function DocsPage() {
             </div>
             <div className="card-space p-4 mt-3 border-crystal-500/20">
               <p className="text-sm text-space-600">
-                <span className="text-crystal-400 font-mono font-bold">PWA wallet:</span> A progressive web app is also available at <a href="/wallet" className="text-crystal-400 hover:text-crystal-300 transition-colors font-mono">/wallet</a> — use it from any browser to create wallets, check balances, and send DLT without installing anything.
+                <span className="text-crystal-400 font-mono font-bold">PWA wallet:</span> A progressive web app is also available at <a href="https://wallet.dilithiumcoin.com" className="text-crystal-400 hover:text-crystal-300 transition-colors font-mono">wallet.dilithiumcoin.com</a> — use it from any browser to create wallets, check balances, and send DLT without installing anything.
               </p>
             </div>
           </div>
