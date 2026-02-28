@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DLT Web Miner &mdash; Dilithium</title>
+    <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' width='64' height='64' viewBox='0 0 64 64'><rect width='64' height='64' rx='12' fill='%23030712'/><polygon points='32,6 20,28 32,36 44,28' fill='%2300bfef' opacity='0.95'/><polygon points='20,28 32,36 32,58' fill='%230891b2' opacity='0.85'/><polygon points='44,28 32,36 32,58' fill='%23067a8f' opacity='0.75'/></svg>">
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+    <canvas id="mining-canvas"></canvas>
+
+    <div class="app-container">
+        <header class="header">
+            <div class="header-logo">
+                <svg width="32" height="44" viewBox="0 0 200 280" fill="none">
+                    <polygon points="100,10 60,100 100,130 140,100" fill="#00bfef" opacity="0.9" />
+                    <polygon points="60,100 100,130 140,100 100,270" fill="#0891b2" opacity="0.8" />
+                </svg>
+                <h1>DLT Web Miner</h1>
+            </div>
+            <p class="subtitle">Browser-based CPU mining for Dilithium</p>
+        </header>
+
+        <div class="quote-banner" id="quote-banner"></div>
+
+        <!-- Settings -->
+        <div class="card">
+            <h2>Configuration</h2>
+            <div class="form-group" style="margin-bottom: 10px;">
+                <label>Wallet Address</label>
+                <input type="text" id="wallet-address" placeholder="Enter your DLT wallet address" spellcheck="false" autocomplete="off">
+            </div>
+            <div class="form-row">
+                <div class="form-group">
+                    <label>Mining Mode</label>
+                    <select id="mining-mode">
+                        <option value="solo">Solo Mining</option>
+                        <option value="pool">Pool Mining</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label>Threads</label>
+                    <select id="thread-count"></select>
+                </div>
+            </div>
+            <div class="form-group" style="margin-bottom: 10px;">
+                <label>Node URL</label>
+                <input type="text" id="node-url" placeholder="http://seed1.dilithiumcoin.com:8001" value="http://seed1.dilithiumcoin.com:8001">
+            </div>
+            <div class="pool-fields" id="pool-fields">
+                <div class="form-group" style="margin-bottom: 10px;">
+                    <label>Pool WebSocket URL</label>
+                    <input type="text" id="pool-url" placeholder="wss://pool.dilithiumcoin.com/ws">
+                </div>
+            </div>
+        </div>
+
+        <!-- Control -->
+        <div class="card">
+            <button class="btn" id="start-btn" disabled>Initializing Warp Core...</button>
+            <p class="consent-notice">
+                By clicking Engage, you consent to using your CPU for Dilithium mining.
+            </p>
+        </div>
+
+        <!-- Stats -->
+        <div class="card">
+            <h2>Mining Telemetry</h2>
+            <div class="stats-grid">
+                <div class="stat-box">
+                    <div class="value" id="hashrate">0</div>
+                    <div class="label">Hashrate</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value" id="blocks-found">0</div>
+                    <div class="label">Blocks</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value" id="shares">0</div>
+                    <div class="label">Shares</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value" id="total-hashes">0</div>
+                    <div class="label">Total Hashes</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value" id="uptime">0:00:00</div>
+                    <div class="label">Uptime</div>
+                </div>
+                <div class="stat-box">
+                    <div class="value" id="earnings">0.00</div>
+                    <div class="label">DLT Earned</div>
+                </div>
+            </div>
+            <div class="thread-hashrates" id="thread-hashrates"></div>
+        </div>
+
+        <!-- Status -->
+        <div class="card">
+            <h2>Subspace Channel</h2>
+            <div class="status-bar">
+                <div class="status-dot" id="status-dot"></div>
+                <span id="status-text">Initializing warp core...</span>
+            </div>
+            <div class="log-area" id="log-area"></div>
+        </div>
+
+        <footer>
+            <a href="https://dilithiumcoin.com" target="_blank">dilithiumcoin.com</a>
+        </footer>
+    </div>
+
+    <script type="module" src="app.js"></script>
+</body>
+</html>

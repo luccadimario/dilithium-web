@@ -1,0 +1,6 @@
+[target.wasm32-unknown-unknown]
+# Enable WASM features supported by all modern browsers (Chrome 91+, Firefox 89+, Safari 16.4+):
+# - simd128: 128-bit SIMD operations. LLVM can auto-vectorize loop operations.
+# - bulk-memory: memory.copy/memory.fill intrinsics for faster slice copies and zero-init.
+# - sign-ext: sign extension ops (avoids emulation for i32->i64 conversions in nonce handling).
+rustflags = ["-C", "target-feature=+simd128,+bulk-memory,+sign-ext"]

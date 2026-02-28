@@ -1,7 +1,5 @@
 'use client';
 
-import { useState, useEffect } from 'react';
-
 interface WarpLine {
   id: number;
   top: string;
@@ -39,14 +37,6 @@ function generateLines(): WarpLine[] {
 const lines = generateLines();
 
 export default function WarpSpeedLines() {
-  const [mounted, setMounted] = useState(false);
-
-  useEffect(() => {
-    setMounted(true);
-  }, []);
-
-  if (!mounted) return null;
-
   return (
     <div className="absolute inset-0 overflow-hidden pointer-events-none">
       {lines.map((line) => (

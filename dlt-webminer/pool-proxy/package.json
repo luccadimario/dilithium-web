@@ -1,0 +1,12 @@
+{
+  "name": "dlt-pool-proxy",
+  "version": "1.0.0",
+  "description": "WebSocket to Stratum TCP bridge for DLT web miner",
+  "main": "proxy.js",
+  "scripts": {
+    "start": "node proxy.js"
+  },
+  "dependencies": {
+    "ws": "^8.16.0"
+  }
+}

@@ -39,7 +39,7 @@ function Code({ children }: { children: string }) {
 }
 
 export default function WhitepaperPage() {
-  const hero = useReveal(0.1);
+  const hero = useReveal(0.1, { initiallyVisible: true });
 
   return (
     <>

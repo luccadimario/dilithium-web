@@ -11,10 +11,10 @@ const stats = [
 ];
 
 export default function HeroSection() {
-  const crystal = useReveal(0.1);
-  const text = useReveal(0.1);
-  const buttons = useReveal(0.1);
-  const statCards = useReveal(0.1);
+  const crystal = useReveal(0.1, { initiallyVisible: true });
+  const text = useReveal(0.1, { initiallyVisible: true });
+  const buttons = useReveal(0.1, { initiallyVisible: true });
+  const statCards = useReveal(0.1, { initiallyVisible: true });
 
   return (
     <section className="relative min-h-screen flex items-center justify-center overflow-hidden pt-16">

@@ -26,7 +26,7 @@ const timelineEvents = [
 ];
 
 export default function QuantumSafePage() {
-  const hero = useReveal(0.1);
+  const hero = useReveal(0.1, { initiallyVisible: true });
   const problem = useReveal();
   const comparison = useReveal();
   const timeline = useReveal();

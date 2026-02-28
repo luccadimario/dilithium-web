@@ -16,13 +16,9 @@ const navLinks = [
 export default function Navigation() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
-  const [show, setShow] = useState(false);
-
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 50);
     window.addEventListener('scroll', onScroll);
-    // Slide in after mount
-    requestAnimationFrame(() => setShow(true));
     return () => window.removeEventListener('scroll', onScroll);
   }, []);
 
@@ -33,7 +29,7 @@ export default function Navigation() {
         scrolled
           ? 'bg-space-950/80 border-b border-crystal-500/10'
           : 'bg-space-950/0 border-b border-transparent',
-        show ? 'translate-y-0 opacity-100' : '-translate-y-full opacity-0'
+        'translate-y-0 opacity-100'
       )}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">

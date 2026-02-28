@@ -1,0 +1,13 @@
+name = "dilithium-web-beta"
+main = ".open-next/worker.js"
+compatibility_date = "2025-03-25"
+compatibility_flags = ["nodejs_compat"]
+account_id = "40daf5e18f71ef1c688f24d2a0818624"
+
+[[routes]]
+pattern = "dilithium-web-beta.psychosislabs.com"
+custom_domain = true
+
+[assets]
+directory = ".open-next/assets"
+binding = "ASSETS"

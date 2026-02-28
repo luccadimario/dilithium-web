@@ -2,11 +2,12 @@
 
 import { useEffect, useRef, useState } from 'react';
 
-export function useReveal(threshold = 0.15) {
+export function useReveal(threshold = 0.15, { initiallyVisible = false } = {}) {
   const ref = useRef<HTMLDivElement>(null);
-  const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(initiallyVisible);
 
   useEffect(() => {
+    if (initiallyVisible) return;
     const el = ref.current;
     if (!el) return;
 
@@ -22,7 +23,7 @@ export function useReveal(threshold = 0.15) {
 
     observer.observe(el);
     return () => observer.disconnect();
-  }, [threshold]);
+  }, [threshold, initiallyVisible]);
 
   return { ref, visible };
 }

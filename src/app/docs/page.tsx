@@ -32,7 +32,7 @@ function SectionCard({ title, children, accent = 'crystal' }: { title: string; c
 }
 
 export default function DocsPage() {
-  const hero = useReveal(0.1);
+  const hero = useReveal(0.1, { initiallyVisible: true });
   const overview = useReveal();
   const wallet = useReveal();
   const nodes = useReveal();

@@ -45,3 +45,7 @@ dilithium-wallet/node_modules
 dilithium-wallet/dist
 dilithium-wallet/.env.local
 dilithium-wallet/.wrangler
+
+# dlt-webminer build artifacts
+dlt-webminer/wasm-miner/target/
+dlt-webminer/.wrangler/
