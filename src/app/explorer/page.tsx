@@ -79,6 +79,36 @@ interface StatsSnapshot {
 
 type Tab = 'overview' | 'blocks' | 'address' | 'mempool' | 'transaction';
 
+// ─── Cached fetch — prevents spamming the node on page refresh ──
+const fetchCache = new Map<string, { data: unknown; ts: number }>();
+
+async function cachedFetch(url: string, ttlMs: number): Promise<unknown> {
+  const now = Date.now();
+  const cached = fetchCache.get(url);
+  if (cached && now - cached.ts < ttlMs) return cached.data;
+
+  // Also check sessionStorage for cross-refresh cache
+  try {
+    const stored = sessionStorage.getItem(`explorer:${url}`);
+    if (stored) {
+      const parsed = JSON.parse(stored);
+      if (now - parsed.ts < ttlMs) {
+        fetchCache.set(url, parsed);
+        return parsed.data;
+      }
+    }
+  } catch { /* ignore */ }
+
+  const res = await fetch(url);
+  const data = await res.json();
+  const entry = { data, ts: now };
+  fetchCache.set(url, entry);
+  try {
+    sessionStorage.setItem(`explorer:${url}`, JSON.stringify(entry));
+  } catch { /* storage full, ignore */ }
+  return data;
+}
+
 // ─── Utility functions ───────────────────────────────────────
 
 function timeAgo(ts: number) {
@@ -287,25 +317,37 @@ function StatCard({ label, value, icon, accent = 'crystal', onClick, sparkData }
   sparkData?: number[];
 }) {
   const accentColors = {
-    crystal: { border: 'hover:border-crystal-500/40', iconBg: 'bg-crystal-500/10', iconText: 'text-crystal-400', glow: 'hover:shadow-[0_0_30px_rgba(0,191,239,0.08)]', sparkColor: '#22d3ee' },
-    nebula:  { border: 'hover:border-nebula-500/40',  iconBg: 'bg-nebula-500/10',  iconText: 'text-nebula-400',  glow: 'hover:shadow-[0_0_30px_rgba(168,85,247,0.08)]', sparkColor: '#a855f7' },
-    green:   { border: 'hover:border-green-500/40',   iconBg: 'bg-green-500/10',   iconText: 'text-green-400',   glow: 'hover:shadow-[0_0_30px_rgba(34,197,94,0.08)]',  sparkColor: '#22c55e' },
-    amber:   { border: 'hover:border-amber-500/40',   iconBg: 'bg-amber-500/10',   iconText: 'text-amber-400',   glow: 'hover:shadow-[0_0_30px_rgba(245,158,11,0.08)]', sparkColor: '#f59e0b' },
+    crystal: { restBorder: 'border-crystal-500/20', border: 'hover:border-crystal-500/40', iconBg: 'bg-crystal-500/10', iconText: 'text-crystal-400', glow: 'hover:shadow-[0_0_30px_rgba(0,191,239,0.08)]', sparkColor: '#22d3ee' },
+    nebula:  { restBorder: 'border-nebula-500/20',  border: 'hover:border-nebula-500/40',  iconBg: 'bg-nebula-500/10',  iconText: 'text-nebula-400',  glow: 'hover:shadow-[0_0_30px_rgba(168,85,247,0.08)]', sparkColor: '#a855f7' },
+    green:   { restBorder: 'border-green-500/20',   border: 'hover:border-green-500/40',   iconBg: 'bg-green-500/10',   iconText: 'text-green-400',   glow: 'hover:shadow-[0_0_30px_rgba(34,197,94,0.08)]',  sparkColor: '#22c55e' },
+    amber:   { restBorder: 'border-amber-500/20',   border: 'hover:border-amber-500/40',   iconBg: 'bg-amber-500/10',   iconText: 'text-amber-400',   glow: 'hover:shadow-[0_0_30px_rgba(245,158,11,0.08)]', sparkColor: '#f59e0b' },
   };
   const a = accentColors[accent];
 
+  const Wrapper = onClick ? 'button' : 'div';
+
   return (
-    <button
+    <Wrapper
       onClick={onClick}
-      disabled={!onClick}
-      className={`relative overflow-hidden rounded-xl border border-space-700/60 bg-gradient-to-br from-space-900/80 to-space-800/40 backdrop-blur-sm p-4 text-left transition-all duration-300 ${a.border} ${a.glow} ${onClick ? 'cursor-pointer' : 'cursor-default'} group`}
+      className={`relative overflow-hidden rounded-xl border bg-gradient-to-br from-space-900/80 to-space-800/40 backdrop-blur-sm p-4 text-left transition-all duration-300 group ${
+        onClick
+          ? `${a.restBorder} ${a.border} ${a.glow} cursor-pointer`
+          : 'border-space-800/40 cursor-default'
+      }`}
     >
       <div className="flex items-start justify-between gap-3">
         <div className="min-w-0 flex-1">
-          <div className="text-[11px] font-medium uppercase tracking-wider text-space-500 mb-1.5">{label}</div>
+          <div className="text-[11px] font-medium uppercase tracking-wider text-space-500 mb-1.5 flex items-center gap-1.5">
+            {label}
+            {onClick && (
+              <svg className="w-3 h-3 text-space-600 group-hover:text-crystal-400 transition-colors" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M9 5l7 7-7 7" />
+              </svg>
+            )}
+          </div>
           <div className="font-heading text-lg font-bold text-white truncate">{value}</div>
         </div>
-        <div className={`shrink-0 rounded-lg p-2 ${a.iconBg} ${a.iconText} transition-transform duration-300 group-hover:scale-110`}>
+        <div className={`shrink-0 rounded-lg p-2 ${a.iconBg} ${a.iconText} transition-transform duration-300 ${onClick ? 'group-hover:scale-110' : ''}`}>
           {icon}
         </div>
       </div>
@@ -315,8 +357,10 @@ function StatCard({ label, value, icon, accent = 'crystal', onClick, sparkData }
           <Sparkline data={sparkData} color={a.sparkColor} width={200} height={28} />
         </div>
       )}
-      <div className="absolute inset-0 bg-gradient-to-br from-crystal-500/0 to-crystal-500/0 group-hover:from-crystal-500/[0.02] group-hover:to-transparent transition-all duration-500 pointer-events-none" />
-    </button>
+      {onClick && (
+        <div className="absolute inset-0 bg-gradient-to-br from-crystal-500/0 to-crystal-500/0 group-hover:from-crystal-500/[0.02] group-hover:to-transparent transition-all duration-500 pointer-events-none" />
+      )}
+    </Wrapper>
   );
 }
 
@@ -1098,8 +1142,7 @@ function ExplorerInner() {
 
   const fetchStats = useCallback(async () => {
     try {
-      const res = await fetch(`${nodeUrl}/stats`);
-      const json = await res.json();
+      const json = await cachedFetch(`${nodeUrl}/stats`, 3000) as { success: boolean; data: Stats };
       if (json.success) {
         const data = json.data as Stats;
         setStats(data);
@@ -1128,8 +1171,7 @@ function ExplorerInner() {
 
   const fetchBlocks = useCallback(async (uiPage: number = 0) => {
     try {
-      const metaRes = await fetch(`${nodeUrl}/chain?limit=${BLOCKS_PER_PAGE}`);
-      const metaJson = await metaRes.json();
+      const metaJson = await cachedFetch(`${nodeUrl}/chain?limit=${BLOCKS_PER_PAGE}`, 5000) as { success: boolean; data: { total_pages?: number; blocks: Block[] } };
       if (!metaJson.success) return;
 
       const totalApiPages = metaJson.data.total_pages || 1;
@@ -1142,8 +1184,7 @@ function ExplorerInner() {
         return;
       }
 
-      const pageRes = await fetch(`${nodeUrl}/chain?limit=${BLOCKS_PER_PAGE}&page=${apiPage}`);
-      const pageJson = await pageRes.json();
+      const pageJson = await cachedFetch(`${nodeUrl}/chain?limit=${BLOCKS_PER_PAGE}&page=${apiPage}`, 5000) as { success: boolean; data: { blocks: Block[] } };
       if (pageJson.success) {
         setBlocks((pageJson.data.blocks as Block[]).reverse());
       }
@@ -1154,8 +1195,7 @@ function ExplorerInner() {
 
   const fetchMempool = useCallback(async () => {
     try {
-      const res = await fetch(`${nodeUrl}/mempool`);
-      const json = await res.json();
+      const json = await cachedFetch(`${nodeUrl}/mempool`, 3000) as { success: boolean; data: { transactions: Transaction[] } };
       if (json.success) {
         setMempoolTxs(json.data.transactions || []);
       }
@@ -1171,8 +1211,7 @@ function ExplorerInner() {
     setAddressInfo(null);
     setAddrTxPage(0);
     try {
-      const res = await fetch(`${nodeUrl}/explorer/address?addr=${encodeURIComponent(query)}`);
-      const json = await res.json();
+      const json = await cachedFetch(`${nodeUrl}/explorer/address?addr=${encodeURIComponent(query)}`, 10000) as { success: boolean; data: AddressInfo; message?: string };
       if (json.success) {
         const data = json.data as AddressInfo;
         if (data.transactions) {
@@ -1189,8 +1228,7 @@ function ExplorerInner() {
 
   const fetchBlock = useCallback(async (index: number) => {
     try {
-      const res = await fetch(`${nodeUrl}/block?index=${index}`);
-      const json = await res.json();
+      const json = await cachedFetch(`${nodeUrl}/block?index=${index}`, 30000) as { success: boolean; data: Block };
       if (json.success) {
         setSelectedBlock(json.data);
       }
@@ -1201,8 +1239,7 @@ function ExplorerInner() {
 
   const fetchTransaction = useCallback(async (sig: string) => {
     try {
-      const res = await fetch(`${nodeUrl}/transaction?sig=${encodeURIComponent(sig)}`);
-      const json = await res.json();
+      const json = await cachedFetch(`${nodeUrl}/transaction?sig=${encodeURIComponent(sig)}`, 30000) as { success: boolean; data: Transaction };
       if (json.success) {
         setSelectedTransaction(json.data);
         setTab('transaction');
@@ -1261,6 +1298,9 @@ function ExplorerInner() {
     setStats(null);
     setError('');
     setStatsHistory([]);
+    // Clear caches for the old node
+    fetchCache.clear();
+    try { Object.keys(sessionStorage).filter(k => k.startsWith('explorer:')).forEach(k => sessionStorage.removeItem(k)); } catch { /* ignore */ }
   };
 
   // Tab change with URL update
@@ -1268,6 +1308,8 @@ function ExplorerInner() {
     setTab(newTab);
     setSelectedBlock(null);
     setSelectedTransaction(null);
+    setShowDifficultyPanel(false);
+    setShowBlockTimePanel(false);
     if (newTab === 'overview') {
       updateUrl({});
     } else if (newTab !== 'transaction') {
@@ -1330,9 +1372,9 @@ function ExplorerInner() {
   const statCards = stats
     ? [
         { label: 'Block Height', value: stats.blockchain.height.toLocaleString(), icon: <IconCube />, accent: 'crystal' as const, onClick: () => changeTab('blocks'), sparkData: sparklines.height },
-        { label: 'Difficulty', value: stats.blockchain.difficulty_bits ? `${stats.blockchain.difficulty_bits} bits` : `${stats.blockchain.difficulty}`, icon: <IconBolt />, accent: 'amber' as const, sparkData: sparklines.difficulty, onClick: () => setShowDifficultyPanel(prev => !prev) },
+        { label: 'Difficulty', value: stats.blockchain.difficulty_bits ? `${stats.blockchain.difficulty_bits} bits` : `${stats.blockchain.difficulty}`, icon: <IconBolt />, accent: 'amber' as const, sparkData: sparklines.difficulty, onClick: () => { setShowBlockTimePanel(false); setShowDifficultyPanel(prev => !prev); } },
         { label: 'Total Transactions', value: stats.blockchain.total_txs.toLocaleString(), icon: <IconArrowPath />, accent: 'nebula' as const, sparkData: sparklines.txs },
-        { label: 'Avg Block Time', value: stats.blockchain.avg_block_time > 0 ? stats.blockchain.avg_block_time.toFixed(1) + 's' : '—', icon: <IconClock />, accent: 'green' as const, onClick: () => setShowBlockTimePanel(prev => !prev) },
+        { label: 'Avg Block Time', value: stats.blockchain.avg_block_time > 0 ? stats.blockchain.avg_block_time.toFixed(1) + 's' : '—', icon: <IconClock />, accent: 'green' as const, onClick: () => { setShowDifficultyPanel(false); setShowBlockTimePanel(prev => !prev); } },
         { label: 'Hashrate', value: formatHashrate(stats.blockchain.hashrate_estimate), icon: <IconServer />, accent: 'crystal' as const, sparkData: sparklines.hashrate },
         { label: 'Mempool', value: `${stats.mempool.size} pending`, icon: <IconInbox />, accent: 'amber' as const, onClick: () => changeTab('mempool'), sparkData: sparklines.mempool },
         { label: 'Peers', value: `${stats.peers.connected} connected`, icon: <IconSignal />, accent: 'green' as const, sparkData: sparklines.peers },
@@ -1539,7 +1581,7 @@ function ExplorerInner() {
                   </button>
                 </div>
                 <div className="space-y-2">
-                  {blocks.slice(0, 8).map((block, i) => (
+                  {blocks.slice(0, 5).map((block, i) => (
                     <BlockRow
                       key={block.Index}
                       block={block}

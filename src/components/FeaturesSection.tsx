@@ -13,7 +13,7 @@ const features = [
     label: 'Block Reward',
     value: '50',
     unit: 'DLT',
-    description: 'Initial mining reward per block, with halving schedule.',
+    description: 'Initial mining reward per block, halving every 250,000 blocks.',
   },
   {
     label: 'Block Time',
@@ -37,7 +37,7 @@ const features = [
     label: 'Network',
     value: 'P2P',
     unit: 'TCP',
-    description: 'Decentralized peer-to-peer network with UPnP port mapping on port 1701.',
+    description: 'Decentralized peer-to-peer network with DNS seed discovery and UPnP on port 1701.',
   },
 ];
 

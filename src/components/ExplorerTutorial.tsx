@@ -1,6 +1,6 @@
 'use client';
 
-import { useState, useEffect, useRef, useCallback } from 'react';
+import { useState, useEffect, useRef, useCallback, type MouseEvent as ReactMouseEvent } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 
 // ─── Types ────────────────────────────────────────────────────
@@ -96,6 +96,10 @@ function ChainVisual({ activeBlock }: { activeBlock: number }) {
   ];
 
   const blockRefs = useRef<(HTMLDivElement | null)[]>([]);
+  const scrollRef = useRef<HTMLDivElement>(null);
+  const isDragging = useRef(false);
+  const dragStartX = useRef(0);
+  const scrollStart = useRef(0);
 
   useEffect(() => {
     const el = blockRefs.current[activeBlock];
@@ -104,8 +108,33 @@ function ChainVisual({ activeBlock }: { activeBlock: number }) {
     }
   }, [activeBlock]);
 
+  const onMouseDown = (e: ReactMouseEvent) => {
+    isDragging.current = true;
+    dragStartX.current = e.clientX;
+    scrollStart.current = scrollRef.current?.scrollLeft ?? 0;
+  };
+
+  useEffect(() => {
+    const onMouseMove = (e: globalThis.MouseEvent) => {
+      if (!isDragging.current || !scrollRef.current) return;
+      const dx = e.clientX - dragStartX.current;
+      scrollRef.current.scrollLeft = scrollStart.current - dx;
+    };
+    const onMouseUp = () => { isDragging.current = false; };
+    window.addEventListener('mousemove', onMouseMove);
+    window.addEventListener('mouseup', onMouseUp);
+    return () => {
+      window.removeEventListener('mousemove', onMouseMove);
+      window.removeEventListener('mouseup', onMouseUp);
+    };
+  }, []);
+
   return (
-    <div className="flex items-center gap-0 overflow-x-auto py-4 px-2 scrollbar-none">
+    <div
+      ref={scrollRef}
+      onMouseDown={onMouseDown}
+      className="flex items-center gap-0 overflow-x-auto py-4 px-2 scrollbar-none select-none cursor-grab active:cursor-grabbing"
+    >
       {blocks.map((b, i) => (
         <div key={b.index} ref={el => { blockRefs.current[i] = el; }} className="flex items-center shrink-0">
           <motion.div
@@ -115,7 +144,7 @@ function ChainVisual({ activeBlock }: { activeBlock: number }) {
               scale: 1,
               borderColor: i <= activeBlock ? 'rgba(0,191,239,0.5)' : 'rgba(30,41,59,0.6)',
             }}
-            transition={{ delay: i * 0.2, duration: 0.4 }}
+            transition={{ delay: i * 0.5, duration: 0.6 }}
             className="relative w-32 sm:w-40 rounded-lg border bg-space-900/80 p-3"
           >
             <div className="text-[10px] text-space-500 font-mono mb-1">#{b.index}</div>
@@ -143,7 +172,7 @@ function ChainVisual({ activeBlock }: { activeBlock: number }) {
                 opacity: i < activeBlock ? 1 : 0.2,
                 scaleX: 1,
               }}
-              transition={{ delay: i * 0.2 + 0.3, duration: 0.3 }}
+              transition={{ delay: i * 0.5 + 0.4, duration: 0.3 }}
               className="flex items-center mx-1"
             >
               <svg width="32" height="12" viewBox="0 0 32 12" className="text-crystal-500/60">
@@ -160,7 +189,7 @@ function ChainVisual({ activeBlock }: { activeBlock: number }) {
 
 // ─── Block anatomy diagram ────────────────────────────────────
 function BlockAnatomy() {
-  const [hoveredField, setHoveredField] = useState<string | null>(null);
+  const [activeField, setActiveField] = useState<string | null>(null);
 
   const fields = [
     { key: 'index', label: 'Index', value: '1,337', color: 'text-space-400', desc: 'Block\'s position in the chain — each block is numbered sequentially starting from 0 (genesis).' },
@@ -172,7 +201,7 @@ function BlockAnatomy() {
     { key: 'hash', label: 'Hash', value: '00000068595dd0cba6...', color: 'text-green-400', desc: 'This block\'s fingerprint — a SHA-256 hash of all the above fields combined. Notice the leading zeros!' },
   ];
 
-  const activeField = fields.find(f => f.key === hoveredField);
+  const active = fields.find(f => f.key === activeField);
 
   return (
     <div className="space-y-2">
@@ -183,9 +212,9 @@ function BlockAnatomy() {
             initial={{ opacity: 0, x: -20 }}
             animate={{ opacity: 1, x: 0 }}
             transition={{ delay: i * 0.08 }}
-            onClick={() => setHoveredField(prev => prev === f.key ? null : f.key)}
+            onClick={() => setActiveField(prev => prev === f.key ? null : f.key)}
             className={`flex items-center gap-3 py-2 px-2.5 rounded-lg border transition-colors duration-150 cursor-pointer ${
-              hoveredField === f.key
+              activeField === f.key
                 ? 'bg-space-800/80 border-crystal-500/30'
                 : 'bg-space-900/40 border-transparent'
             }`}
@@ -196,37 +225,25 @@ function BlockAnatomy() {
             <div className={`text-[11px] font-mono ${f.color} truncate flex-1`}>
               {f.value}
             </div>
-            <svg className={`w-3.5 h-3.5 shrink-0 transition-colors ${hoveredField === f.key ? 'text-crystal-400' : 'text-space-700'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+            <svg className={`w-3.5 h-3.5 shrink-0 transition-colors ${activeField === f.key ? 'text-crystal-400' : 'text-space-700'}`} fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M11.25 11.25l.041-.02a.75.75 0 011.063.852l-.708 2.836a.75.75 0 001.063.853l.041-.021M21 12a9 9 0 11-18 0 9 9 0 0118 0zm-9-3.75h.008v.008H12V8.25z" />
             </svg>
           </motion.div>
         ))}
       </div>
 
-      {/* Description panel */}
       <AnimatePresence mode="wait">
-        {activeField ? (
+        {active && (
           <motion.div
-            key={activeField.key}
+            key={active.key}
             initial={{ opacity: 0 }}
             animate={{ opacity: 1 }}
             exit={{ opacity: 0 }}
             transition={{ duration: 0.12 }}
             className="p-3 rounded-lg bg-crystal-500/[0.04] border border-crystal-500/15"
           >
-            <span className="text-crystal-400 font-mono font-bold text-xs">{activeField.label}: </span>
-            <span className="text-[11px] text-space-400 leading-relaxed">{activeField.desc}</span>
-          </motion.div>
-        ) : (
-          <motion.div
-            key="empty"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            transition={{ duration: 0.12 }}
-            className="p-3 text-center text-[11px] text-space-600"
-          >
-            Tap a field to learn more
+            <span className="text-crystal-400 font-mono font-bold text-xs">{active.label}: </span>
+            <span className="text-[11px] text-space-400 leading-relaxed">{active.desc}</span>
           </motion.div>
         )}
       </AnimatePresence>
@@ -534,7 +551,7 @@ function StepContent({ step }: { step: Step }) {
     if (step !== 'what-is-blockchain') return;
     setChainBlock(0);
     const timers = [1, 2, 3].map((i) =>
-      setTimeout(() => setChainBlock(i), i * 800)
+      setTimeout(() => setChainBlock(i), i * 1800)
     );
     return () => timers.forEach(clearTimeout);
   }, [step]);
@@ -614,9 +631,9 @@ function StepContent({ step }: { step: Step }) {
 
     case 'inside-a-block':
       return (
-        <div className="space-y-2">
+        <div className="space-y-3">
           <div className="text-xs text-space-400 leading-relaxed">
-            Every block is a data structure with key fields. Hover or tap any field to learn what it does.
+            Every block is a data structure with key fields. Tap any field to learn what it does.
           </div>
           <BlockAnatomy />
         </div>
@@ -830,8 +847,8 @@ export default function ExplorerTutorial({ open, onClose }: TutorialProps) {
               </div>
             </div>
 
-            {/* Content area */}
-            <div className="flex-1 overflow-y-auto px-5 pt-5 pb-8 scrollbar-none">
+            {/* Content area — fixed height to prevent resize jank between steps */}
+            <div className="overflow-y-auto px-5 pt-5 pb-8 scrollbar-none h-[460px]">
               <AnimatePresence mode="wait">
                 <motion.div
                   key={step}

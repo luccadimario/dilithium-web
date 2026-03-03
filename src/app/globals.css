@@ -76,6 +76,7 @@ body {
 
 html {
   scroll-behavior: smooth;
+  overflow-y: scroll;
 }
 
 /* Scroll reveal — pure CSS transitions, no Framer Motion */
