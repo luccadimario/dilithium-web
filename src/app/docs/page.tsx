@@ -38,6 +38,7 @@ export default function DocsPage() {
   const mining = useReveal();
   const gpu = useReveal();
   const pool = useReveal();
+  const webMiner = useReveal();
   const cli = useReveal();
   const api = useReveal();
 
@@ -59,7 +60,7 @@ export default function DocsPage() {
               Run. Mine. <span className="text-gradient-crystal">Build.</span>
             </h1>
             <p className="text-space-600 text-lg sm:text-xl max-w-2xl mx-auto leading-relaxed">
-              Everything you need to run a Dilithium node, mine DLT, or build with CUDA-accelerated GPU mining.
+              Everything you need to run a Dilithium node, mine DLT in your browser or with CUDA-accelerated GPU mining, or build on the network.
             </p>
             <div className="flex flex-wrap gap-4 justify-center mt-8">
               <a href={RELEASES_URL} target="_blank" rel="noopener noreferrer" className="btn-primary">
@@ -82,6 +83,7 @@ export default function DocsPage() {
                 { label: 'CPU Mining', href: '#mining' },
                 { label: 'GPU Mining', href: '#gpu-mining' },
                 { label: 'Pool Mining', href: '#pool-mining' },
+                { label: 'Web Miner', href: '#web-miner' },
                 { label: 'CLI Reference', href: '#cli' },
                 { label: 'API', href: '#api' },
               ].map((link) => (
@@ -130,6 +132,7 @@ export default function DocsPage() {
                     { binary: 'dilithium-miner', purpose: 'CPU miner with multi-threading', node: 'Embeds one automatically' },
                     { binary: 'dilithium-gpu-miner', purpose: 'Rust+CUDA GPU miner (recommended for GPU mining)', node: 'Connects to a node' },
                     { binary: 'dilithium-cpu-gpu-miner', purpose: 'Go hybrid CPU/GPU miner (pre-built runs CPU, build with CUDA for GPU)', node: 'Embeds one automatically' },
+                    { binary: 'Web Miner (WASM)', purpose: 'Browser-based miner — mine DLT at miner.dilithiumcoin.com, no install needed', node: 'Connects to a node or pool' },
                   ].map((row, i) => (
                     <tr key={row.binary} className={i % 2 === 0 ? 'bg-space-900/30' : ''}>
                       <td className="py-3 px-4 text-sm font-mono text-crystal-400 border-b border-space-800">{row.binary}</td>
@@ -485,6 +488,102 @@ export default function DocsPage() {
                   <CodeBlock label="GPU pool mining">./dilithium-cpu-gpu-miner --pool pool.example.com:3333 --address YOUR_ADDRESS --gpu</CodeBlock>
                 </div>
               </SectionCard>
+            </div>
+          </div>
+        </section>
+
+        {/* Web Miner */}
+        <section id="web-miner" className="py-16 sm:py-20">
+          <div
+            ref={webMiner.ref}
+            className={`max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 reveal ${webMiner.visible ? 'visible' : ''}`}
+          >
+            <h2 className="font-heading text-3xl sm:text-4xl font-bold tracking-wider mb-4">
+              Web <span className="text-gradient-crystal">Miner</span>
+            </h2>
+            <p className="text-space-600 leading-relaxed mb-8">
+              Mine Dilithium directly in your browser — no download, no install. The web miner runs a WASM-compiled SHA-256 engine across multiple Web Worker threads, supporting both solo and pool mining.
+            </p>
+
+            <div className="space-y-6">
+              <SectionCard title="Quick Start">
+                <p className="text-space-600 text-sm mb-4">
+                  Visit{' '}
+                  <a href="https://miner.dilithiumcoin.com" target="_blank" rel="noopener noreferrer" className="text-crystal-400 hover:underline font-mono">
+                    miner.dilithiumcoin.com
+                  </a>{' '}
+                  in any modern browser. Enter your wallet address, choose solo or pool mode, set your thread count, and click <strong className="text-white">Start Mining</strong>.
+                </p>
+                <ol className="space-y-2 text-sm text-space-600 list-decimal list-inside">
+                  <li>Enter your Dilithium wallet address in the <strong className="text-white">Address</strong> field</li>
+                  <li>Choose <strong className="text-white">Solo</strong> (connects to a node) or <strong className="text-white">Pool</strong> (connects to a pool)</li>
+                  <li>Set the thread count (defaults to all available CPU cores)</li>
+                  <li>Click <strong className="text-white">Start Mining</strong> — the browser mines continuously in the background</li>
+                </ol>
+              </SectionCard>
+
+              <SectionCard title="Solo Mining">
+                <p className="text-space-600 text-sm mb-4">
+                  In solo mode, the web miner connects to a Dilithium node&apos;s REST API to fetch block templates and submit solved blocks. You can point it at any publicly accessible node, or run your own.
+                </p>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr>
+                        <th className="text-left text-xs font-mono text-space-500 uppercase tracking-widest py-3 px-4 border-b border-space-700">Field</th>
+                        <th className="text-left text-xs font-mono text-space-500 uppercase tracking-widest py-3 px-4 border-b border-space-700">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        { field: 'Node URL', desc: 'Full URL of a Dilithium node API (e.g., http://your-node:8001)' },
+                        { field: 'Address', desc: 'Your wallet address to receive mining rewards' },
+                        { field: 'Threads', desc: 'Number of Web Worker threads to use for hashing' },
+                      ].map((row, i) => (
+                        <tr key={row.field} className={i % 2 === 0 ? 'bg-space-900/30' : ''}>
+                          <td className="py-2 px-4 text-sm font-mono text-crystal-400 border-b border-space-800">{row.field}</td>
+                          <td className="py-2 px-4 text-sm text-space-600 border-b border-space-800">{row.desc}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </SectionCard>
+
+              <SectionCard title="Pool Mining">
+                <p className="text-space-600 text-sm mb-4">
+                  In pool mode, the web miner connects to a Dilithium Stratum V1 pool. Work is distributed from the pool server and shares are submitted back. Pool mining gives more consistent payouts than solo mining.
+                </p>
+                <div className="overflow-x-auto">
+                  <table className="w-full border-collapse">
+                    <thead>
+                      <tr>
+                        <th className="text-left text-xs font-mono text-space-500 uppercase tracking-widest py-3 px-4 border-b border-space-700">Field</th>
+                        <th className="text-left text-xs font-mono text-space-500 uppercase tracking-widest py-3 px-4 border-b border-space-700">Description</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      {[
+                        { field: 'Pool URL', desc: 'WebSocket URL of a Dilithium pool (e.g., ws://pool.example.com:3333)' },
+                        { field: 'Address', desc: 'Your wallet address for payout' },
+                        { field: 'Threads', desc: 'Number of Web Worker threads' },
+                      ].map((row, i) => (
+                        <tr key={row.field} className={i % 2 === 0 ? 'bg-space-900/30' : ''}>
+                          <td className="py-2 px-4 text-sm font-mono text-crystal-400 border-b border-space-800">{row.field}</td>
+                          <td className="py-2 px-4 text-sm text-space-600 border-b border-space-800">{row.desc}</td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
+              </SectionCard>
+
+              <div className="card-space p-4 border-crystal-500/20">
+                <p className="text-sm text-space-600">
+                  <span className="text-crystal-400 font-mono font-bold">Performance:</span>{' '}
+                  Browser-based WASM mining is slower than native binaries — expect roughly 5–20 MH/s depending on hardware. For serious mining, use the native CPU or GPU miners. The web miner is ideal for casual participation or testing without installing software.
+                </p>
+              </div>
             </div>
           </div>
         </section>

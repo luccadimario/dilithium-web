@@ -6,6 +6,7 @@ const resourceLinks = [
   { label: 'Block Explorer', href: '/explorer' },
   { label: 'Whitepaper', href: '/whitepaper' },
   { label: 'Wallet App', href: 'https://wallet.dilithiumcoin.com' },
+  { label: 'Web Miner', href: 'https://miner.dilithiumcoin.com' },
 ];
 
 const communityLinks = [
@@ -100,6 +101,11 @@ export default function Footer() {
               <li>
                 <a href="https://wallet.dilithiumcoin.com" className="text-space-600 hover:text-crystal-400 transition-colors text-sm">
                   Wallet App (PWA)
+                </a>
+              </li>
+              <li>
+                <a href="https://miner.dilithiumcoin.com" className="text-space-600 hover:text-crystal-400 transition-colors text-sm">
+                  Web Miner (Browser)
                 </a>
               </li>
               <li>

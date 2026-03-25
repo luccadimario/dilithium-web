@@ -11,6 +11,7 @@ const navLinks = [
   { label: 'Whitepaper', href: '/whitepaper' },
   { label: 'Explorer', href: '/explorer' },
   { label: 'Wallet', href: 'https://wallet.dilithiumcoin.com' },
+  { label: 'Exchange', href: 'https://exchange.dilithiumcoin.com' },
   { label: 'Web Miner', href: 'https://miner.dilithiumcoin.com' },
 ];
 

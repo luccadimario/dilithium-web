@@ -2,6 +2,7 @@ import { NextRequest, NextResponse } from "next/server";
 import { getCloudflareContext } from "@opennextjs/cloudflare";
 
 const MINER_HOST = "miner.dilithiumcoin.com";
+const EXCHANGE_HOST = "exchange.dilithiumcoin.com";
 
 // Headers required for SharedArrayBuffer (WASM threading)
 const COOP_COEP_HEADERS: Record<string, string> = {
@@ -28,6 +29,22 @@ function getMimeType(pathname: string): string | undefined {
 
 export async function middleware(request: NextRequest) {
   const hostname = request.headers.get("host")?.split(":")[0] ?? "";
+
+  // Exchange subdomain: proxy /api/* to Go backend, serve /exchange/* for UI
+  if (hostname === EXCHANGE_HOST) {
+    const { pathname, search } = request.nextUrl;
+
+    if (pathname.startsWith("/api/")) {
+      const backendBase = process.env.EXCHANGE_API_URL ?? "http://localhost:8082";
+      const target = new URL(pathname + search, backendBase);
+      return NextResponse.rewrite(target);
+    }
+
+    // Rewrite root and sub-paths to the /exchange Next.js page
+    const url = request.nextUrl.clone();
+    url.pathname = "/exchange" + (pathname === "/" ? "" : pathname);
+    return NextResponse.rewrite(url);
+  }
 
   if (hostname !== MINER_HOST) {
     return NextResponse.next();
